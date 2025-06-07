@@ -58,3 +58,13 @@ This update starts a new experiment family: instead of comparing two
 transcripts, the prototype analyzes one transcript as a narrative object with
 estimated time segments, topics, simple sentiment, contradictions, linguistic
 patterns and concept co-occurrence.
+
+## Version 6
+
+- Original source: `taca.py`
+- Curated module: `src/prototype_experiments/interview_template_analysis.py`
+- Curated script: `scripts/analyze_template_interview.py`
+
+This update expands the quick analyzer with temporal phase analysis, richer
+concept-network context and interpretive templates. The output combines
+automatic insights with fill-in prompts intended for qualitative analysis.

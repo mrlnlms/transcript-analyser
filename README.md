@@ -32,3 +32,9 @@ Run the first single-transcript interview analyzer:
 ```bash
 python scripts/analyze_quick_interview.py
 ```
+
+Run the template-based interpretive analyzer:
+
+```bash
+python scripts/analyze_template_interview.py
+```
