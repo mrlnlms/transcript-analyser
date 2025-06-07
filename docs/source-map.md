@@ -116,3 +116,17 @@ In the curated version, generated files are written to
 `output/interview_visualizations_v2/`. One generated unified timeline is
 preserved in `docs/previews/interview_visualizations_v2/` as documentation
 evidence.
+
+## Version 10
+
+- Original source: `interview_analyzer_v4.py`
+- Curated module: `src/prototype_experiments/narrative_interview_analysis.py`
+- Curated scripts:
+  - `scripts/analyze_narrative_interview.py`
+  - `scripts/generate_interview_visualizations.py`
+  - `scripts/generate_interview_visualizations_v2.py`
+
+This update keeps the narrative analyzer structure but expands the Portuguese
+stopword and filler-word handling substantially. The goal is to reduce generic
+speech terms in the discovered topics and make the narrative/topic output less
+noisy.

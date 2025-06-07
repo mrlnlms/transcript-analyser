@@ -1,3 +1,4 @@
+
 import re
 import nltk
 from nltk.corpus import stopwords
@@ -9,14 +10,116 @@ from collections import Counter, defaultdict
 import numpy as np
 from difflib import SequenceMatcher
 import warnings
-from pathlib import Path
 warnings.filterwarnings('ignore')
 
 class NarrativeInterviewAnalyzer:
     def __init__(self):
         self.stemmer = RSLPStemmer()
         self.stop_words = set(stopwords.words('portuguese'))
-        self.stop_words.update(['né', 'eh', 'tá', 'ó', 'ah', 'oh', 'um', 'uma', 'tipo', 'assim'])
+        
+        # MEGA LISTA DE STOPWORDS - v4.0
+        self.stop_words.update([
+            # Artigos e preposições
+            'o', 'a', 'os', 'as', 'um', 'uma', 'uns', 'umas',
+            'de', 'da', 'do', 'das', 'dos', 'em', 'na', 'no', 'nas', 'nos',
+            'por', 'para', 'pela', 'pelo', 'pelas', 'pelos',
+            'com', 'sem', 'sob', 'sobre', 'entre', 'através',
+            'ao', 'aos', 'à', 'às', 'del', 'dos', 'das',
+            
+            # Pronomes
+            'eu', 'tu', 'ele', 'ela', 'nós', 'vós', 'eles', 'elas',
+            'me', 'te', 'se', 'lhe', 'nos', 'vos', 'lhes',
+            'meu', 'minha', 'meus', 'minhas', 'teu', 'tua', 'teus', 'tuas',
+            'seu', 'sua', 'seus', 'suas', 'nosso', 'nossa', 'nossos', 'nossas',
+            'este', 'esta', 'estes', 'estas', 'esse', 'essa', 'esses', 'essas',
+            'aquele', 'aquela', 'aqueles', 'aquelas', 'isto', 'isso', 'aquilo',
+            'que', 'quem', 'qual', 'quais', 'quanto', 'quanta', 'quantos', 'quantas',
+            'onde', 'quando', 'como', 'porque', 'porquê',
+            
+            # Verbos auxiliares e comuns
+            'é', 'são', 'era', 'eram', 'foi', 'foram', 'será', 'serão',
+            'seria', 'seriam', 'seja', 'sejam', 'fosse', 'fossem',
+            'ser', 'estar', 'ter', 'haver', 'fazer', 'dar', 'ir', 'vir',
+            'estar', 'está', 'estão', 'estava', 'estavam', 'esteve', 'estiveram',
+            'tem', 'têm', 'tinha', 'tinham', 'teve', 'tiveram', 'terá', 'terão',
+            'há', 'havia', 'houve', 'haverá', 'haja',
+            'vai', 'vão', 'ia', 'iam', 'foi', 'foram', 'vá', 'vamos',
+            'vou', 'quer', 'quis', 'fez', 'faz', 'fazem', 'fiz', 'faço',
+            'dá', 'dão', 'deu', 'dar', 'dei', 'digo', 'disse', 'dizer',
+            'pode', 'pôde', 'podemos', 'podem', 'podia', 'podiam',
+            'posso', 'consegue', 'conseguiu', 'conseguir',
+            
+            # Conjunções e conectivos
+            'e', 'ou', 'mas', 'porém', 'contudo', 'todavia', 'entretanto',
+            'se', 'porque', 'pois', 'já', 'ainda', 'quando', 'enquanto',
+            'então', 'logo', 'portanto', 'assim', 'dessa', 'desse',
+            
+            # Advérbios
+            'não', 'sim', 'muito', 'mais', 'menos', 'bem', 'mal',
+            'só', 'apenas', 'também', 'já', 'ainda', 'sempre', 'nunca',
+            'talvez', 'aqui', 'aí', 'ali', 'lá', 'cá', 'onde', 'agora',
+            'hoje', 'ontem', 'amanhã', 'antes', 'depois', 'cedo', 'tarde',
+            
+            # Palavras vazias de fala
+            'né', 'né?', 'tá', 'tá?', 'ah', 'eh', 'oh', 'ué', 'uai',
+            'hm', 'uhm', 'ahn', 'éh', 'bom', 'bem', 'tipo', 'assim',
+            'sabe', 'sabe?', 'viu', 'viu?', 'olha', 'ó', 'pô', 'cara',
+            'coisa', 'coisas', 'negócio', 'lance', 'parada', 'bagulho',
+            'troço', 'trem', 'tal', 'acho', 'sei', 'lá',
+            
+            # Números e quantificadores
+            'um', 'uma', 'dois', 'duas', 'três', 'quatro', 'cinco',
+            'primeiro', 'segundo', 'terceiro', 'último', 'penúltimo',
+            'alguns', 'algumas', 'vários', 'várias', 'muitos', 'muitas',
+            'poucos', 'poucas', 'todo', 'toda', 'todos', 'todas',
+            'nenhum', 'nenhuma', 'algum', 'alguma', 'cada', 'qualquer',
+            'mesmo', 'mesma', 'mesmos', 'mesmas', 'próprio', 'própria',
+            
+            # Específicas encontradas na transcrição
+            'gente', 'pessoa', 'pessoas', 'vez', 'vezes', 'dia', 'dias',
+            'parte', 'partes', 'lado', 'forma', 'jeito', 'modo',
+            'momento', 'tempo', 'hora', 'horas', 'minuto', 'minutos',
+            'exemplo', 'caso', 'casos', 'questão', 'questões',
+            'verdade', 'certeza', 'claro', 'certo', 'fato', 'ideia',
+            
+            # Palavras de preenchimento
+            'aliás', 'enfim', 'afinal', 'inclusive', 'aliás', 'ademais',
+            'além', 'apenas', 'até', 'através', 'cerca', 'conforme',
+            'consoante', 'contudo', 'desde', 'embora', 'exceto',
+            'mediante', 'mesmo', 'nem', 'no entanto', 'ora', 'ou seja',
+            'pelo menos', 'por exemplo', 'por fim', 'principalmente',
+            'quanto', 'seja', 'segundo', 'senão', 'sequer', 'sobretudo',
+            'tal', 'tampouco', 'tanto', 'toda vez', 'uma vez',
+            
+            # Variações com acentos e sem
+            'à', 'às', 'àquele', 'àquela', 'àqueles', 'àquelas',
+            'está', 'estás', 'tá', 'tás', 'pra', 'pro', 'pros', 'pras',
+            'né', 'ne', 'neh', 'ai', 'aí', 'so', 'só', 'ja', 'já',
+            'la', 'lá', 'ca', 'cá', 'e', 'é', 'voce', 'você', 'vc',
+            'tb', 'tbm', 'tambem', 'também', 'nao', 'não', 'sim',
+            
+            # Mais palavras encontradas em transcrições
+            'bom', 'boa', 'grande', 'pequeno', 'novo', 'nova', 'velho', 'velha',
+            'importante', 'possível', 'impossível', 'fácil', 'difícil',
+            'melhor', 'pior', 'maior', 'menor', 'igual', 'diferente',
+            'cima', 'baixo', 'frente', 'trás', 'dentro', 'fora',
+            'perto', 'longe', 'junto', 'separado', 'meio', 'metade',
+            'começo', 'início', 'fim', 'final', 'durante', 'através',
+            
+            # Verbos conjugados comuns
+            'posso', 'devo', 'tenho', 'faço', 'vejo', 'ouço', 'falo',
+            'ando', 'corro', 'pulo', 'penso', 'sinto', 'quero', 'preciso',
+            'gosto', 'odeio', 'amo', 'conheço', 'sei', 'entendo', 'compreendo',
+            'pergunto', 'respondo', 'peço', 'dou', 'recebo', 'envio', 'mando',
+            'pego', 'deixo', 'levo', 'trago', 'busco', 'encontro', 'acho',
+            'perco', 'ganho', 'compro', 'vendo', 'pago', 'cobro', 'devo'
+        ])
+        
+        # Converter tudo para minúsculas
+        self.stop_words = {word.lower() for word in self.stop_words}
+        
+        # Configurações
+        self.min_word_length = 3
         
         # Palavras que indicam certeza vs incerteza
         self.certainty_words = ['sempre', 'nunca', 'certeza', 'claro', 'óbvio', 'definitivamente', 
@@ -1119,7 +1222,7 @@ def analyze_interview_narrative(filename, participant_name=None):
             text = file.read()
         
         if not participant_name:
-            participant_name = Path(filename).stem.replace('_', ' ').title()
+            participant_name = filename.replace('.txt', '').replace('_', ' ').title()
         
         analyzer = NarrativeInterviewAnalyzer()
         results = analyzer.generate_dual_report(text, participant_name)
@@ -1136,19 +1239,46 @@ def analyze_interview_narrative(filename, participant_name=None):
         return None
 
 
+def main(input_path=None):
+    """Curated entry point used by the repository wrapper script."""
+    from pathlib import Path
 
+    root = Path(__file__).resolve().parents[2]
+    transcript_path = Path(input_path) if input_path else (
+        root / "data" / "sample" / "estatistica_psicobio_aula_2024.txt"
+    )
+    participant_name = "Prof. Estatística (Aula 2024)"
 
-def default_sample_path():
-    project_root = Path(__file__).resolve().parents[2]
-    return project_root / "data" / "sample" / "estatistica_psicobio_aula_2024.txt"
-
-
-def main(path=None, participant_name=None):
-    print("🚀 ANALISADOR DE ENTREVISTAS - VERSÃO NARRATIVA")
+    print("🚀 ANALISADOR DE ENTREVISTAS - VERSÃO 4.0")
     print("=" * 60)
+    print(f"📁 Analisando: {transcript_path}")
+    print(f"👤 Participante: {participant_name}")
+    print()
 
-    arquivo_transcricao = Path(path) if path else default_sample_path()
-    nome_participante = participant_name or "Prof. Estatística (Aula 2024)"
+    result = analyze_interview_narrative(str(transcript_path), participant_name)
+
+    if result:
+        print("\n✅ Análise concluída com sucesso!")
+        print("💡 Relatório dividido em duas partes:")
+        print("   1️⃣ ANÁLISE: Dados técnicos agrupados por tema")
+        print("   2️⃣ SÍNTESE: Narrativa interpretativa com templates")
+        print("📝 Complete os espaços '______' com suas interpretações.")
+    else:
+        print("\n❌ Falha na análise.")
+
+
+# ====================================================================
+# 🔧 EXECUÇÃO PRINCIPAL
+# ====================================================================
+
+if __name__ == "__main__":
+    
+    print("🚀 ANALISADOR DE ENTREVISTAS - VERSÃO 4.0")
+    print("=" * 60)
+    
+    # CONFIGURE AQUI O ARQUIVO
+    arquivo_transcricao = "final.txt"
+    nome_participante = "Participante"
     
     print(f"📁 Analisando: {arquivo_transcricao}")
     print(f"👤 Participante: {nome_participante}")
@@ -1166,7 +1296,3 @@ def main(path=None, participant_name=None):
     else:
         print("\n❌ Falha na análise.")
         print("💡 Verifique se o arquivo existe e está na pasta correta.")
-
-
-if __name__ == "__main__":
-    main()
