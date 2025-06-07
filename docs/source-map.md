@@ -47,3 +47,14 @@ In the curated version, generated PNGs are written to `output/visualizations/`
 instead of the project root.
 
 One generated example is preserved in `docs/previews/` as documentation evidence.
+
+## Version 5
+
+- Original source: `quick-interview.py`
+- Curated module: `src/prototype_experiments/interview_quick_analysis.py`
+- Curated script: `scripts/analyze_quick_interview.py`
+
+This update starts a new experiment family: instead of comparing two
+transcripts, the prototype analyzes one transcript as a narrative object with
+estimated time segments, topics, simple sentiment, contradictions, linguistic
+patterns and concept co-occurrence.

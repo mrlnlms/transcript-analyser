@@ -26,3 +26,9 @@ Generated charts are written to `output/visualizations/`.
 
 An example chart from the reconstructed prototype is kept in
 `docs/previews/topic_analysis_estatistica_psicobio_aula_2024_vs_estatistica_psicobio_teoria_medida_2025.png`.
+
+Run the first single-transcript interview analyzer:
+
+```bash
+python scripts/analyze_quick_interview.py
+```
