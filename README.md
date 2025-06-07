@@ -38,3 +38,9 @@ Run the template-based interpretive analyzer:
 ```bash
 python scripts/analyze_template_interview.py
 ```
+
+Run the narrative dual-report analyzer:
+
+```bash
+python scripts/analyze_narrative_interview.py
+```

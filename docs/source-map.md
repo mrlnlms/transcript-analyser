@@ -68,3 +68,17 @@ patterns and concept co-occurrence.
 This update expands the quick analyzer with temporal phase analysis, richer
 concept-network context and interpretive templates. The output combines
 automatic insights with fill-in prompts intended for qualitative analysis.
+
+## Version 7
+
+- Original sources: `interview-analyzer.py`, `interview_analyzer_v3.py`
+- Curated module: `src/prototype_experiments/narrative_interview_analysis.py`
+- Curated script: `scripts/analyze_narrative_interview.py`
+
+This update introduces the larger narrative analyzer. It organizes the output as
+a dual report: technical/structural analysis followed by narrative synthesis,
+storyline, hypotheses and recommendations.
+
+The first hyphenated snapshot referenced `generate_dual_report` without defining
+it correctly. The curated version uses the importable underscore snapshot because
+it preserves the same narrative analyzer line in a runnable state.
