@@ -25,3 +25,13 @@ file names and module entry points.
 This update keeps the same curated module name and evolves the comparison
 workflow with LDA topic modeling, topic distribution comparison and weighted
 similarity ranking.
+
+## Version 3
+
+- Original source: `smart-analyzer.py`
+- Curated module: `src/prototype_experiments/transcript_comparison.py`
+
+This update adds a hand-built semantic dictionary for automatic topic
+interpretation. LDA still discovers the topic terms, but the script now maps
+those terms to human-readable categories such as teaching methodology,
+measurement/statistics, attributes/properties and phenomena/objects.

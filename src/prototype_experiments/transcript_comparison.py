@@ -16,9 +16,103 @@ class TranscriptComparisonAnalyzer:
     def __init__(self):
         self.stemmer = RSLPStemmer()
         self.stop_words = set(stopwords.words('portuguese'))
-        # Adicionar palavras específicas de transcrições
         self.stop_words.update(['né', 'eh', 'tá', 'ó', 'ah', 'oh', 'um', 'uma'])
         
+        # Dicionário para interpretação automática de tópicos
+        self.topic_patterns = {
+            'metodologia_ensino': {
+                'keywords': ['curs', 'aul', 'vai', 'gent', 'faz', 'métod', 'ensn', 'aprend', 'explc'],
+                'description': '📚 Metodologia e Condução do Curso',
+                'explanation': 'Professor explicando como o curso funciona, metodologia de ensino'
+            },
+            'teoria_conceitos': {
+                'keywords': ['teor', 'conceitul', 'defin', 'princip', 'fundament', 'bas', 'import'],
+                'description': '🧠 Fundamentação Teórica',
+                'explanation': 'Apresentação de conceitos teóricos e definições fundamentais'
+            },
+            'medicao_estatistica': {
+                'keywords': ['med', 'númer', 'estatist', 'vari', 'dad', 'anál', 'calcul'],
+                'description': '📊 Conceitos de Medição e Estatística',
+                'explanation': 'Explicação sobre medidas, números, análise de dados'
+            },
+            'atributos_propriedades': {
+                'keywords': ['atribut', 'propriedad', 'caract', 'qualidad', 'isomórf', 'isomorf'],
+                'description': '🔍 Atributos e Propriedades',
+                'explanation': 'Discussão sobre atributos, características e propriedades (isomorfismo)'
+            },
+            'fenomenos_objetos': {
+                'keywords': ['fenômen', 'objet', 'real', 'mund', 'observ', 'estud'],
+                'description': '🌍 Fenômenos e Objetos de Estudo',
+                'explanation': 'Análise de fenômenos reais e objetos de investigação'
+            },
+            'exemplos_praticos': {
+                'keywords': ['exempl', 'cas', 'prát', 'situaç', 'aqui', 'dess', 'faz'],
+                'description': '💡 Exemplos e Aplicações Práticas',
+                'explanation': 'Demonstrações práticas e exemplos concretos'
+            },
+            'psicologia_comportamento': {
+                'keywords': ['psicolog', 'comportament', 'person', 'indivídu', 'human'],
+                'description': '🧑‍🎓 Aspectos Psicológicos',
+                'explanation': 'Discussão sobre psicologia e comportamento humano'
+            },
+            'interface_tecnologia': {
+                'keywords': ['interfac', 'tecnolog', 'sistem', 'comput', 'digital'],
+                'description': '💻 Interface e Tecnologia',
+                'explanation': 'Aspectos tecnológicos e interfaces de sistemas'
+            },
+            'validacao_confiabilidade': {
+                'keywords': ['val', 'valid', 'confiabl', 'precis', 'error', 'qual'],
+                'description': '✅ Validação e Confiabilidade',
+                'explanation': 'Discussão sobre validade, confiabilidade e qualidade das medições'
+            },
+            'escalas_ordenacao': {
+                'keywords': ['escal', 'ord', 'nivel', 'hierarqu', 'classific'],
+                'description': '📏 Escalas e Ordenação',
+                'explanation': 'Tipos de escalas de medição e sistemas de ordenação'
+            }
+        }
+    
+    def interpret_topic(self, words_list, scores_list):
+        """Interpreta automaticamente um tópico baseado nas palavras-chave"""
+        # Converter palavras para stemmed para comparação
+        words_stemmed = [self.stemmer.stem(word.lower()) for word in words_list]
+        
+        best_match = None
+        best_score = 0
+        
+        # Testar cada padrão
+        for pattern_name, pattern_data in self.topic_patterns.items():
+            pattern_keywords = pattern_data['keywords']
+            
+            # Calcular sobreposição com as palavras do tópico
+            matches = 0
+            total_weight = 0
+            
+            for i, word in enumerate(words_stemmed):
+                if word in pattern_keywords:
+                    matches += 1
+                    # Dar mais peso para palavras com score alto
+                    if i < len(scores_list):
+                        total_weight += scores_list[i]
+            
+            # Score baseado em: número de matches + peso dos scores
+            pattern_score = matches + (total_weight / 100)  # Normalizar scores
+            
+            if pattern_score > best_score:
+                best_score = pattern_score
+                best_match = pattern_data
+        
+        # Se não encontrou padrão bom, criar interpretação genérica
+        if best_match is None or best_score < 1:
+            # Tentar identificar categoria baseada na palavra principal
+            main_word = words_list[0] if words_list else "tema"
+            return {
+                'description': f'📋 Tópico: {main_word.title()}',
+                'explanation': f'Discussão centrada em torno de: {", ".join(words_list[:3])}'
+            }
+        
+        return best_match
+    
     def clean_text(self, text):
         """Limpa e normaliza o texto da transcrição com stemming"""
         text = text.lower()
@@ -134,9 +228,9 @@ class TranscriptComparisonAnalyzer:
         
         return result
     
-    def extract_topics_lda_with_context(self, text, n_topics=5, n_words=10):
-        """Extrai tópicos com LDA E mostra palavras completas para contexto"""
-        print(f"🧠 Extraindo {n_topics} tópicos com LDA...")
+    def extract_topics_lda_with_smart_interpretation(self, text, n_topics=5, n_words=10):
+        """Extrai tópicos com LDA E interpretação automática inteligente"""
+        print(f"🧠 Extraindo {n_topics} tópicos com interpretação inteligente...")
         
         # Limpar texto
         cleaned_text = self.clean_text(text)
@@ -198,7 +292,7 @@ class TranscriptComparisonAnalyzer:
             
             lda.fit(doc_term_matrix)
             
-            # Extrair tópicos COM contexto
+            # Extrair tópicos COM interpretação inteligente
             topics = []
             for topic_idx, topic in enumerate(lda.components_):
                 top_words_idx = topic.argsort()[-min(n_words, len(feature_names)):][::-1]
@@ -212,8 +306,11 @@ class TranscriptComparisonAnalyzer:
                     original_word = originals[0] if originals else stem_word
                     top_words_original.append(original_word)
                 
+                # NOVA FUNCIONALIDADE: Interpretação automática
+                interpretation = self.interpret_topic(top_words_original, top_scores)
+                
                 # Criar descrição do tópico (versão stem)
-                topic_words_stem = [f"{word}({score:.2f})" for word, score in zip(top_words_stem[:5], top_scores[:5])]
+                topic_words_stem = [f"{word}({score:.1f})" for word, score in zip(top_words_stem[:5], top_scores[:5])]
                 topic_description = " + ".join(topic_words_stem)
                 
                 # Criar descrição com palavras originais
@@ -226,14 +323,15 @@ class TranscriptComparisonAnalyzer:
                     'words_original': top_words_original,
                     'scores': top_scores,
                     'description': topic_description,
-                    'context': topic_context
+                    'context': topic_context,
+                    'interpretation': interpretation  # NOVO!
                 })
             
             # Calcular distribuição de tópicos
             doc_topic_probs = lda.transform(doc_term_matrix)
             topic_distribution = np.mean(doc_topic_probs, axis=0)
             
-            print(f"✅ {len(topics)} tópicos extraídos com sucesso")
+            print(f"✅ {len(topics)} tópicos extraídos e interpretados com sucesso")
             return topics, topic_distribution
             
         except Exception as e:
@@ -278,8 +376,8 @@ class TranscriptComparisonAnalyzer:
                         'overlap': best_score,
                         'weight1': dist1[i],
                         'weight2': dist2[best_match] if best_match < len(dist2) else 0,
-                        'context1': topic1['context'],
-                        'context2': topics2[best_match]['context'] if best_match < len(topics2) else ""
+                        'interpretation1': topic1.get('interpretation', {}),
+                        'interpretation2': topics2[best_match].get('interpretation', {}) if best_match < len(topics2) else {}
                     })
         
         return similarity, topic_matches
@@ -323,9 +421,9 @@ class TranscriptComparisonAnalyzer:
         return results
     
     def analyze_content_structure(self, text1, text2):
-        """Analisa a estrutura do conteúdo incluindo Topic Modeling MELHORADO"""
+        """Analisa a estrutura do conteúdo com interpretação inteligente de tópicos"""
         print("\n" + "="*60)
-        print("🔍 ANÁLISE DE CONTEÚDO DETALHADA")
+        print("🔍 ANÁLISE DE CONTEÚDO COM INTERPRETAÇÃO INTELIGENTE")
         print("="*60)
         
         # 1. Análise de frases-chave (versão SIMPLES que funciona)
@@ -347,40 +445,58 @@ class TranscriptComparisonAnalyzer:
         else:
             print("⚠️  Nenhum termo frequente extraído do Texto 2")
         
-        # 2. Topic Modeling MELHORADO com contexto
-        print(f"\n🧠 TOPIC MODELING COM CONTEXTO:")
-        print("-" * 40)
+        # 2. Topic Modeling com interpretação inteligente
+        print(f"\n🧠 TOPIC MODELING COM INTERPRETAÇÃO AUTOMÁTICA:")
+        print("-" * 50)
         
-        topics1, dist1 = self.extract_topics_lda_with_context(text1, n_topics=5)
-        topics2, dist2 = self.extract_topics_lda_with_context(text2, n_topics=5)
+        topics1, dist1 = self.extract_topics_lda_with_smart_interpretation(text1, n_topics=5)
+        topics2, dist2 = self.extract_topics_lda_with_smart_interpretation(text2, n_topics=5)
         
         if topics1 and topics2:
-            print("\n🎯 TÓPICOS DESCOBERTOS NO TEXTO 1:")
+            print("\n🎯 TEMAS IDENTIFICADOS NO TEXTO 1:")
             for i, topic in enumerate(topics1):
                 weight = dist1[i] if i < len(dist1) else 0
-                print(f"   Tópico {i+1} ({weight:.1%}): {topic['description']}")
-                print(f"   💡 Contexto: {topic['context']}")
+                interpretation = topic.get('interpretation', {})
+                
+                print(f"\n   {interpretation.get('description', f'Tópico {i+1}')} ({weight:.1%})")
+                print(f"   📝 Palavras-chave: {topic['context']}")
+                print(f"   🔍 Interpretação: {interpretation.get('explanation', 'Tema não identificado')}")
             
-            print("\n🎯 TÓPICOS DESCOBERTOS NO TEXTO 2:")
+            print("\n🎯 TEMAS IDENTIFICADOS NO TEXTO 2:")
             for i, topic in enumerate(topics2):
                 weight = dist2[i] if i < len(dist2) else 0
-                print(f"   Tópico {i+1} ({weight:.1%}): {topic['description']}")
-                print(f"   💡 Contexto: {topic['context']}")
+                interpretation = topic.get('interpretation', {})
+                
+                print(f"\n   {interpretation.get('description', f'Tópico {i+1}')} ({weight:.1%})")
+                print(f"   📝 Palavras-chave: {topic['context']}")
+                print(f"   🔍 Interpretação: {interpretation.get('explanation', 'Tema não identificado')}")
             
             # Comparar distribuições de tópicos
             topic_similarity, topic_matches = self.compare_topic_distributions(
                 dist1, dist2, topics1, topics2
             )
             
-            print(f"\n🔄 SIMILARIDADE DE TÓPICOS: {topic_similarity:.1%}")
+            print(f"\n🔄 SIMILARIDADE TEMÁTICA GERAL: {topic_similarity:.1%}")
             
             if topic_matches:
-                print("\n🎯 TÓPICOS RELACIONADOS:")
+                print("\n🎯 TEMAS RELACIONADOS ENTRE OS TEXTOS:")
                 for match in topic_matches:
-                    print(f"   • T1-{match['topic1_id']+1} ↔ T2-{match['topic2_id']+1} "
-                          f"(overlap: {match['overlap']:.1%})")
-                    print(f"     📝 Texto 1: {match['context1']}")
-                    print(f"     📝 Texto 2: {match['context2']}")
+                    interp1 = match['interpretation1']
+                    interp2 = match['interpretation2']
+                    
+                    desc1 = interp1.get('description', f"Tópico {match['topic1_id']+1}")
+                    desc2 = interp2.get('description', f"Tópico {match['topic2_id']+1}")
+                    
+                    print(f"\n   🔗 RELAÇÃO TEMÁTICA (overlap: {match['overlap']:.1%}):")
+                    print(f"   📖 Texto 1: {desc1}")
+                    print(f"   📖 Texto 2: {desc2}")
+                    
+                    if match['overlap'] > 0.3:
+                        print(f"   ✅ Temas muito similares - indicam mesmo conteúdo")
+                    elif match['overlap'] > 0.2:
+                        print(f"   🟡 Temas relacionados - conteúdo complementar")
+                    else:
+                        print(f"   🔍 Temas parcialmente relacionados")
         else:
             topic_similarity = 0.0
             print("⚠️  Topic Modeling não pôde ser aplicado (textos muito pequenos)")
@@ -605,49 +721,6 @@ def print_summary(resultados):
         print(f"{i:2d}. {emoji} {resultado['nome1']} ↔ {resultado['nome2']}")
         print(f"    Score: {score_ponderado:.1f}% | Cosine: {cosine:.1f}% | Tópicos: {topic_sim:.1f}% | Termos: {overlap:.1f}%")
     
-    # Análise de grupos
-    print(f"\n🔍 ANÁLISE DE GRUPOS:")
-    print("-" * 50)
-    
-    mais_similar = resultados_ordenados[0]
-    score_max = mais_similar.get('weighted_similarity', 0) * 100
-    
-    print(f"✨ Par mais similar ({score_max:.1f}%):")
-    print(f"   • {mais_similar['nome1']}")
-    print(f"   • {mais_similar['nome2']}")
-    
-    grupos_alta_similaridade = [r for r in resultados_ordenados 
-                                if r.get('weighted_similarity', 0) > 0.6]
-    
-    if len(grupos_alta_similaridade) > 1:
-        print(f"\n🎯 {len(grupos_alta_similaridade)} pares com alta similaridade (>60%):")
-        for resultado in grupos_alta_similaridade:
-            score = resultado.get('weighted_similarity', 0) * 100
-            print(f"   • {resultado['nome1']} ↔ {resultado['nome2']} ({score:.1f}%)")
-    
-    # Insights de Topic Modeling
-    print(f"\n🧠 INSIGHTS DE TOPIC MODELING:")
-    print("-" * 50)
-    
-    textos_com_topics = [r for r in resultados if len(r['content_analysis'].get('topics1', [])) > 0]
-    
-    if textos_com_topics:
-        print(f"✅ Topic Modeling aplicado em {len(textos_com_topics)} comparações")
-        avg_topic_sim = np.mean([r['content_analysis'].get('topic_similarity', 0) 
-                                for r in textos_com_topics])
-        print(f"📊 Similaridade média de tópicos: {avg_topic_sim:.1%}")
-        
-        # Identificar o par com maior similaridade de tópicos
-        best_topic_match = max(textos_com_topics, 
-                              key=lambda x: x['content_analysis'].get('topic_similarity', 0))
-        best_topic_score = best_topic_match['content_analysis']['topic_similarity']
-        
-        if best_topic_score > 0.5:
-            print(f"🎯 Maior similaridade temática ({best_topic_score:.1%}):")
-            print(f"   • {best_topic_match['nome1']} ↔ {best_topic_match['nome2']}")
-    else:
-        print("⚠️  Topic Modeling não pôde ser aplicado (textos muito pequenos)")
-    
     return resultados_ordenados
 
 def default_sample_paths():
@@ -662,8 +735,8 @@ def default_sample_paths():
 def main(paths=None):
     arquivos_para_comparar = paths or default_sample_paths()
     
-    print("🚀 ANALISADOR FINAL DE TRANSCRIÇÕES")
-    print("=" * 50)
+    print("🚀 ANALISADOR COM INTERPRETAÇÃO INTELIGENTE DE TÓPICOS")
+    print("=" * 60)
     print(f"📁 Arquivos configurados: {len(arquivos_para_comparar)}")
     for i, arquivo in enumerate(arquivos_para_comparar, 1):
         print(f"   {i}. {arquivo}")

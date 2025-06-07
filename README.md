@@ -4,7 +4,7 @@ Curated reconstruction of the first transcript analysis prototype.
 
 This version compares Portuguese lecture transcripts with text cleaning,
 stemming, TF-IDF, cosine similarity, Jaccard similarity, key phrase overlap,
-LDA topic modeling and a weighted similarity score.
+LDA topic modeling, smart topic interpretation and a weighted similarity score.
 
 ## Setup
 
