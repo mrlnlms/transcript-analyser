@@ -55,3 +55,14 @@ Generated charts are written to `output/interview_visualizations/`.
 
 An example emotional timeline is kept in
 `docs/previews/interview_visualizations/emotional_timeline.png`.
+
+Generate the improved interview visualization set:
+
+```bash
+MPLBACKEND=Agg python scripts/generate_interview_visualizations_v2.py
+```
+
+Generated charts are written to `output/interview_visualizations_v2/`.
+
+An example unified timeline is kept in
+`docs/previews/interview_visualizations_v2/unified_timeline.png`.

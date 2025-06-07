@@ -100,3 +100,19 @@ In the curated version, generated files are written to
 
 One generated emotional timeline is preserved in
 `docs/previews/interview_visualizations/` as documentation evidence.
+
+## Version 9
+
+- Original source: `interview_visualizer_v2.py`
+- Curated module: `src/prototype_experiments/interview_visualization_v2.py`
+- Curated script: `scripts/generate_interview_visualizations_v2.py`
+
+This update revises the visualization layer with a more integrated design. It
+adds a unified emotional timeline, fixes the topic hierarchy readability,
+improves the concept network, repairs linguistic-pattern charts and introduces a
+smart dashboard with compact interpretive summaries.
+
+In the curated version, generated files are written to
+`output/interview_visualizations_v2/`. One generated unified timeline is
+preserved in `docs/previews/interview_visualizations_v2/` as documentation
+evidence.
