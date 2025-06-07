@@ -44,3 +44,14 @@ Run the narrative dual-report analyzer:
 ```bash
 python scripts/analyze_narrative_interview.py
 ```
+
+Generate the first interview visualization set:
+
+```bash
+MPLBACKEND=Agg python scripts/generate_interview_visualizations.py
+```
+
+Generated charts are written to `output/interview_visualizations/`.
+
+An example emotional timeline is kept in
+`docs/previews/interview_visualizations/emotional_timeline.png`.

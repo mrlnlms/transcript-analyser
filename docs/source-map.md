@@ -82,3 +82,21 @@ storyline, hypotheses and recommendations.
 The first hyphenated snapshot referenced `generate_dual_report` without defining
 it correctly. The curated version uses the importable underscore snapshot because
 it preserves the same narrative analyzer line in a runnable state.
+
+## Version 8
+
+- Original source: `interview_visualizer.py`
+- Curated module: `src/prototype_experiments/interview_visualization.py`
+- Curated script: `scripts/generate_interview_visualizations.py`
+
+This update adds the first dedicated visualization layer for narrative
+interview analysis. The analyzer still produces the structured result; the new
+visualizer turns that result into PNG charts for emotional timeline, topic
+hierarchy, concept network, word clouds, linguistic patterns, global metrics and
+topic distribution.
+
+In the curated version, generated files are written to
+`output/interview_visualizations/` instead of the project root.
+
+One generated emotional timeline is preserved in
+`docs/previews/interview_visualizations/` as documentation evidence.
