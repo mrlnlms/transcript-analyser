@@ -2,9 +2,9 @@
 
 Curated reconstruction of the first transcript analysis prototype.
 
-This initial version compares two Portuguese lecture transcripts with text
-cleaning, stemming, TF-IDF, cosine similarity, Jaccard similarity and key phrase
-overlap.
+This version compares Portuguese lecture transcripts with text cleaning,
+stemming, TF-IDF, cosine similarity, Jaccard similarity, key phrase overlap,
+LDA topic modeling and a weighted similarity score.
 
 ## Setup
 
@@ -20,4 +20,3 @@ python -m nltk.downloader punkt punkt_tab stopwords rslp
 ```bash
 python scripts/compare_transcripts.py
 ```
-

@@ -16,3 +16,12 @@ This repository is a curated reconstruction from
 
 The implementation keeps the original comparison behavior while normalizing
 file names and module entry points.
+
+## Version 2
+
+- Original source: `multi-compare.py`
+- Curated module: `src/prototype_experiments/transcript_comparison.py`
+
+This update keeps the same curated module name and evolves the comparison
+workflow with LDA topic modeling, topic distribution comparison and weighted
+similarity ranking.
