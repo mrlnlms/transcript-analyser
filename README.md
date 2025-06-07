@@ -66,3 +66,9 @@ Generated charts are written to `output/interview_visualizations_v2/`.
 
 An example unified timeline is kept in
 `docs/previews/interview_visualizations_v2/unified_timeline.png`.
+
+Run the integrated narrative analysis plus v2 visualizations:
+
+```bash
+MPLBACKEND=Agg python scripts/analyze_interview_with_visuals.py
+```

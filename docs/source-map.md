@@ -130,3 +130,14 @@ This update keeps the narrative analyzer structure but expands the Portuguese
 stopword and filler-word handling substantially. The goal is to reduce generic
 speech terms in the discovered topics and make the narrative/topic output less
 noisy.
+
+## Version 11
+
+- Original source: `interview_analyzer_with_visuals.py`
+- Curated module: `src/prototype_experiments/interview_analysis_with_visuals.py`
+- Curated script: `scripts/analyze_interview_with_visuals.py`
+
+This update wires the narrative analyzer and the v2 visualizer into one command.
+The original script referenced a local transcript filename that is not present
+as written in the prototype folder; the curated command uses the versioned sample
+transcript and writes PNGs to `output/interview_visualizations_v2/`.
