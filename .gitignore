@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.runtime-cache/
+visualizations/
+visualizations_v2/
+output/
+*.log
+.venv/
+venv/
+compare-env/
+transcript_env/
+
