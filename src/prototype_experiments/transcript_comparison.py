@@ -11,6 +11,9 @@ import numpy as np
 from collections import Counter
 import pandas as pd
 from pathlib import Path
+import matplotlib.pyplot as plt
+import seaborn as sns
+from wordcloud import WordCloud
 
 class TranscriptComparisonAnalyzer:
     def __init__(self):
@@ -540,6 +543,149 @@ class TranscriptComparisonAnalyzer:
             'topic_distribution1': dist1.tolist() if len(dist1) > 0 else [],
             'topic_distribution2': dist2.tolist() if len(dist2) > 0 else []
         }
+
+    def create_visualizations(self, analysis_results, nome1, nome2, output_dir=None):
+        """Create a compact visual summary of the topic comparison."""
+        topics1 = analysis_results.get('topics1', [])
+        topics2 = analysis_results.get('topics2', [])
+        dist1 = np.array(analysis_results.get('topic_distribution1', []))
+        dist2 = np.array(analysis_results.get('topic_distribution2', []))
+
+        if not topics1 or not topics2 or len(dist1) == 0 or len(dist2) == 0:
+            print("⚠️  Não é possível criar visualizações sem tópicos válidos")
+            return None
+
+        project_root = Path(__file__).resolve().parents[2]
+        output_path = Path(output_dir) if output_dir else project_root / "output" / "visualizations"
+        output_path.mkdir(parents=True, exist_ok=True)
+
+        print("📊 Gerando visualizações...")
+
+        n_topics = min(len(dist1), len(dist2), len(topics1), len(topics2))
+        topic_labels = [f"T{i + 1}" for i in range(n_topics)]
+        x_pos = np.arange(n_topics)
+        width = 0.35
+
+        fig, axes = plt.subplots(2, 2, figsize=(16, 12))
+        fig.suptitle(f"Análise Visual de Tópicos\n{nome1} vs {nome2}", fontsize=16, fontweight="bold")
+
+        ax1 = axes[0, 0]
+        bars1 = ax1.bar(x_pos - width / 2, dist1[:n_topics], width, label=nome1[:18], alpha=0.8, color="skyblue")
+        bars2 = ax1.bar(x_pos + width / 2, dist2[:n_topics], width, label=nome2[:18], alpha=0.8, color="lightcoral")
+        ax1.set_xlabel("Tópicos")
+        ax1.set_ylabel("Peso (%)")
+        ax1.set_title("Distribuição de Tópicos por Documento")
+        ax1.set_xticks(x_pos)
+        ax1.set_xticklabels(topic_labels)
+        ax1.legend()
+        ax1.grid(True, alpha=0.3)
+
+        for bar in list(bars1) + list(bars2):
+            height = bar.get_height()
+            if height > 0:
+                ax1.annotate(
+                    f"{height:.1%}",
+                    xy=(bar.get_x() + bar.get_width() / 2, height),
+                    xytext=(0, 3),
+                    textcoords="offset points",
+                    ha="center",
+                    va="bottom",
+                    fontsize=8,
+                )
+
+        ax2 = axes[0, 1]
+        all_words = []
+        for topic in topics1[:n_topics] + topics2[:n_topics]:
+            all_words.extend(topic.get("words_stem", topic.get("words", []))[:5])
+        all_words = list(dict.fromkeys(all_words))[:15]
+
+        if all_words:
+            matrix_data = []
+            topic_names = []
+            for label, topics in [(nome1, topics1), (nome2, topics2)]:
+                for i, topic in enumerate(topics[:n_topics]):
+                    topic_names.append(f"{label[:8]}-T{i + 1}")
+                    words = topic.get("words_stem", topic.get("words", []))
+                    topic_words = {word: score for word, score in zip(words, topic["scores"])}
+                    matrix_data.append([topic_words.get(word, 0) for word in all_words])
+
+            sns.heatmap(
+                matrix_data,
+                xticklabels=all_words,
+                yticklabels=topic_names,
+                annot=False,
+                cmap="Blues",
+                ax=ax2,
+                cbar_kws={"label": "Importância"},
+            )
+            ax2.set_title("Importância das Palavras por Tópico")
+            ax2.set_xlabel("Palavras-chave")
+            ax2.set_ylabel("Tópicos")
+            plt.setp(ax2.get_xticklabels(), rotation=45, ha="right")
+        else:
+            ax2.text(0.5, 0.5, "Dados insuficientes\npara heatmap", transform=ax2.transAxes, ha="center", va="center")
+            ax2.set_title("Heatmap - Dados Insuficientes")
+
+        ax3 = axes[1, 0]
+        all_topic_words = {}
+        for topic in topics1 + topics2:
+            words = topic.get("words_stem", topic.get("words", []))
+            for word, score in zip(words[:10], topic["scores"][:10]):
+                all_topic_words[word] = all_topic_words.get(word, 0) + score
+
+        if all_topic_words:
+            try:
+                wordcloud = WordCloud(width=400, height=300, background_color="white", max_words=50, colormap="viridis")
+                ax3.imshow(wordcloud.generate_from_frequencies(all_topic_words), interpolation="bilinear")
+                ax3.axis("off")
+                ax3.set_title("Nuvem de Palavras - Termos Principais")
+            except Exception as exc:
+                ax3.text(0.5, 0.5, f"WordCloud não disponível\n{str(exc)[:30]}...", transform=ax3.transAxes, ha="center", va="center")
+                ax3.set_title("Nuvem de Palavras - Não Disponível")
+                ax3.axis("off")
+        else:
+            ax3.text(0.5, 0.5, "Dados insuficientes\npara WordCloud", transform=ax3.transAxes, ha="center", va="center")
+            ax3.set_title("WordCloud - Dados Insuficientes")
+            ax3.axis("off")
+
+        ax4 = axes[1, 1]
+        similarity_matrix = np.zeros((n_topics, n_topics))
+        for i, topic1 in enumerate(topics1[:n_topics]):
+            for j, topic2 in enumerate(topics2[:n_topics]):
+                words1 = set(topic1.get("words_stem", topic1.get("words", []))[:10])
+                words2 = set(topic2.get("words_stem", topic2.get("words", []))[:10])
+                if words1 and words2:
+                    similarity_matrix[i][j] = len(words1.intersection(words2)) / len(words1.union(words2))
+
+        im = ax4.imshow(similarity_matrix, cmap="Reds", interpolation="nearest")
+        ax4.set_xticks(range(n_topics))
+        ax4.set_yticks(range(n_topics))
+        ax4.set_xticklabels([f"T2-{i + 1}" for i in range(n_topics)])
+        ax4.set_yticklabels([f"T1-{i + 1}" for i in range(n_topics)])
+        ax4.set_xlabel(f"Tópicos - {nome2[:15]}")
+        ax4.set_ylabel(f"Tópicos - {nome1[:15]}")
+        ax4.set_title("Similaridade entre Tópicos")
+
+        for i in range(n_topics):
+            for j in range(n_topics):
+                ax4.text(
+                    j,
+                    i,
+                    f"{similarity_matrix[i, j]:.2f}",
+                    ha="center",
+                    va="center",
+                    color="black" if similarity_matrix[i, j] < 0.5 else "white",
+                    fontsize=8,
+                )
+
+        plt.colorbar(im, ax=ax4, label="Similaridade")
+        plt.tight_layout()
+
+        filename = output_path / f"topic_analysis_{nome1.replace(' ', '_')}_vs_{nome2.replace(' ', '_')}.png"
+        plt.savefig(filename, dpi=300, bbox_inches="tight")
+        plt.close(fig)
+        print(f"📊 Visualizações salvas em: {filename}")
+        return filename
     
     def compare_two_texts(self, text1, text2, nome1="Texto 1", nome2="Texto 2"):
         """Compara dois textos e retorna análise completa"""
@@ -560,6 +706,7 @@ class TranscriptComparisonAnalyzer:
         
         print("\n=== ANÁLISE DE CONTEÚDO ===")
         content_analysis = self.analyze_content_structure(text1, text2)
+        visualization_path = self.create_visualizations(content_analysis, nome1, nome2)
         
         print(f"\nSobreposição de frases-chave: {content_analysis['phrase_overlap']*100:.1f}%")
         
@@ -628,6 +775,7 @@ class TranscriptComparisonAnalyzer:
             'weighted_similarity': weighted_similarity,
             'interpretation': interpretation,
             'confidence': confidence,
+            'visualization_path': str(visualization_path) if visualization_path else None,
             'nome1': nome1,
             'nome2': nome2
         }
@@ -735,7 +883,7 @@ def default_sample_paths():
 def main(paths=None):
     arquivos_para_comparar = paths or default_sample_paths()
     
-    print("🚀 ANALISADOR COM INTERPRETAÇÃO INTELIGENTE DE TÓPICOS")
+    print("🚀 ANALISADOR FINAL COM VISUALIZAÇÕES")
     print("=" * 60)
     print(f"📁 Arquivos configurados: {len(arquivos_para_comparar)}")
     for i, arquivo in enumerate(arquivos_para_comparar, 1):

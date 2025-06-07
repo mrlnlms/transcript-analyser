@@ -35,3 +35,15 @@ This update adds a hand-built semantic dictionary for automatic topic
 interpretation. LDA still discovers the topic terms, but the script now maps
 those terms to human-readable categories such as teaching methodology,
 measurement/statistics, attributes/properties and phenomena/objects.
+
+## Version 4
+
+- Original source: `final-analyzer-visual.py`
+- Curated module: `src/prototype_experiments/transcript_comparison.py`
+
+This update adds static visual output for the comparison workflow: topic
+distribution bars, topic-word heatmap, word cloud and topic similarity matrix.
+In the curated version, generated PNGs are written to `output/visualizations/`
+instead of the project root.
+
+One generated example is preserved in `docs/previews/` as documentation evidence.
