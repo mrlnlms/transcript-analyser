@@ -1,0 +1,109 @@
+# requirements.txt - Transcript Analyzer Escalável
+# Versão otimizada para múltiplas visualizações e análises avançadas
+
+# === CORE ANALYSIS ===
+# Processamento de texto e NLP
+nltk>=3.8.1
+spacy>=3.4.0
+scikit-learn>=1.3.0
+gensim>=4.3.0
+textblob>=0.17.1
+
+# Análise de dados robusta
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# === VISUALIZAÇÕES AVANÇADAS ===
+# Gráficos estáticos
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Gráficos interativos
+plotly>=5.15.0
+bokeh>=3.1.0
+
+# Visualizações especializadas
+wordcloud>=1.9.2
+networkx>=3.1.0
+pyvis>=0.3.2
+
+# Mapas e geo-visualizações  
+folium>=0.14.0
+
+# === ANÁLISE AVANÇADA ===
+# Machine Learning
+xgboost>=1.7.0
+lightgbm>=3.3.5
+
+# Processamento de linguagem natural avançado
+transformers>=4.30.0
+torch>=2.0.0
+sentence-transformers>=2.2.0
+
+# Análise de sentimentos
+vaderSentiment>=3.3.2
+textstat>=0.7.3
+
+# === UTILITIES ===
+# Progress bars e UX
+tqdm>=4.65.0
+rich>=13.0.0
+
+# Configuração e serialização
+pyyaml>=6.0
+toml>=0.10.2
+click>=8.1.0
+
+# Processamento de arquivos
+openpyxl>=3.1.0
+xlsxwriter>=3.1.0
+
+# === DESENVOLVIMENTO ===
+# Testes
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Linting e formatação
+black>=23.0.0
+flake8>=6.0.0
+
+# === OPCIONAL - ANÁLISES ESPECIAIS ===
+# Análise de áudio (para transcrições futuras)
+# librosa>=0.10.0
+# soundfile>=0.12.0
+
+# Computer vision (para análise de documentos)
+# opencv-python>=4.8.0
+# pillow>=10.0.0
+
+# === COMPATIBILIDADE MAC ===
+# Específico para macOS
+# psutil>=5.9.0
+
+# === ESSENCIAIS (sempre funcionam) ===
+pandas>=1.5.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+plotly>=5.10.0
+tqdm>=4.64.0
+pyyaml>=6.0
+
+# === ANÁLISE DE TEXTO (geralmente funcionam) ===
+nltk>=3.7
+textblob>=0.17.1
+
+# === VISUALIZAÇÕES ===
+networkx>=2.8.0
+wordcloud>=1.9.0
+
+# === CIENTÍFICAS (podem dar problema, mas vamos tentar) ===
+--only-binary=all numpy>=1.21.0
+--only-binary=all scipy>=1.9.0
+--only-binary=all scikit-learn>=1.0.0
+
+# === OPCIONAIS (instalar depois se quiser) ===
+# gensim>=4.2.0
+# spacy>=3.4.0
+# transformers>=4.20.0
+# torch>=1.12.0

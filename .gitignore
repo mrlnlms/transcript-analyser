@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+transcript_env/
+
+# Outputs e resultados
+projects/*/resultados/*.png
+projects/*/resultados/*.html
+projects/*/resultados/*.pdf
+temp/
+output/
+*.log
+
+# Sistema
+.DS_Store
+.vscode/
+.idea/
+
+# Desenvolvimento
+_development/
+test_bar_chart_*
+*.backup
