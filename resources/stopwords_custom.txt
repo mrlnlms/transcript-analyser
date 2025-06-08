@@ -1,0 +1,46 @@
+# Stopwords customizadas para português brasileiro
+# Artigos e preposições
+o
+a
+os
+as
+um
+uma
+uns
+umas
+de
+do
+da
+dos
+das
+em
+no
+na
+nos
+nas
+por
+para
+com
+sem
+sobre
+entre
+durante
+# Palavras de preenchimento comuns
+tipo
+então
+né
+assim
+meio
+sei
+coisa
+questão
+situação
+momento
+processo
+forma
+# Expressões coloquiais
+cara
+mano
+véi
+galera
+pessoal

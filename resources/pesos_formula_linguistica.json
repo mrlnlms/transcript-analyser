@@ -1,0 +1,11 @@
+{
+  "hesitation_penalty": -0.15,
+  "certainty_boost": 0.25,
+  "emotional_intensity": 1.8,
+  "topic_coherence": 0.35,
+  "sentence_length_factor": 0.08,
+  "contradiction_weight": -0.3,
+  "coherence_bonus": 0.4,
+  "network_centrality_weight": 0.2,
+  "temporal_consistency": 0.3
+}

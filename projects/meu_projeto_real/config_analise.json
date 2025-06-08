@@ -1,0 +1,41 @@
+{
+  "project_name": "meu_projeto_real",
+  "topic_modeling": {
+    "n_topics": 5,
+    "auto_adjust": true,
+    "min_topics": 3,
+    "max_topics": 10,
+    "coherence_threshold": 0.4
+  },
+  "emotion": {
+    "block_size": 10,
+    "smoothing": true,
+    "sentiment_threshold": 0.2,
+    "peak_detection": true
+  },
+  "linguistic": {
+    "use_stemming": true,
+    "extra_stopwords": [
+      "tipo",
+      "então",
+      "né",
+      "assim"
+    ],
+    "hesitation_weight": 1.5,
+    "certainty_weight": 2.0,
+    "min_sentence_length": 3
+  },
+  "output": {
+    "generate_markdown": true,
+    "generate_visuals": true,
+    "save_raw_data": false,
+    "create_summary": true,
+    "dashboard_style": "premium"
+  },
+  "advanced": {
+    "contradiction_detection": true,
+    "concept_network": true,
+    "temporal_analysis": true,
+    "comparative_mode": false
+  }
+}
