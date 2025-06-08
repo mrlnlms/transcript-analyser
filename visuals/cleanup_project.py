@@ -93,7 +93,7 @@ transcript-analyser/
 ├── 📄 run_analysis.py              # CLI principal
 ├── 📄 config_loader.py             # Sistema de configuração
 ├── 📄 setup_auto.py                # Setup automatizado
-├── 📄 requirements_working.txt     # Dependências testadas
+├── 📄 requirements.txt     # Dependências testadas
 ├── 📄 requirements.txt             # Dependências completas
 ├── 📄 README.md                    # Documentação principal
 ├── 📄 INSTALLATION.md              # Guia de instalação
@@ -152,7 +152,7 @@ _development/
 
 ### **Para usar o sistema:**
 - `run_analysis.py` - Interface principal
-- `requirements_working.txt` - Dependências
+- `requirements.txt` - Dependências
 - `projects/` - Seus projetos
 - `resources/` - Léxicos editáveis
 
