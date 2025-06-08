@@ -130,10 +130,11 @@ class AnalysisRunner:
                         result['global_metrics']['emotional_openness']
                     ]
                 }
-                
+                extension = 'html' if hasattr(viz_manager, 'primary_backend') and viz_manager.primary_backend == 'plotly' else 'png'
+
                 metrics_config = {
                     'title': f'Métricas Globais - {result["filename"]}',
-                    'output_path': str(Path(output_dir) / 'metricas_globais.png'),
+                    'output_path': str(Path(output_dir) / f'metricas_globais.{extension}'),
                     'figsize': (12, 8),
                     'bar_params': {'alpha': 0.8, 'color': ['skyblue', 'lightgreen', 'coral']}
                 }
@@ -230,7 +231,7 @@ class AnalysisRunner:
             # Gerar visualizações comparativas
             dashboard = DashboardGenerator(None)  # Usar config padrão para comparação
             
-            output_dir = Path("output") / f"comparative_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+            output_dir = Path("projects/comparisons") / f"comparative_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
             output_dir.mkdir(parents=True, exist_ok=True)
             
             dashboard.generate_comparative_dashboard(
