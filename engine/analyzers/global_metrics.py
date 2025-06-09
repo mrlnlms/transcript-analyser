@@ -15,49 +15,6 @@ class GlobalMetricsAnalyzer(BaseAnalyzer):
     3. Implemente o método analyze()
     4. Crie arquivo de config em config/analysis_configs/
     """
-
-    @staticmethod
-    def get_config_schema():
-        """Retorna o schema de configuração deste analyzer"""
-        return {
-            'metrics_to_calculate': {
-                'type': 'list',
-                'options': ['sentiment', 'coherence', 'emotional_openness', 'hesitations'],
-                'default': ['sentiment', 'coherence', 'emotional_openness', 'hesitations'],
-                'description': 'Métricas globais a calcular'
-            },
-            'use_temporal_data': {
-                'type': 'bool',
-                'default': True,
-                'description': 'Usar dados da análise temporal para cálculos'
-            },
-            'coherence_method': {
-                'type': 'str',
-                'options': ['word_repetition', 'topic_consistency', 'semantic_similarity'],
-                'default': 'word_repetition',
-                'description': 'Método para calcular coerência temática'
-            },
-            'hesitation_markers': {
-                'type': 'list',
-                'default': ['né', 'tipo', 'assim', 'então'],
-                'interview': ['né', 'tipo', 'assim', 'então', 'sabe', 'entendeu'],
-                'academic': ['portanto', 'ou seja', 'isto é'],
-                'description': 'Marcadores de hesitação a detectar'
-            },
-            'sentiment_aggregation': {
-                'type': 'str',
-                'options': ['mean', 'median', 'weighted_mean'],
-                'default': 'mean',
-                'description': 'Como agregar sentimentos dos segmentos'
-            },
-            'min_variance_threshold': {
-                'type': 'float',
-                'range': [0.0, 1.0],
-                'default': 0.1,
-                'description': 'Variância mínima para abertura emocional'
-            }
-        }
-
     
     def analyze(self, text: str, temporal_data: List = None) -> Dict:
         """Calcula métricas globais do texto"""
@@ -115,3 +72,48 @@ class GlobalMetricsAnalyzer(BaseAnalyzer):
         }
         
         return {**base_params, **specific_params}
+
+    def interpret_results(self, results):
+        """Interpreta resultados em formato qualitativo"""
+        interpreted = results.copy()
+        
+        # Sentimento
+        sentiment = results.get('global_sentiment', 0)
+        if sentiment > 0.1:
+            interpreted['sentiment_label'] = 'Positivo'
+        elif sentiment < -0.1:
+            interpreted['sentiment_label'] = 'Negativo'
+        else:
+            interpreted['sentiment_label'] = 'Neutro'
+        
+        # Coerencia
+        coherence = results.get('thematic_coherence', 0)
+        if coherence > 0.7:
+            interpreted['coherence_label'] = 'Alta'
+        elif coherence > 0.4:
+            interpreted['coherence_label'] = 'Media'
+        else:
+            interpreted['coherence_label'] = 'Baixa'
+        
+        return interpreted
+    
+    def get_insights(self, results):
+        """Gera insights dos resultados"""
+        insights = []
+        
+        sentiment = results.get('global_sentiment', 0)
+        if sentiment > 0.1:
+            insights.append("Discurso predominantemente positivo")
+        elif sentiment < -0.1:
+            insights.append("Discurso predominantemente negativo")
+        else:
+            insights.append("Discurso neutro e equilibrado")
+        
+        coherence = results.get('thematic_coherence', 0)
+        if coherence > 0.7:
+            insights.append("Narrativa bem estruturada e coerente")
+        elif coherence < 0.3:
+            insights.append("Narrativa fragmentada ou com multiplos temas")
+        
+        return insights
+

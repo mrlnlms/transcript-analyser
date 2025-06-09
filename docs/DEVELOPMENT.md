@@ -7,7 +7,7 @@
 - **Foco**: ConfigurationRegistry e schemas de configuração
 - **Status**: Em desenvolvimento
 
-### Progresso Atual (V2.1-beta - Jun/2025)
+### Progresso Atual (V2.1-beta COMPLETO! - 09/Jun/2025)
 - [x] BaseAnalyzer com método abstrato `get_config_schema()`
 - [x] **TODOS os 9 analyzers com schemas implementados!** ✅
   - [x] WordFrequencyAnalyzer (4 params)
@@ -21,7 +21,9 @@
   - [x] TestVelocityAnalyzer (6 params)
 - [x] **Total: 60 parâmetros configuráveis**
 - [x] ConfigurationRegistry com auto-descoberta implementado
-- [ ] Integração com AnalysisOrchestrator
+- [x] Integração com AnalysisOrchestrator
+- [x] MarkdownReportGenerator corrigido e funcional
+- [x] Sistema completamente testado
 - [ ] Interface CLI de configuração
 - [ ] Manual de configurações (CONFIG_MANUAL.md)
 
