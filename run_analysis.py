@@ -83,7 +83,7 @@ class AnalysisRunner:
                     print(f"  ✓ topic_hierarchy: {len(result.get('topic_hierarchy', {}).get('nodes', []))} nós")
                     print(f"  ✓ phases: {len(result.get('phases', {}))} fases")
                     print(f"  ✓ contradictions: {len(result.get('contradictions', []))} contradições")
-
+                    print("="*60)
 
                     result['filename'] = file_path.name
                     results.append(result)
@@ -195,7 +195,127 @@ class AnalysisRunner:
                     }
                     
                     viz_manager.create_visualization('network_graph', network_data, network_config, backend='plotly')
+                # 4. Word Cloud (usando bar chart por enquanto)
+                if result.get('word_frequencies'):
+                    # Pegar top 10 palavras mais frequentes
+                    sorted_words = sorted(result['word_frequencies'].items(), 
+                                        key=lambda x: x[1], 
+                                        reverse=True)[:10]
+                    
+                    wordcloud_data = {
+                        'words': [word for word, freq in sorted_words],      # Mudou de 'categories' para 'words'
+                        'frequencies': [freq for word, freq in sorted_words]  # Mudou de 'values' para 'frequencies'
+                    }
+                    
+                    wordcloud_config = {
+                        'title': f'Word Cloud - {result["filename"]}',
+                        'output_path': str(Path(output_dir) / 'wordcloud.html'),
+                        'xlabel': 'Palavras',
+                        'ylabel': 'Frequência',
+                        'figsize': (12, 6),
+                        'bar_params': {'alpha': 0.9, 'color': 'purple'}
+                    }
+                    # DEBUG wordcloud
+                    print(f"DEBUG Wordcloud - Top 5 palavras: {list(result['word_frequencies'].items())[:5]}")
+                    #viz_manager.create_visualization('wordcloud', wordcloud_data, wordcloud_config)
+
+                    # DEBUG para wordcloud
+                    print(f"DEBUG - Tipo de visualização: wordcloud")
+                    print(f"DEBUG - Backends disponíveis: {viz_manager.get_available_backends()}")
+                    print(f"DEBUG - Backend primário: {viz_manager.primary_backend}")
+
+                    # DEBUG - Verificar se o método existe
+                    print(f"DEBUG - PlotlyBackend tem create_wordcloud? {hasattr(viz_manager.backends.get('plotly'), 'create_wordcloud')}")
+                    print(f"DEBUG - Métodos disponíveis no PlotlyBackend: {[m for m in dir(viz_manager.backends.get('plotly')) if m.startswith('create_')]}")
+
+                    # Forçar uso direto do método wordcloud
+                    if hasattr(viz_manager.backends.get('plotly'), 'create_wordcloud'):
+                        output = viz_manager.backends['plotly'].create_wordcloud(wordcloud_data, wordcloud_config)
+                        print(f"✅ Word Cloud criado diretamente: {output}")
+                    else:
+                        viz_manager.create_visualization('wordcloud', wordcloud_data, wordcloud_config)
                 
+                # 4.1 Top 10 Palavras em Barras (complementar ao wordcloud)
+                if result.get('word_frequencies'):
+                    # Mesmos dados, mas para gráfico de barras
+                    sorted_words = sorted(result['word_frequencies'].items(), 
+                                        key=lambda x: x[1], 
+                                        reverse=True)[:10]
+                    
+                    bar_words_data = {
+                        'categories': [word for word, freq in sorted_words],
+                        'values': [freq for word, freq in sorted_words]
+                    }
+                    
+                    bar_words_config = {
+                        'title': f'Top 10 Palavras (Frequência) - {result["filename"]}',
+                        'output_path': str(Path(output_dir) / 'top_palavras_freq.html'),
+                        'xlabel': 'Palavras',
+                        'ylabel': 'Frequência',
+                        'figsize': (12, 6),
+                        'bar_params': {'alpha': 0.9, 'color': 'indigo'}
+                    }
+                    
+                    viz_manager.create_visualization('bar_chart', bar_words_data, bar_words_config)
+
+                # 5. Padrões Linguísticos
+                if result.get('linguistic_patterns'):
+                    patterns = result['linguistic_patterns']
+                    patterns_data = {
+                        'categories': ['Certeza', 'Incerteza', 'Hesitações'],
+                        'values': [
+                            patterns.get('certainty_markers', {}).get('count', 0),
+                            patterns.get('uncertainty_markers', {}).get('count', 0),
+                            patterns.get('total_hesitations', 0)
+                        ]
+                    }
+                    
+                    patterns_config = {
+                        'title': f'Padrões Linguísticos - {result["filename"]}',
+                        'output_path': str(Path(output_dir) / 'padroes_linguisticos.html'),
+                        'figsize': (10, 6),
+                        'bar_params': {'alpha': 0.8, 'color': ['green', 'orange', 'red']}
+                    }
+                    
+                    viz_manager.create_visualization('bar_chart', patterns_data, patterns_config)
+
+                # 6. Hierarquia de Tópicos
+                if result.get('topic_hierarchy') and result['topic_hierarchy'].get('nodes'):
+                    # Agora sabemos que nodes tem 'id' e 'label'
+                    hierarchy_data = {
+                        'nodes': [node['label'] for node in result['topic_hierarchy']['nodes'][:15]],
+                        'edges': [(edge['source'], edge['target']) for edge in result['topic_hierarchy'].get('edges', [])]
+                    }
+                    
+                    hierarchy_config = {
+                        'title': f'Hierarquia de Tópicos - {result["filename"]}',
+                        'output_path': str(Path(output_dir) / 'hierarquia_topicos.html'),
+                        'node_params': {'node_size': 500, 'node_color': 'lightcoral'},
+                        'edge_params': {'width': 1, 'alpha': 0.5}
+                    }
+                    
+                    viz_manager.create_visualization('network_graph', hierarchy_data, hierarchy_config)
+                
+                # 7. Análise de Contradições
+                if result.get('contradictions') and len(result['contradictions']) > 0:
+                    contradictions_data = {
+                        'categories': [f"Contradição {i+1}" for i in range(len(result['contradictions']))],
+                        'values': [c['score'] for c in result['contradictions']]
+                    }
+                    
+                    contradictions_config = {
+                        'title': f'Análise de Contradições - {result["filename"]}',
+                        'output_path': str(Path(output_dir) / 'contradicoes.html'),
+                        'xlabel': 'Contradições Detectadas',
+                        'ylabel': 'Score de Contradição',
+                        'figsize': (10, 6),
+                        'bar_params': {'alpha': 0.7, 'color': 'salmon'}
+                    }
+                    
+                    viz_manager.create_visualization('bar_chart', contradictions_data, contradictions_config)
+
+                
+
                 print("✅ Visualizações escaláveis geradas")
                 
             except Exception as e:
@@ -252,22 +372,23 @@ class AnalysisRunner:
             # Gerar visualizações comparativas
             dashboard = DashboardGenerator(None)  # Usar config padrão para comparação
             
-            output_dir = Path("projects/comparisons") / f"comparative_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-            output_dir.mkdir(parents=True, exist_ok=True)
-            # Criar subpasta para assets
-            assets_dir = output_dir / "assets"
-            assets_dir.mkdir(parents=True, exist_ok=True)
-            
-            assets_dir = output_dir / "assets"
-            assets_dir.mkdir(parents=True, exist_ok=True)
+            # Criar apenas a pasta comparisons se não existir
+            comparisons_dir = Path("projects/comparisons")
+            comparisons_dir.mkdir(parents=True, exist_ok=True)
 
+            # Gerar nome único para a imagem
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            output_filename = f"comparative_{timestamp}_test.png"
+            output_path = comparisons_dir / output_filename
+            
             dashboard.generate_comparative_dashboard(
                 comparison_results,
-                output_dir=str(output_dir)
+                output_dir=str(comparisons_dir),
+                output_path=str(output_path)
             )
             
             print(f"\n✅ Análise comparativa concluída")
-            print(f"📂 Resultados salvos em: {output_dir}")
+            print(f"📂 Resultados salvos em: {output_path}")
             
             return True
             
