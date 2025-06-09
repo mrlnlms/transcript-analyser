@@ -404,7 +404,7 @@ class AnalysisRunner:
             file_folder = result['filename'].replace('.txt', '')
             # output_dir já é projects/nome/output/
             # Então: projects/nome/output/arquivo/arquivo.md
-            report_path = output_dir / file_folder / f"{file_folder}.md"
+            report_path = output_dir / file_folder / f"_report_{file_folder}.md"
             
             # Garantir que a pasta existe (caso ainda não tenha sido criada)
             report_path.parent.mkdir(parents=True, exist_ok=True)
@@ -430,18 +430,49 @@ class AnalysisRunner:
 - **Coerência Temática:** {result['global_metrics']['thematic_coherence']:.2f}
 - **Abertura Emocional:** {result['global_metrics']['emotional_openness']:.2f}
 
-## 🎭 Análise Linguística
 """
-        # Extrair dados com segurança
+        
+        # Evolução Temporal
+        if result.get('temporal_analysis'):
+            content += "## 📈 Evolução Temporal\n\n"
+            phases = result.get('phases', {})
+            for phase_name, phase_data in phases.items():
+                if phase_data.get('sentiment_avg') is not None:
+                    sentiment_emoji = "😊" if phase_data['sentiment_avg'] > 0 else "😐" if phase_data['sentiment_avg'] == 0 else "😔"
+                    content += f"- **{phase_name}**: {sentiment_emoji} Sentimento médio: {phase_data['sentiment_avg']:.2f}\n"
+            content += "\n"
+        
+        # Top 10 Palavras
+        if result.get('word_frequencies'):
+            content += "## 🔤 Top 10 Palavras Mais Frequentes\n\n"
+            for i, (word, freq) in enumerate(list(result['word_frequencies'].items())[:10], 1):
+                content += f"{i}. **{word}**: {freq} vezes\n"
+            content += "\n"
+        
+        # Tópicos Principais
+        content += "## 📈 Tópicos Principais\n\n"
+        for i, topic in enumerate(result['topics'][:5]):
+            distribution = result['topic_distribution'][i]
+            content += f"### Tópico {i+1} ({distribution:.1%})\n"
+            content += f"**Palavras-chave:** {', '.join(topic['words'][:8])}\n\n"
+        
+        # Rede de Conceitos
+        if result.get('concept_network'):
+            content += "## 🕸️ Principais Conexões entre Conceitos\n\n"
+            for conn in result['concept_network'][:10]:
+                content += f"- {conn['word1']} ↔ {conn['word2']} (força: {conn['weight']})\n"
+            content += "\n"
+        
+        # Análise Linguística
+        content += "## 🎭 Análise Linguística\n"
+        
         linguistic = result.get('linguistic_patterns', {})
         
         # Para compatibilidade com estrutura antiga E nova
         if 'uncertainty_markers' in linguistic:
-            # Estrutura nova
             uncertainty = linguistic.get('uncertainty_markers', {}).get('count', 0)
             certainty = linguistic.get('certainty_markers', {}).get('count', 0)
         else:
-            # Estrutura antiga
             uncertainty = linguistic.get('uncertainty_count', 0)
             certainty = linguistic.get('certainty_count', 0)
         
@@ -455,37 +486,32 @@ class AnalysisRunner:
         else:
             content += f"- **Razão Incerteza/Certeza:** N/A\n"
             
-        content += f"- **Complexidade Média:** {linguistic.get('avg_sentence_length', 0):.1f} palavras/frase\n"
-        content += """
-## 📈 Tópicos Principais
-
-"""
+        content += f"- **Complexidade Média:** {linguistic.get('avg_sentence_length', 0):.1f} palavras/frase\n\n"
         
-        # Adicionar tópicos
-        for i, topic in enumerate(result['topics'][:5]):
-            distribution = result['topic_distribution'][i]
-            content += f"### Tópico {i+1} ({distribution:.1%})\n"
-            content += f"**Palavras-chave:** {', '.join(topic['words'][:8])}\n\n"
-        # Adicionar contradições se existirem
+        # Padrões de Hesitação
+        if linguistic.get('hesitation_phrases'):
+            content += "## 💬 Padrões de Hesitação\n\n"
+            for word, count in sorted(linguistic['hesitation_phrases'].items(), key=lambda x: x[1], reverse=True)[:5]:
+                content += f"- **{word}**: {count} ocorrências\n"
+            content += "\n"
+        
+        # Contradições (se existirem)
         if result.get('contradictions'):
             content += "## ⚠️ Contradições Detectadas\n\n"
             for i, contradiction in enumerate(result['contradictions'][:3]):
                 content += f"### Contradição {i+1}\n"
-                # Tenta diferentes campos possíveis
                 if 'topic_words' in contradiction:
                     content += f"- **Tópico:** {', '.join(contradiction['topic_words'][:5])}\n"
                 elif 'text1' in contradiction:
-                    # Se não tem topic_words, mostra os textos
                     content += f"- **Texto 1:** \"{contradiction.get('text1', '')[:50]}...\"\n"
                     content += f"- **Texto 2:** \"{contradiction.get('text2', '')[:50]}...\"\n"
 
-                # Intensidade ou score
                 if 'intensity' in contradiction:
                     content += f"- **Intensidade:** {contradiction['intensity']:.2f}\n\n"
                 elif 'score' in contradiction:
                     content += f"- **Score:** {contradiction['score']:.2f}\n\n"
                 else:
-                    content += "\n"  # Garante espaçamento mesmo sem score
+                    content += "\n"
         
         return content
     
