@@ -74,6 +74,17 @@ class AnalysisRunner:
                 
                 try:
                     result = analyzer.analyze_transcript(file_path)
+
+                    # DEBUG - Verificar dados disponíveis
+                    print("\n🔍 DEBUG - Dados completos disponíveis:")
+                    print(f"  ✓ temporal_analysis: {len(result.get('temporal_analysis', []))} pontos")
+                    print(f"  ✓ word_frequencies: {len(result.get('word_frequencies', {}))} palavras")
+                    print(f"  ✓ linguistic_patterns: {'✓' if result.get('linguistic_patterns') else '✗'}")
+                    print(f"  ✓ topic_hierarchy: {len(result.get('topic_hierarchy', {}).get('nodes', []))} nós")
+                    print(f"  ✓ phases: {len(result.get('phases', {}))} fases")
+                    print(f"  ✓ contradictions: {len(result.get('contradictions', []))} contradições")
+
+
                     result['filename'] = file_path.name
                     results.append(result)
                     print(f"✅ {file_path.name} processado")
@@ -299,11 +310,32 @@ class AnalysisRunner:
 - **Abertura Emocional:** {result['global_metrics']['emotional_openness']:.2f}
 
 ## 🎭 Análise Linguística
-
-- **Total de Hesitações:** {result['linguistic_patterns']['total_hesitations']}
-- **Razão Incerteza/Certeza:** {result['linguistic_patterns']['uncertainty_count']}/{result['linguistic_patterns']['certainty_count']}
-- **Complexidade Média:** {result['linguistic_patterns']['avg_sentence_length']:.1f} palavras/frase
-
+"""
+        # Extrair dados com segurança
+        linguistic = result.get('linguistic_patterns', {})
+        
+        # Para compatibilidade com estrutura antiga E nova
+        if 'uncertainty_markers' in linguistic:
+            # Estrutura nova
+            uncertainty = linguistic.get('uncertainty_markers', {}).get('count', 0)
+            certainty = linguistic.get('certainty_markers', {}).get('count', 0)
+        else:
+            # Estrutura antiga
+            uncertainty = linguistic.get('uncertainty_count', 0)
+            certainty = linguistic.get('certainty_count', 0)
+        
+        content += f"- **Total de Hesitações:** {linguistic.get('total_hesitations', 0)}\n"
+        content += f"- **Marcadores de Incerteza:** {uncertainty}\n"
+        content += f"- **Marcadores de Certeza:** {certainty}\n"
+        
+        if certainty > 0:
+            ratio = uncertainty / certainty
+            content += f"- **Razão Incerteza/Certeza:** {ratio:.2f}\n"
+        else:
+            content += f"- **Razão Incerteza/Certeza:** N/A\n"
+            
+        content += f"- **Complexidade Média:** {linguistic.get('avg_sentence_length', 0):.1f} palavras/frase\n"
+        content += """
 ## 📈 Tópicos Principais
 
 """
@@ -313,7 +345,6 @@ class AnalysisRunner:
             distribution = result['topic_distribution'][i]
             content += f"### Tópico {i+1} ({distribution:.1%})\n"
             content += f"**Palavras-chave:** {', '.join(topic['words'][:8])}\n\n"
-        
         # Adicionar contradições se existirem
         if result.get('contradictions'):
             content += "## ⚠️ Contradições Detectadas\n\n"
