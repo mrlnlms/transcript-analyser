@@ -1,0 +1,39 @@
+Entrevistador: Como diretor de escola pública, quais os principais desafios na implementação de tecnologia educacional?
+
+Diretor: Rapaz, por onde eu começo? Os desafios são enormes, mas vou tentar organizar as ideias. Primeiro e mais óbvio: recursos. Escola pública vive de migalhas, e tecnologia é cara. Não é só comprar computador, é manutenção, é internet de qualidade, é capacitação, é suporte técnico. O orçamento mal dá pra papel higiênico, imagine pra tecnologia de ponta.
+
+Mas sabe o que mais me frustra? Quando conseguimos algum recurso, muitas vezes vem de cima pra baixo, sem considerar nossa realidade. Já recebi tablet que não funcionava porque nossa internet não aguentava. Já veio software maravilhoso que não rodava nos computadores jurássicos que temos. É um desperdício.
+
+Entrevistador: E como vocês lidam com essas limitações?
+
+Diretor: Criatividade e parceria, meu amigo. Muita criatividade e parceria. Fizemos acordos com universidades pra estágio de alunos de TI que nos ajudam com manutenção. Conseguimos doação de equipamentos usados de empresas. Professor aprendeu a ser técnico de informática nas horas vagas.
+
+Uma coisa que funcionou foi o BYOD - Bring Your Own Device. Os alunos usam seus próprios celulares. Não é ideal, mas é o que temos. Claro que isso escancara a desigualdade. Tem aluno com iPhone último modelo e aluno sem nenhum dispositivo. Aí criamos um sistema de compartilhamento, rodízio de uso do laboratório, empréstimo de equipamentos.
+
+E investimos muito em formação. De que adianta ter tecnologia se o professor não sabe usar? Mas formação também custa, e tempo de professor é escasso. Então fazemos formação em horário de planejamento, aos sábados, online. É puxado, mas necessário.
+
+Entrevistador: Qual o impacto pedagógico que você observa?
+
+Diretor: Quando funciona, é transformador. Já vi aluno que não se interessava por nada descobrir programação e hoje está na universidade. Vi professora de 60 anos aprender a usar lousa digital e renovar completamente suas aulas. São histórias que me emocionam.
+
+Mas também vejo o lado negativo. A exclusão digital é real e cruel. O aluno que não tem acesso fica ainda mais para trás. A pandemia escancarou isso. Tive aluno que sumiu por meses porque não tinha como acompanhar aula online. Quando voltou, estava completamente perdido.
+
+E tem a questão da qualidade pedagógica. Tecnologia mal usada é pior que não ter tecnologia. Já vi professor que só mudou o quadro negro pelo PowerPoint, continua a mesma aula expositiva chata. Ou pior, professor que passa vídeo do YouTube a aula toda porque não quer preparar aula.
+
+Entrevistador: Como você vê o futuro da educação pública com tecnologia?
+
+Diretor: Sou realista otimista, se é que isso existe. Sei que os desafios são gigantes, que a desigualdade no Brasil é gritante, que falta investimento, que falta política pública séria. Mas também vejo potencial imenso.
+
+A tecnologia pode ser a grande equalizadora se bem utilizada. Pode levar educação de qualidade pro interior do Amazonas, pode personalizar ensino pro aluno com dificuldade, pode abrir portas que antes eram fechadas. Mas pra isso precisa de investimento sério, de política de Estado, não de governo.
+
+Precisa também mudar a mentalidade. Parar de ver tecnologia como salvadora ou como vilã. É ferramenta, e ferramenta é tão boa quanto quem a usa. Precisamos formar professores, não só em tecnologia, mas em pedagogia digital. Precisamos infraestrutura decente, não só computador, mas internet, energia elétrica estável, segurança.
+
+E precisamos ouvir a comunidade escolar. Aluno, professor, família, todo mundo tem que participar. Solução de gabinete não funciona. Cada escola tem sua realidade, suas necessidades, suas possibilidades.
+
+Entrevistador: Que mensagem você deixaria?
+
+Diretor: Que não desistam. Sei que é difícil, sei que parece impossível às vezes. Mas educação é a única saída pra esse país, e tecnologia bem aplicada pode acelerar essa transformação. Cada pequeno avanço importa. Cada aluno que aprende algo novo importa. Cada professor que se supera importa.
+
+E cobrem. Cobrem dos governantes, cobrem investimento, cobrem política séria. Educação não pode ser moeda de troca política, tem que ser prioridade de verdade. Tecnologia na educação não é luxo, é necessidade no século XXI.
+
+Mas enquanto as coisas não mudam lá em cima, a gente vai fazendo o que pode aqui embaixo. Com garra, com criatividade, com amor pela educação. Porque no final, é disso que se trata. Amor pela educação, pela transformação de vidas. A tecnologia é só mais uma ferramenta nessa missão.

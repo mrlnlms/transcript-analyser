@@ -1,0 +1,25 @@
+Entrevistador: Como professor de matemática, como você vê a integração de tecnologia em suas aulas?
+
+Professor: Cara, mudou completamente minha forma de ensinar. Sério mesmo. Eu era daqueles professores tradicionais, sabe? Quadro, giz, lista de exercícios. E funcionava, mas eu sempre sentia que faltava algo, especialmente com os alunos que tinham mais dificuldade.
+
+A tecnologia me abriu possibilidades que eu nem imaginava. Por exemplo, geometria espacial. Antes eu ficava desenhando no quadro, tentando representar figuras 3D em 2D, e os alunos ficavam boiando. Hoje eu uso o GeoGebra, eles podem rotacionar as figuras, ver de todos os ângulos, entender de verdade o que é um cone, uma esfera seccionada.
+
+Mas não é só isso. O que mais me impressiona é a possibilidade de personalização. Eu uso plataformas que me mostram exatamente onde cada aluno está com dificuldade. Tipo, o João não entende frações, a Maria tem problema com equações de segundo grau. Antes eu só descobria isso na prova, quando já era tarde demais.
+
+Entrevistador: E os desafios?
+
+Professor: Ah, tem muitos. Primeiro, nem todos os alunos têm acesso igual à tecnologia. Isso cria uma disparidade que me preocupa muito. A gente tenta contornar, empresta equipamento, mas não é ideal.
+
+Depois, tem a questão da distração. Celular em sala de aula é uma faca de dois gumes. Pode ser uma ferramenta incrível ou uma fonte infinita de distração. WhatsApp, Instagram, jogos... é uma batalha constante.
+
+E tem a minha própria limitação também. Eu não sou nativo digital, tive que aprender muita coisa. Às vezes os alunos sabem mais de tecnologia que eu, o que é humilhante mas também uma oportunidade de aprender com eles.
+
+O maior desafio, na minha opinião, é não deixar a tecnologia substituir o raciocínio. É muito fácil o aluno jogar a equação no Photomath e pegar a resposta. Mas ele aprendeu? Desenvolveu o raciocínio lógico? Essas são questões que me tiram o sono.
+
+Entrevistador: Como você equilibra isso?
+
+Professor: Tento usar a tecnologia como apoio, não como muleta. Por exemplo, depois que eles entendem o conceito, aí sim usamos calculadoras gráficas, aplicativos. A tecnologia vem para expandir, não para substituir o pensamento.
+
+E eu aprendi a usar a própria tecnologia para combater o uso inadequado. Faço atividades que exigem explicação do raciocínio, não só a resposta. Uso ferramentas colaborativas onde eles têm que trabalhar juntos. É um processo de constante adaptação.
+
+No final, eu acho que vale a pena. Vejo alunos que odiavam matemática descobrindo que podem gostar, podem entender. Isso não tem preço. A tecnologia, quando bem usada, democratiza o aprendizado, torna a matemática mais acessível, menos assustadora. E esse é o meu objetivo como professor.

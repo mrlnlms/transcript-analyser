@@ -1,184 +1,309 @@
-# 🛠️ Guia de Desenvolvimento - Transcript Analyzer
+# 🛠️ Guia de Desenvolvimento - Transcript Analyzer V2.1
 
-## 📋 Contexto Essencial para Novos Chats
+## 📋 Estado do Desenvolvimento
 
-### Informações Críticas do Projeto
-- **Versão Atual**: V2.0 (100% modular)
-- **Linguagem**: Python 3.8+
-- **Arquitetura**: Sistema plugável com orquestradores
-- **Estado**: Funcional, em evolução para V2.1
+### V2.1-beta: Sistema de Configuração Avançada
+- **Data**: Junho 2025
+- **Foco**: ConfigurationRegistry e schemas de configuração
+- **Status**: Em desenvolvimento
 
-### Arquitetura Core
+### Progresso Atual (V2.1-beta - Jun/2025)
+- [x] BaseAnalyzer com método abstrato `get_config_schema()`
+- [x] **TODOS os 9 analyzers com schemas implementados!** ✅
+  - [x] WordFrequencyAnalyzer (4 params)
+  - [x] TemporalAnalysisAnalyzer (6 params)
+  - [x] GlobalMetricsAnalyzer (6 params)
+  - [x] LinguisticPatternsAnalyzer (6 params)
+  - [x] ConceptNetworkAnalyzer (8 params)
+  - [x] TopicModelingAnalyzer (8 params)
+  - [x] ContradictionDetectionAnalyzer (8 params)
+  - [x] SentimentAnalysisAnalyzer (8 params)
+  - [x] TestVelocityAnalyzer (6 params)
+- [x] **Total: 60 parâmetros configuráveis**
+- [x] ConfigurationRegistry com auto-descoberta implementado
+- [ ] Integração com AnalysisOrchestrator
+- [ ] Interface CLI de configuração
+- [ ] Manual de configurações (CONFIG_MANUAL.md)
+
+## 🏗️ Arquitetura do Sistema
+
+### Estrutura de Diretórios
 ```
-Entry Point (100 linhas) → Módulos → Orquestradores → Plugins
+transcript-analyser/
+├── core/               # Núcleo do sistema
+│   ├── config/        # ConfigurationRegistry (V2.1)
+│   ├── engine/        # Orquestradores
+│   ├── generators/    # Geradores de relatório
+│   ├── managers/      # Gerenciadores (CLI, Project, Analysis)
+│   └── visuals/       # Sistema de visualização
+├── engine/            # Plugins de análise
+│   └── analyzers/     # 9 analisadores + base + orchestrator
+├── visuals/           # Plugins de visualização  
+│   └── charts/        # 8 tipos de gráficos
+└── scripts/           # Scripts organizados
+    ├── development/   # Scripts para desenvolvimento
+    ├── maintenance/   # Scripts de manutenção
+    └── tests/        # Scripts de teste
 ```
 
-### Módulos Principais
-1. **cli_manager.py** - Gerencia comandos CLI
-2. **project_manager.py** - Gerencia projetos
-3. **analysis_runner.py** - Coordena análises
-4. **markdown_generator.py** - Gera relatórios
-5. **analysis_orchestrator.py** - Orquestra 9 análises
-6. **chart_orchestrator.py** - Orquestra 8 gráficos
+### Sistema de Configuração (V2.1)
 
-## 🎯 Padrões e Convenções
-
-### Sistema Plugável
+#### ConfigurationRegistry
 ```python
-# Para adicionar nova análise:
-# 1. Criar arquivo em engine/analyzers/
-class MyAnalyzer(BaseAnalyzer):
-    def analyze(self, text: str) -> Dict:
-        # implementação
-        
-# 2. Criar config em config/analysis_configs/
-{
-    "name": "my_analyzer",
-    "enabled": true,
-    "parameters": {}
-}
-```
-
-### Convenções de Código
-- **Docstrings**: Sempre em português
-- **Logs**: Usar emojis para visual (🎯, ✅, ❌)
-- **Configs**: JSON externo sempre que possível
-- **Nomes**: snake_case para arquivos, CamelCase para classes
-
-## 🚀 Workflow de Desenvolvimento
-
-### Para Adicionar Nova Feature
-1. **Discussão**: Criar issue/artifact com proposta
-2. **Branch**: feature/nome-da-feature
-3. **Implementação**: Seguir arquitetura plugável
-4. **Testes**: Usar scripts em `scripts/`
-5. **Documentação**: Atualizar artifacts relevantes
-
-### Scripts Úteis
-```bash
-# Teste rápido com arquivo real
-./scripts/teste_real_simples.sh
-
-# Teste completo automático
-./scripts/teste_automatico.sh
-
-# Criar nova análise
-./scripts/automation/nova_analise.sh "nome" "descrição"
-
-# Criar novo gráfico
-./scripts/automation/novo_grafico.sh "nome" "descrição"
-```
-
-## 📊 Estado Atual e Próximos Passos
-
-### V2.0 Completa ✅
-- Sistema 100% modular
-- 9 análises funcionando
-- 8 visualizações funcionando
-- Orquestração automática
-
-### V2.1 Em Planejamento 🎯
-- **ConfigurationRegistry**: Sistema central de configurações
-- **Configuration Manager**: Ajustes por contexto/domínio
-- **Análise Comparativa**: Implementação modular
-- **Perfis Especializados**: Acadêmico, Médico, etc.
-
-## 💡 Conceitos Importantes
-
-### Orquestração
-- **AnalysisOrchestrator**: Descobre e coordena análises
-- **ChartOrchestrator**: Mapeia dados → visualizações
-- **Auto-descoberta**: Zero configuração manual
-
-### Configuração em Camadas
-```
-Global → Projeto → Análise → Texto
-```
-
-### Fallback de Visualização
-```
-Plotly (interativo) → Matplotlib (estático) → Text (sempre funciona)
-```
-
-## 🔧 Implementação do ConfigurationRegistry (V2.1)
-
-```python
-# Conceito central para V2.1
+# core/config/configuration_registry.py
 class ConfigurationRegistry:
     """Registro central de todas as configurações"""
     
     def __init__(self):
-        self.analyzers = self._scan_analyzers()
-        self.profiles = self._load_profiles()
-        
-    def get_config_for_text(self, text_stats: Dict) -> Dict:
-        """Retorna config otimizada para o texto"""
-        # Auto-detecção baseada em:
-        # - Tamanho (curto/médio/longo)
-        # - Domínio detectado
-        # - Complexidade linguística
+        self.analyzer_schemas = {}
+        self.profiles = {}
+        self._discover_schemas()
+    
+    def get_config_for_analyzer(analyzer_name, text_size, profile):
+        """Retorna config ajustada para contexto"""
 ```
 
-### Cada Analisador Expõe seu Schema
+#### Schema de Configuração
 ```python
-class BaseAnalyzer:
-    @staticmethod
-    @abstractmethod
-    def get_config_schema() -> Dict:
-        """Retorna schema de configuração"""
-        pass
+# Cada analyzer deve implementar:
+@staticmethod
+def get_config_schema():
+    return {
+        'param_name': {
+            'type': 'int',              # int, float, bool, str, list
+            'default': 10,              # valor padrão
+            'range': [1, 100],          # para numéricos
+            'options': ['a', 'b', 'c'], # para escolhas
+            'short_text': 5,            # ajuste para texto curto
+            'long_text': 20,            # ajuste para texto longo
+            'academic': 15,             # ajuste para perfil acadêmico
+            'description': 'Descrição'   # documentação
+        }
+    }
 ```
 
-## 🎨 Interface de Configuração (Conceito V2.1)
+## 🔧 Workflow de Desenvolvimento
 
-### CLI Avançado
+### 1. Antes de Começar
 ```bash
-# Configurar análise interativamente
-python3 run_analysis.py --configure
+# Sempre fazer backup
+tar -czf backup_$(date +%Y%m%d_%H%M%S).tar.gz core/ engine/ visuals/
 
-# Usar perfil específico
-python3 run_analysis.py --project meu_estudo --profile academic
+# Ativar ambiente virtual
+source transcript_env/bin/activate
 
-# Exportar configuração
-python3 run_analysis.py --export-config meu_estudo > config.json
+# Verificar que tudo funciona
+python run_analysis.py --test-visuals
 ```
 
-### Web Dashboard (Futuro)
-- FastAPI backend
-- Vue.js frontend
-- Configuração visual drag-and-drop
+### 2. Adicionando Schema a um Analyzer
 
-## 📝 Checklist para Novo Desenvolvedor
+#### Passo 1: Verificar analyzer atual
+```bash
+# Ver estrutura do analyzer
+head -50 engine/analyzers/[nome_analyzer].py
 
-- [ ] Ler README.md (visão geral)
-- [ ] Ler ARCHITECTURE.md (como funciona)
-- [ ] Rodar teste_automatico.sh (ver sistema funcionando)
-- [ ] Explorar um analyzer em engine/analyzers/
-- [ ] Entender orquestradores (analysis e chart)
-- [ ] Criar analyzer de teste com nova_analise.sh
-- [ ] Ler ROADMAP.md (futuro do projeto)
+# Verificar se já tem schema
+grep "get_config_schema" engine/analyzers/[nome_analyzer].py
+```
 
-## 🤝 Como Contribuir
+#### Passo 2: Adicionar método get_config_schema
+```python
+# Adicionar após a docstring da classe
+@staticmethod
+def get_config_schema():
+    """Retorna o schema de configuração deste analyzer"""
+    return {
+        # Definir parâmetros configuráveis
+    }
+```
 
-1. **Issues**: Reportar bugs, sugerir features
-2. **Pull Requests**: Seguir padrão de commits
-3. **Documentação**: Manter artifacts atualizados
-4. **Testes**: Sempre testar com dados reais
+#### Passo 3: Testar schema
+```bash
+# Testar importação
+python -c "
+from engine.analyzers.[nome] import [NomeAnalyzer]
+schema = [NomeAnalyzer].get_config_schema()
+print('Schema:', schema)
+"
+```
 
-## 🎯 Dicas para Manter Contexto
+### 3. Testando Mudanças
 
-### Em Novo Chat
-1. Mencionar versão atual (V2.0)
-2. Destacar arquitetura modular
-3. Explicar sistema plugável
-4. Referenciar ConfigurationRegistry para V2.1
+#### Teste Individual de Analyzer
+```bash
+# Testar analyzer específico
+python -c "
+from engine.analyzers.[nome] import [NomeAnalyzer]
+analyzer = [NomeAnalyzer]()
+# Testar com dados mock
+"
+```
 
-### Artifacts Essenciais
-- README.md - Visão geral
-- ARCHITECTURE.md - Detalhes técnicos
-- ROADMAP.md - Próximos passos
-- Este arquivo - Contexto de desenvolvimento
+#### Teste do Sistema Completo
+```bash
+# Teste automático com dados mockados
+./scripts/tests/teste_automatico.sh
+
+# Teste com arquivo real
+./scripts/tests/teste_real_simples.sh
+```
+
+### 4. Commits e Documentação
+
+#### Antes do Commit
+1. Atualizar artifacts (README, CONTEXT, DEVELOPMENT)
+2. Atualizar CHANGELOG.md
+3. Verificar que testes passam
+4. Fazer backup se mudança grande
+
+#### Padrão de Commit
+```bash
+# feat: nova funcionalidade
+git commit -m "feat: add config schema to [analyzer_name]"
+
+# fix: correção
+git commit -m "fix: correct schema validation in [component]"
+
+# docs: documentação
+git commit -m "docs: update development guide for V2.1"
+
+# refactor: refatoração
+git commit -m "refactor: simplify config discovery logic"
+```
+
+## 📊 Analyzers e Seus Parâmetros
+
+### 1. WordFrequencyAnalyzer ✅
+- `min_frequency`: Frequência mínima (1-10)
+- `max_words`: Máximo de palavras (10-200)
+- `use_stopwords`: Usar stopwords (bool)
+- `stopwords_file`: Arquivo de stopwords
+
+### 2. TemporalAnalysisAnalyzer ⏳
+- `segments`: Número de segmentos
+- `segment_method`: Método de segmentação
+- `sentiment_lexicon`: Léxico emocional
+- `smoothing`: Suavização
+
+### 3. GlobalMetricsAnalyzer ⏳
+- `metrics_to_calculate`: Lista de métricas
+- `sentiment_threshold`: Limiar de sentimento
+- `coherence_method`: Método de coerência
+
+### 4. LinguisticPatternsAnalyzer ⏳
+- `patterns_file`: Arquivo de padrões
+- `min_pattern_frequency`: Frequência mínima
+- `detect_hesitations`: Detectar hesitações
+- `detect_certainty`: Detectar certeza
+
+### 5. ConceptNetworkAnalyzer ⏳
+- `window_size`: Janela de coocorrência
+- `min_cooccurrence`: Coocorrências mínimas
+- `max_connections`: Máximo de conexões
+- `centrality_metric`: Métrica de centralidade
+
+### 6. TopicModelingAnalyzer ⏳
+- `n_topics`: Número de tópicos
+- `method`: Algoritmo (lda, nmf, lsa)
+- `n_words_per_topic`: Palavras por tópico
+- `min_doc_frequency`: Frequência mínima
+
+### 7. ContradictionDetectionAnalyzer ⏳
+- `contradiction_threshold`: Limiar de detecção
+- `negation_words`: Arquivo de negações
+- `min_distance`: Distância mínima
+- `semantic_analysis`: Análise semântica
+
+### 8. SentimentAnalysisAnalyzer ⏳
+- `lexicon_positive`: Léxico positivo
+- `lexicon_negative`: Léxico negativo
+- `compound_phrases`: Frases compostas
+- `intensity_modifiers`: Modificadores
+
+### 9. TestVelocityAnalyzer ⏳
+- `test_mode`: Modo de teste
+- `delay_seconds`: Delay simulado
+- `mock_data`: Usar dados mock
+
+## 🐛 Debugging
+
+### Problemas Comuns
+
+#### Import Error
+```bash
+# Verificar estrutura de imports
+python -c "import sys; print('\n'.join(sys.path))"
+
+# Verificar __init__.py
+ls -la engine/analyzers/__init__.py
+```
+
+#### Schema não encontrado
+```bash
+# Verificar método implementado
+grep -n "get_config_schema" engine/analyzers/[nome].py
+
+# Verificar herança de BaseAnalyzer
+grep -n "BaseAnalyzer" engine/analyzers/[nome].py
+```
+
+#### Configuração inválida
+```python
+# Testar validação
+from core.config.configuration_registry import ConfigurationRegistry
+registry = ConfigurationRegistry()
+valid, errors = registry.validate_config('analyzer_name', config)
+print(errors)
+```
+
+## 🚀 Próximas Etapas
+
+### Fase 1: Schemas (atual)
+1. Implementar schemas nos 8 analyzers restantes
+2. Testar cada schema individualmente
+3. Garantir consistência entre schemas
+
+### Fase 2: Auto-descoberta
+1. Implementar scanner no ConfigurationRegistry
+2. Remover configurações hardcoded
+3. Cache de schemas para performance
+
+### Fase 3: Interface
+1. CLI interativo para configuração
+2. Visualização de todas as opções
+3. Salvar/carregar perfis
+
+### Fase 4: Integração
+1. AnalysisOrchestrator usar configs
+2. Ajustes automáticos funcionando
+3. Validação em tempo real
+
+### Fase 5: Documentação
+1. CONFIG_MANUAL.md - Manual de uso das configurações
+2. Exemplos práticos por perfil
+3. Guia de customização
+4. FAQ de configurações comuns
+
+## 📝 Checklist de Qualidade
+
+Antes de considerar uma tarefa completa:
+
+- [ ] Código testado individualmente
+- [ ] Sistema completo testado
+- [ ] Documentação atualizada
+- [ ] Artifacts atualizados
+- [ ] CHANGELOG atualizado
+- [ ] Sem quebrar funcionalidade existente
+- [ ] Backup criado se mudança grande
+- [ ] Commit com mensagem clara
+
+## 🔗 Links Úteis
+
+- [Semantic Versioning](https://semver.org/)
+- [Conventional Commits](https://www.conventionalcommits.org/)
+- [Keep a Changelog](https://keepachangelog.com/)
 
 ---
 
-**Lembre-se**: O poder do sistema está na modularidade e orquestração. Sempre pense: "Como fazer isso de forma plugável?"
+**Última atualização**: 09/Jun/2025 - V2.1-beta em desenvolvimento
