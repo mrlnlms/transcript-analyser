@@ -17,27 +17,40 @@ Sistema escalável e modular para análise automatizada de entrevistas qualitati
 - 🎯 **Coerência Temática**: 0.72 (boa estrutura narrativa)
 - 💭 **Abertura Emocional**: 1.23 (expressivo)
 
-## 🎨 Próxima Evolução: Sistema de Gráficos Plugável
+## 🎭 Próxima Evolução: Orquestração Inteligente
 
-### Visualizações Atuais (8 funcionais)
-- Timeline emocional interativa com sentimento real ✅
-- Rede de conceitos e coocorrências extraída do texto ✅
-- Word cloud de termos frequentes (HTML interativo) ✅
-- Top 10 palavras por frequência real ✅
-- Análise de padrões linguísticos detectados ✅
-- Hierarquia de tópicos categorizados ✅
-- Análise de contradições funcionando ✅
-- Dashboard de métricas globais calculadas ✅
+### ChartOrchestrator (Próximo)
+- Coordenar criação automática de todos os gráficos
+- Auto-descoberta e seleção inteligente de visualizações
+- Integração perfeita com análises plugáveis
+- Sistema de prioridades e dependências
 
-### Sistema de Gráficos Plugável (Em Desenvolvimento)
-- **1 arquivo Python + 1 JSON = 1 gráfico novo**
-- Auto-descoberta de charts disponíveis
-- Scripts de automação: `novo_grafico.sh`, `nova_feature.sh`
-- Configurações externas específicas por tipo de gráfico
-- Calibração automática por volume de dados
-- Fallback inteligente: Plotly → Matplotlib → Text
+### AnalysisOrchestrator (Futuro)
+- Coordenar execução automática de todas as análises
+- Gerenciamento de dependências entre analisadores
+- Cache inteligente e otimização de performance
+- Paralelização de análises independentes
 
-**Objetivo**: Facilitar criação de novas visualizações sem editar código principal
+### Refatoração Final
+- run_analysis.py: De 700+ linhas para ~100 linhas (só orquestração)
+- Sistema 100% baseado em auto-descoberta
+- Configuração externa total
+- Zero hardcoding
+
+**Objetivo**: Sistema completamente auto-gerenciado onde adicionar funcionalidades é literalmente só criar arquivos!
+
+### Workflow Futuro Idealizado
+```bash
+# Criar análise completa (análise + gráfico + config)
+./scripts/automation/nova_feature.sh "sentiment_phases" "Análise de Fases Emocionais"
+
+# Sistema automaticamente:
+# 1. Cria SentimentPhasesAnalyzer
+# 2. Cria SentimentPhasesChart  
+# 3. Cria configs JSON
+# 4. Auto-descoberta encontra e integra
+# 5. Funciona imediatamente sem editar código
+```
 
 ## 🚀 Quick Start
 
@@ -315,7 +328,7 @@ python3 run_analysis.py --compare educacao_2024 saude_2024
 
 ## 🏗️ Arquitetura
 
-## 🏗️ Arquitetura Plugável - COMPLETA!
+## 🏗️ Arquitetura Plugável - REVOLUCIONÁRIA!
 
 ### Análises Implementadas (100% Real + 100% Plugável)
 - **Contagem de Palavras**: ✅ **WordFrequencyAnalyzer** - Frequências reais com calibração automática
@@ -326,15 +339,26 @@ python3 run_analysis.py --compare educacao_2024 saude_2024
 - **Categorização de Tópicos**: ✅ **TopicModelingAnalyzer** - Agrupamento por palavras-chave temáticas
 - **Detecção de Contradições**: ✅ **ContradictionDetectionAnalyzer** - Padrões e negações detectadas
 
-### Sistema Plugável Completo
+### Visualizações Implementadas (100% Plugáveis)
+- **Timeline Emocional**: ✅ **TimelineChart** - Evolução temporal interativa
+- **Rede de Conceitos**: ✅ **NetworkChart** - Grafo semântico interativo
+- **Métricas Globais**: ✅ **MetricsChart** - Dashboard de indicadores
+- **Word Cloud**: ✅ **WordCloudChart** - Nuvem de palavras interativa
+- **Top Palavras**: ✅ **FrequencyChart** - Ranking de frequências
+- **Padrões Linguísticos**: ✅ **PatternsChart** - Análise de marcadores
+- **Tópicos**: ✅ **TopicsChart** - Distribuição temática
+- **Contradições**: ✅ **ContradictionsChart** - Análise de inconsistências
+
+### Sistema Plugável Revolucionário
 - **1 arquivo Python + 1 JSON = 1 funcionalidade nova**
-- Auto-descoberta de analisadores funcionando perfeitamente
-- Scripts de automação para criação rápida (`nova_analise.sh`, `novo_grafico.sh`)
+- Auto-descoberta de analisadores E gráficos funcionando perfeitamente
+- Scripts de automação: `nova_analise.sh`, `novo_grafico.sh`, `nova_feature.sh`
 - Calibração automática por tamanho de texto (pequeno/médio/grande)
 - Comunicação entre analisadores (ex: GlobalMetrics usa TemporalAnalysis)
 - Divisão inteligente de textos corridos para timeline funcional
+- Fallback inteligente: Plotly → Matplotlib → Text
 - Zero edição de código principal para adicionar funcionalidades
-- Sistema 100% retrocompatível
+- Sistema 100% retrocompatível e escalável
 
 ### Princípios de Design
 - **Engine**: Análise independente por módulos

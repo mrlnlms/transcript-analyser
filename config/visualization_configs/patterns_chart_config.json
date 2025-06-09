@@ -1,0 +1,25 @@
+{
+    "enabled": true,
+    "description": "Template para configuração de visualização",
+    "backend": "plotly",
+    "fallback_backends": ["matplotlib", "text"],
+    "styling": {
+        "width": 800,
+        "height": 600,
+        "theme": "plotly_white",
+        "font_size": 12
+    },
+    "data_adjustments": {
+        "max_data_points": 100,
+        "downsample_threshold": 200,
+        "smoothing": {
+            "enabled": true,
+            "factor": 0.1
+        }
+    },
+    "export": {
+        "formats": ["html", "png"],
+        "dpi": 300,
+        "interactive": true
+    }
+}
