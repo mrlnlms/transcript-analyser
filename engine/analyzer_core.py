@@ -45,7 +45,7 @@ class TranscriptAnalyzer:
                 'topics': topics,
                 'topic_distribution': topic_distribution,
                 'topic_hierarchy': topic_hierarchy,
-                'contradictions': [],
+                'contradictions': self._detect_contradictions(text, temporal_analysis),
                 'concept_network': self._build_concept_network(text, word_frequencies)
             }
             
@@ -422,3 +422,107 @@ class TranscriptAnalyzer:
             })
         
         return topics, topic_distribution, topic_hierarchy
+    
+
+    def _detect_contradictions(self, text: str, temporal_data: List[Dict]) -> List[Dict[str, Any]]:
+        """Detecta possíveis contradições no texto"""
+        import re
+        
+        contradictions = []
+        
+        # Dividir em sentenças
+        sentences = re.split(r'[.!?]+', text)
+        sentences = [s.strip() for s in sentences if s.strip()]
+        
+        # Padrões de contradição comuns
+        contradiction_patterns = [
+            # Negação direta
+            (r'\b(sempre|todos?|toda?s?|nunca|ninguém|nenhum)\b.*\b(mas|porém|entretanto|contudo)\b.*\b(às vezes|alguns?|alguma?s?|nem sempre)\b', 0.8),
+            # Mudança de opinião
+            (r'\b(acho|penso|acredito)\b.*\b(mas|porém)\b.*\b(não sei|talvez não|pensando bem)\b', 0.7),
+            # Afirmação seguida de negação
+            (r'\b(sim|concordo|certo|verdade)\b.*\b(mas|porém|no entanto)\b.*\b(não|errado|discordo)\b', 0.9),
+            # Generalização seguida de exceção
+            (r'\b(todos?|sempre|nunca)\b.*\b(exceto|menos|salvo|fora)\b', 0.6),
+        ]
+        
+        # Buscar padrões em sentenças consecutivas
+        for i in range(len(sentences) - 1):
+            for j in range(i + 1, min(i + 5, len(sentences))):  # Olhar até 5 sentenças à frente
+                sent1 = sentences[i].lower()
+                sent2 = sentences[j].lower()
+                
+                # Verificar padrões de contradição
+                for pattern, base_score in contradiction_patterns:
+                    combined = f"{sent1} {sent2}"
+                    if re.search(pattern, combined):
+                        contradictions.append({
+                            'text1': sentences[i][:100],
+                            'text2': sentences[j][:100],
+                            'score': base_score,
+                            'topics': self._extract_keywords(combined),
+                            'timestamp1': i * 2.5,  # Estimativa temporal
+                            'timestamp2': j * 2.5
+                        })
+                        break
+                
+                # Verificar negações do mesmo conceito
+                # Palavras-chave importantes em ambas as sentenças
+                words1 = set(re.findall(r'\b\w{4,}\b', sent1))
+                words2 = set(re.findall(r'\b\w{4,}\b', sent2))
+                common_words = words1.intersection(words2)
+                
+                if common_words and len(common_words) > 2:
+                    # Verificar se uma nega a outra
+                    has_negation1 = bool(re.search(r'\b(não|nunca|nenhum|sem)\b', sent1))
+                    has_negation2 = bool(re.search(r'\b(não|nunca|nenhum|sem)\b', sent2))
+                    
+                    if has_negation1 != has_negation2:  # Uma tem negação, outra não
+                        # Variar o score baseado na quantidade de palavras em comum
+                        score_variation = 0.5 + (len(common_words) * 0.05)
+                        score_variation = min(score_variation, 0.85)  # Limitar máximo
+                        
+                        contradictions.append({
+                            'text1': sentences[i][:100],
+                            'text2': sentences[j][:100],
+                            'score': score_variation,
+                            'topics': list(common_words)[:5],
+                            'timestamp1': i * 2.5,
+                            'timestamp2': j * 2.5
+                        })
+        
+        # Detectar mudanças de sentimento extremas
+        if temporal_data and len(temporal_data) > 1:
+            for i in range(len(temporal_data) - 1):
+                current = temporal_data[i]
+                next_seg = temporal_data[i + 1]
+                
+                # Mudança brusca de sentimento
+                sentiment_change = abs(current['sentiment'] - next_seg['sentiment'])
+                if sentiment_change > 1.0:  # Mudança significativa
+                    contradictions.append({
+                        'text1': f"Sentimento positivo no minuto {current['minute']:.1f}",
+                        'text2': f"Sentimento negativo no minuto {next_seg['minute']:.1f}",
+                        'score': min(sentiment_change / 2, 1.0),
+                        'topics': ['mudança emocional', 'sentimento'],
+                        'timestamp1': current['minute'],
+                        'timestamp2': next_seg['minute']
+                    })
+        
+        # Ordenar por score e retornar top contradições
+        contradictions.sort(key=lambda x: x['score'], reverse=True)
+        return contradictions[:5]  # Máximo 5 contradições
+    
+    def _extract_keywords(self, text: str) -> List[str]:
+        """Extrai palavras-chave de um texto"""
+        import re
+        
+        # Palavras importantes (substantivos, verbos principais)
+        words = re.findall(r'\b\w{4,}\b', text.lower())
+        
+        # Filtrar stopwords básicas
+        stopwords = {'para', 'mais', 'muito', 'mesmo', 'quando', 'onde', 'como', 'porque'}
+        keywords = [w for w in words if w not in stopwords]
+        
+        # Retornar únicas
+        return list(set(keywords))[:5]
