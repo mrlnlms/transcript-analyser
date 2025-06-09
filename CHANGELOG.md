@@ -56,3 +56,21 @@
 ---
 
 **Convenções**: Este projeto segue [Semantic Versioning](https://semver.org/) e [Keep a Changelog](https://keepachangelog.com/)
+
+## [2.1.0-beta] - Junho 2025 - ConfigurationRegistry Implementado 🔧
+
+### Added
+- BaseAnalyzer com suporte a get_config_schema()
+- WordFrequencyAnalyzer com schema de configuração completo
+- 4 parâmetros configuráveis: min_frequency, max_words, use_stopwords, stopwords_file
+- Suporte para configurações por tamanho de texto (short_text, long_text)
+- Suporte para configurações por perfil (academic, medical)
+
+### Changed
+- ConfigurationRegistry agora com estrutura real de schemas
+- Preparado para auto-descoberta de configurações
+
+### Next
+- Implementar get_config_schema() nos outros 8 analyzers
+- Auto-descoberta real no ConfigurationRegistry
+- Interface CLI para configuração interativa
