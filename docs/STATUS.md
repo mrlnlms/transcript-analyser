@@ -51,6 +51,11 @@
   - Opção de abrir resultado: `./teste_automatico.sh yes`
 - ✅ `workflow_manual.sh` - Fluxo interativo para transcrições reais
 - ✅ `limpar_projetos.sh` - Gerenciamento de projetos
+- ✅ `teste_real_simples.sh` - Teste com arquivo real único
+  - Limpa teste_real_* anteriores
+  - Abre Finder para adicionar arquivo
+  - Executa análise e abre resultados
+- ✅ `limpar_completo.sh` - Limpeza inteligente com opções
 
 ## 🚧 Pendências e Próximos Passos
 
@@ -83,6 +88,7 @@
 - ⏳ **Análise de Velocidade** - Palavras por minuto ao longo da entrevista
 
 ### 2. Análise Real
+- 🔄 **EM PROGRESSO** - Substituindo mocks por análise real
 - ⏳ Implementar análise de sentimento real (TextBlob/NLTK)
 - ⏳ LDA verdadeiro para tópicos
 - ⏳ Detecção real de padrões linguísticos

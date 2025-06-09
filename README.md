@@ -56,6 +56,63 @@ pip install -r requirements.txt
 python3 run_analysis.py --test-visuals
 ```
 
+## 🛠️ Scripts Auxiliares
+
+O projeto inclui scripts bash para facilitar o workflow:
+
+### Scripts de Teste
+
+#### `teste_automatico.sh`
+Executa teste completo com dados mockados/densos:
+```bash
+./scripts/teste_automatico.sh      # Executa sem abrir resultados
+./scripts/teste_automatico.sh yes  # Executa e abre imagem comparativa
+```
+- Limpa projetos anteriores (teste_auto_*)
+- Cria 3 projetos com 1, 2 e 3 arquivos
+- Gera análise individual e comparativa
+- Remove comparações antigas (*_test)
+
+#### `teste_real_simples.sh`
+Teste rápido com arquivo real:
+```bash
+./scripts/teste_real_simples.sh
+```
+- Limpa testes anteriores (teste_real_*)
+- Cria projeto único
+- Abre Finder para adicionar arquivo .txt
+- Executa análise e abre resultados
+
+### Scripts de Produção
+
+#### `workflow_manual.sh`
+Workflow completo para análise real:
+```bash
+./scripts/workflow_manual.sh
+```
+- Solicita nomes de 3 projetos
+- Cria estrutura e aguarda arquivos
+- Executa análise individual
+- Opção de análise comparativa
+
+### Scripts de Manutenção
+
+#### `limpar_projetos.sh`
+Limpeza básica de projetos:
+```bash
+./scripts/limpar_projetos.sh
+```
+
+#### `limpar_completo.sh`
+Limpeza inteligente com opções:
+```bash
+./scripts/limpar_completo.sh
+```
+- Menu interativo
+- Opções: teste apenas, teste+comparações, tudo, seletivo
+- Mostra espaço a ser liberado
+- Confirmação para operações destrutivas
+
 ## 💻 Uso Diário
 
 ### Ativação do Ambiente
