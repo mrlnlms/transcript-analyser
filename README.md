@@ -41,28 +41,29 @@ chart_orchestrator.analyze(result, output_dir)  # Descobre e cria tudo automatic
 - **Tratamento de erros** integrado ✅
 - **Zero código hardcoded** para visualizações ✅
 
-## 🎭 Orquestração Inteligente - REVOLUÇÃO COMPLETA! ✅
+## 🎭 Orquestração Inteligente - SISTEMA V2.0 COMPLETO! ✅
 
-### **DUPLA ORQUESTRAÇÃO PERFEITA:**
+### **ARQUITETURA 100% MODULAR:**
 
-#### **AnalysisOrchestrator** - DOMINANDO! ✅
-- **9/9 análises** coordenadas automaticamente ✅
-- **Auto-descoberta** de analisadores disponíveis ✅
-- **Gerenciamento de dependências** entre analisadores ✅
-- **Execução coordenada** com cache inteligente ✅
-- **Dados ricos**: 50 palavras, 20 pontos temporais, 5 contradições ✅
+#### **Sistema de Módulos Especializados** ✅
+- **run_analysis.py**: Entry point minimalista (~100 linhas)
+- **cli_manager.py**: Gerenciamento profissional de CLI
+- **project_manager.py**: Gestão completa de projetos  
+- **analysis_runner.py**: Coordenação de análises
+- **markdown_generator.py**: Gerador de relatórios modular
 
-#### **ChartOrchestrator** - PERFEIÇÃO! ✅
-- **8/8 gráficos** funcionando automaticamente ✅
-- **Auto-descoberta** de charts disponíveis ✅  
-- **Mapeamento inteligente** dados → visualizações ✅
-- **Todos os HTMLs** gerados e funcionando ✅
+#### **Orquestradores Inteligentes** ✅
+- **AnalysisOrchestrator**: 9/9 análises coordenadas automaticamente
+- **ChartOrchestrator**: 8/8 gráficos gerados automaticamente
+- **Auto-descoberta total**: Zero configuração manual
+- **Sistema plugável**: 1 arquivo Python + 1 JSON = 1 funcionalidade
 
-#### **MarkdownReportGenerator** - MODULARIZADO! ✅
-- **Gerador de relatórios** extraído para módulo próprio ✅
-- **Relatórios ricos** com interpretações automáticas ✅
-- **Padrão de nomes** report_[arquivo].md ✅
-- **Seções inteligentes** baseadas nos dados disponíveis ✅
+### **Resultados da V2.0 - ÉPICO!**
+- **Refatoração completa**: 700+ → 100 linhas no arquivo principal
+- **100% modular**: Cada módulo com responsabilidade única
+- **100% plugável**: Adicione features sem tocar no core
+- **100% orquestrado**: Sistema auto-gerenciado
+- **Pronto para escalar**: API, Web, Obsidian...
 
 ```python
 # REVOLUÇÃO COMPLETA: Análises + Gráficos 100% orquestrados!
@@ -383,9 +384,34 @@ ls projects/educacao_2024/output/
 python3 run_analysis.py --compare educacao_2024 saude_2024
 ```
 
-## 🏗️ Arquitetura
+## 🏗️ Arquitetura V2.0
 
-## 🏗️ Arquitetura Plugável - REVOLUCIONÁRIA!
+### Sistema Modular Completo
+```
+transcript-analyser/
+├── 🚀 run_analysis.py          # Entry point (~100 linhas)
+├── 🎯 cli_manager.py           # Gerenciamento de CLI
+├── 📁 project_manager.py       # Gerenciamento de projetos
+├── ⚡ analysis_runner.py       # Coordenação de análises
+├── 📝 markdown_generator.py    # Gerador de relatórios
+│
+├── 📊 engine/                  # Motor de análise
+│   ├── analysis_orchestrator.py # Orquestrador principal
+│   └── analyzers/              # 9 analisadores plugáveis
+│
+├── 🎨 visuals/                # Sistema de visualizações
+│   ├── chart_orchestrator.py   # Orquestrador de gráficos
+│   ├── visualization_manager.py # 3 backends (Plotly/Matplotlib/Text)
+│   └── charts/                 # 8 visualizações plugáveis
+│
+├── ⚙️ config/                  # Configurações externas
+│   ├── analysis_configs/       # JSON por analisador
+│   └── visualization_configs/  # JSON por gráfico
+│
+├── 📚 resources/              # Léxicos e dicionários
+├── 🛠️ scripts/                # Scripts auxiliares
+└── 📂 projects/               # Projetos dos usuários
+```
 
 ### Análises Implementadas (100% Real + 100% Plugável)
 - **Contagem de Palavras**: ✅ **WordFrequencyAnalyzer** - Frequências reais com calibração automática
