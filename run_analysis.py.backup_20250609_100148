@@ -17,7 +17,6 @@ from typing import Optional, List
 try:
     from config_loader import ConfigLoader, ResourceManager, ProjectConfig
     from engine.analyzer_core import TranscriptAnalyzer
-    from engine.analysis_orchestrator import AnalysisOrchestrator
     from visuals.dashboard_generator import DashboardGenerator
 except ImportError as e:
     print(f"❌ Erro ao importar módulos básicos: {e}")
@@ -53,7 +52,7 @@ class AnalysisRunner:
             print(f"✅ Configuração carregada: {config.project_name}")
             
             # 2. Inicializar analisador
-            analyzer = AnalysisOrchestrator()
+            analyzer = TranscriptAnalyzer(config, self.resource_manager)
             
             # 3. Detectar arquivos para análise
             project_dir = self.config_loader.projects_dir / project_name
@@ -74,7 +73,7 @@ class AnalysisRunner:
                 print(f"\n🔍 Analisando: {file_path.name}")
                 
                 try:
-                    result = analyzer.analyze_transcript(file_path, config.__dict__)
+                    result = analyzer.analyze_transcript(file_path)
 
                     # DEBUG - Verificar dados disponíveis
                     print("\n🔍 DEBUG - Dados completos disponíveis:")
@@ -109,7 +108,7 @@ class AnalysisRunner:
                     print(f"\n🎨 Orquestrando visualizações para {result['filename']}...")
                     
                     # ChartOrchestrator - substitui TODO o código hardcoded!
-                    from visuals.chart_orchestrator import ChartOrchestrator
+                    from engine.analyzers.chart_orchestrator import ChartOrchestrator
                     chart_orchestrator = ChartOrchestrator()
                     orchestration_result = chart_orchestrator.analyze(result, str(output_dir))
                     
@@ -128,10 +127,7 @@ class AnalysisRunner:
             # 6. Gerar relatórios se habilitado
             if config.output['generate_markdown']:
                 print(f"\n📝 Gerando relatórios...")
-                try:
-                    self._generate_markdown_reports(results, project_dir / "output")
-                except Exception as e:
-                    print(f"⚠️ Relatório markdown com problema (gráficos OK): {e}")
+                self._generate_markdown_reports(results, project_dir / "output")
             
             # 7. Resumo final
             self._print_analysis_summary(results, project_name)
@@ -164,14 +160,14 @@ class AnalysisRunner:
             # Coletar resultados de todos os projetos
             for project_name in project_names:
                 config = self.config_loader.load_project_config(project_name)
-                analyzer = AnalysisOrchestrator()
+                analyzer = TranscriptAnalyzer(config, self.resource_manager)
                 
                 project_dir = self.config_loader.projects_dir / project_name
                 files = list((project_dir / "arquivos").glob("*.txt"))
                 
                 project_results = []
                 for file_path in files:
-                    result = analyzer.analyze_transcript(file_path, config.__dict__)
+                    result = analyzer.analyze_transcript(file_path)
                     result['project'] = project_name
                     result['filename'] = file_path.name
                     project_results.append(result)
@@ -265,21 +261,12 @@ class AnalysisRunner:
                 content += f"{i}. **{word}**: {freq} vezes\n"
             content += "\n"
         
-
-        # Tópicos Principais  
-        if result.get('topics'):
-            content += "## 📈 Tópicos Principais\n\n"
-            try:
-                topics_list = result['topics'] if isinstance(result['topics'], list) else []
-                for i, topic in enumerate(topics_list[:5]):
-                    if i < len(result.get('topic_distribution', [])):
-                        distribution = result['topic_distribution'][i]
-                        content += f"### Tópico {i+1} ({distribution:.1%})\n"
-                        if isinstance(topic, dict) and 'words' in topic:
-                            words = topic['words'][:8] if isinstance(topic['words'], list) else []
-                            content += f"**Palavras-chave:** {', '.join(words)}\n\n"
-            except Exception as e:
-                content += f"Tópicos: {len(result.get('topics', []))} encontrados\n\n"
+        # Tópicos Principais
+        content += "## 📈 Tópicos Principais\n\n"
+        for i, topic in enumerate(result['topics'][:5]):
+            distribution = result['topic_distribution'][i]
+            content += f"### Tópico {i+1} ({distribution:.1%})\n"
+            content += f"**Palavras-chave:** {', '.join(topic['words'][:8])}\n\n"
         
         # Rede de Conceitos
         if result.get('concept_network'):
@@ -356,7 +343,7 @@ class AnalysisRunner:
         print(f"💭 Abertura média: {avg_openness:.2f}")
         
         # Arquivos com problemas
-        problematic = [r for r in results if isinstance(r.get('global_metrics'), dict) and r['global_metrics'].get('thematic_coherence', 0) < 0.3]
+        problematic = [r for r in results if r['global_metrics']['thematic_coherence'] < 0.3]
         if problematic:
             print(f"\n⚠️ Arquivos com baixa coerência: {len(problematic)}")
             for r in problematic:

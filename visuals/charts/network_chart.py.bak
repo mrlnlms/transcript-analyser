@@ -16,19 +16,13 @@ class NetworkChart(BaseChart):
         
         # Extrair dados da rede
         if 'concept_network' in data:
-            concept_data = data['concept_network']
-            if isinstance(concept_data, list):
-                connections = concept_data[:10]
+            if isinstance(data['concept_network'], list):
+                concept_data = data["concept_network"]
+                connections = concept_data[:10] if isinstance(concept_data, list) else []
             else:
-                connections = list(concept_data.items())[:10] if isinstance(concept_data, dict) else []
-            
-            # Corrigir: criar nodes e edges corretamente
-            if connections and len(connections) > 0 and isinstance(connections[0], dict):
-                nodes = list(set([c["word1"] for c in connections] + [c["word2"] for c in connections]))
-                edges = [(c['word1'], c['word2']) for c in connections]
-            else:
-                nodes = []
-                edges = []
+                connections = list(data['concept_network'].items())[:10] if isinstance(data['concept_network'], dict) else []
+            nodes = list(set([c['word1'] for c in connections] + [c['word2'] for c in connections]))
+            edges = [(c['word1'], c['word2']) for c in connections]
         else:
             nodes = data.get('nodes', [])
             edges = data.get('edges', [])
@@ -43,24 +37,10 @@ class NetworkChart(BaseChart):
         import random
         import math
         
-        # Verificar se temos dados válidos
-        if not nodes or not edges:
-            # Criar gráfico vazio com mensagem
-            fig = go.Figure()
-            fig.add_annotation(
-                text="Dados de rede não disponíveis",
-                xref="paper", yref="paper",
-                x=0.5, y=0.5, showarrow=False
-            )
-            fig.update_layout(title=self.config.get('title', 'Rede de Conceitos'))
-            html_path = output_path.replace('.png', '.html')
-            fig.write_html(html_path)
-            return html_path
-        
         # Layout simples sem NetworkX
         positions = {}
         for i, node in enumerate(nodes):
-            angle = 2 * math.pi * i / len(nodes) if len(nodes) > 0 else 0
+            angle = 2 * math.pi * i / len(nodes)
             positions[node] = (2 * math.cos(angle), 2 * math.sin(angle))
         
         # Criar edges
@@ -88,12 +68,7 @@ class NetworkChart(BaseChart):
                                text=nodes, textposition="middle center",
                                showlegend=False))
         
-        fig.update_layout(
-            title=self.config.get('title', 'Rede de Conceitos'),
-            showlegend=False,
-            xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-            yaxis=dict(showgrid=False, zeroline=False, showticklabels=False)
-        )
+        fig.update_layout(title=self.config.get('title', 'Rede de Conceitos'))
         
         html_path = output_path.replace('.png', '.html')
         fig.write_html(html_path)
@@ -108,7 +83,7 @@ class NetworkChart(BaseChart):
         for edge in edges[:10]:
             text_output += f"{edge[0]} ↔ {edge[1]}\n"
         
-        text_path = output_path.replace('.png', '.html').replace('.html', '.txt')
+        text_path = output_path.replace('.png', '.txt').replace('.html', '.txt')
         with open(text_path, 'w', encoding='utf-8') as f:
             f.write(text_output)
         return text_path
