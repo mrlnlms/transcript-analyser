@@ -1,0 +1,257 @@
+{
+  "global_metrics": {
+        "global_sentiment": 0.52,
+        "thematic_coherence": 0.72,
+        "emotional_openness": 1.33,
+        "sentiment_variance": 0.54,
+        "total_hesitations": 163
+    },
+    
+    "temporal_analysis": [
+        {"time": 0, "minute": 0, "sentiment": 1.0, "marker": "B1", "phase": "INICIO", "cognitive_load": 12, "hesitations": 3},
+        {"time": 10, "minute": 2.5, "sentiment": 1.0, "marker": "B2", "phase": "INICIO", "cognitive_load": 25, "hesitations": 5},
+        {"time": 20, "minute": 5, "sentiment": 1.0, "marker": "B3", "phase": "INICIO", "cognitive_load": 23, "hesitations": 4},
+        {"time": 30, "minute": 7.5, "sentiment": 1.0, "marker": "B4", "phase": "INICIO", "cognitive_load": 30, "hesitations": 8},
+        {"time": 40, "minute": 10, "sentiment": 0.8, "marker": "TRANSICAO", "phase": "DESENVOLVIMENTO", "cognitive_load": 25, "hesitations": 6},
+        {"time": 50, "minute": 12.5, "sentiment": -0.3, "marker": "B5", "phase": "DESENVOLVIMENTO", "cognitive_load": 15, "hesitations": 12},
+        {"time": 60, "minute": 15, "sentiment": -0.2, "marker": "CONFLITO", "phase": "DESENVOLVIMENTO", "cognitive_load": 18, "hesitations": 15},
+        {"time": 70, "minute": 17.5, "sentiment": 0.3, "marker": "RESOLUCAO", "phase": "DESENVOLVIMENTO", "cognitive_load": 20, "hesitations": 8},
+        {"time": 80, "minute": 20, "sentiment": 0.6, "marker": "B6", "phase": "DESENVOLVIMENTO", "cognitive_load": 22, "hesitations": 5},
+        {"time": 90, "minute": 25, "sentiment": 0.5, "marker": "SINTESE", "phase": "CONCLUSAO", "cognitive_load": 20, "hesitations": 4},
+        {"time": 100, "minute": 30, "sentiment": -0.2, "marker": "B7", "phase": "CONCLUSAO", "cognitive_load": 15, "hesitations": 7},
+        {"time": 110, "minute": 35, "sentiment": -0.5, "marker": "DUVIDA", "phase": "CONCLUSAO", "cognitive_load": 12, "hesitations": 10},
+        {"time": 120, "minute": 40, "sentiment": 0.0, "marker": "B8", "phase": "CONCLUSAO", "cognitive_load": 10, "hesitations": 3}
+    ],
+    
+    
+    "phases": {
+        "INICIO": {
+            "start": 0,
+            "end": 10,
+            "sentiment_avg": 1.00,
+            "duration_minutes": 10,
+            "color": "#B3E5FC"
+        },
+        "DESENVOLVIMENTO": {
+            "start": 10,
+            "end": 25,
+            "sentiment_avg": 0.56,
+            "duration_minutes": 15,
+            "color": "#4FC3F7"
+        },
+        "CONCLUSAO": {
+            "start": 25,
+            "end": 40,
+            "sentiment_avg": 0.15,
+            "duration_minutes": 15,
+            "color": "#E1BEE7"
+        }
+    },
+    
+    
+    "linguistic_patterns": {
+        "certainty_markers": {
+            "count": 7,
+            "examples": ["com certeza", "obviamente", "claramente", "sem dúvida", "definitivamente"],
+            "distribution_by_phase": {
+                "INICIO": 2,
+                "DESENVOLVIMENTO": 3,
+                "CONCLUSAO": 2
+            },
+            "percentage": 10.3
+        },
+        "uncertainty_markers": {
+            "count": 61,
+            "examples": ["talvez", "acho que", "não sei", "pode ser", "provavelmente"],
+            "distribution_by_phase": {
+                "INICIO": 15,
+                "DESENVOLVIMENTO": 30,
+                "CONCLUSAO": 16
+            },
+            "percentage": 89.7,
+            "ratio_to_certainty": 8.71
+        },
+        "hesitations_by_word": {
+            "essa": {"count": 45, "percentage": 88},
+            "modelo": {"count": 42, "percentage": 88},
+            "versão": {"count": 40, "percentage": 88},
+            "linux": {"count": 38, "percentage": 88},
+            "muito": {"count": 35, "percentage": 88}
+        },
+        "hesitation_phrases": {
+            "né": 45,
+            "tipo": 38,
+            "assim": 32,
+            "então": 28,
+            "eh": 20
+        },
+        "total_hesitations": 163,
+        "avg_sentence_length": 223.9,
+        "sentence_length_std": 45.2,
+        "complexity_by_topic": {
+            "topic_0": {"avg_length": 220, "complexity_score": 0.75},
+            "topic_1": {"avg_length": 225, "complexity_score": 0.80},
+            "topic_2": {"avg_length": 230, "complexity_score": 0.85},
+            "topic_3": {"avg_length": 218, "complexity_score": 0.72},
+            "topic_4": {"avg_length": 235, "complexity_score": 0.88}
+        }
+    },
+    
+    
+    "topics": [
+        {
+            "id": "topic_0",
+            "words": ["essa", "modelo", "versão", "linux", "muito", "sistema", "fazer", "código"],
+            "weight": 0.23,
+            "label": "Sistema e Desenvolvimento"
+        },
+        {
+            "id": "topic_1", 
+            "words": ["fenômeno", "teoria", "número", "atributo", "causalidade", "ordem", "valor", "medida"],
+            "weight": 0.28,
+            "label": "Conceitos Teóricos"
+        },
+        {
+            "id": "topic_2",
+            "words": ["curso", "método", "entrevista", "análise", "dado", "resultado", "pesquisa", "qualitativo"],
+            "weight": 0.20,
+            "label": "Metodologia de Pesquisa"
+        },
+        {
+            "id": "topic_3",
+            "words": ["variável", "relação", "processo", "estrutura", "dimensão", "categoria", "classificação"],
+            "weight": 0.15,
+            "label": "Estrutura Analítica"
+        },
+        {
+            "id": "topic_4",
+            "words": ["tempo", "mudança", "evolução", "desenvolvimento", "fase", "período", "momento"],
+            "weight": 0.14,
+            "label": "Dimensão Temporal"
+        }
+    ],
+    
+    
+    "topic_distribution": [0.23, 0.28, 0.20, 0.15, 0.14],
+    
+    
+    "topic_hierarchy": {
+        "central_theme": "TEMAS CENTRAIS",
+        "nodes": [
+            {"id": "central", "label": "TEMAS CENTRAIS", "level": 0, "size": 50},
+            {"id": "topic_0", "label": "sistema", "level": 1, "size": 23},
+            {"id": "topic_1", "label": "teoria", "level": 1, "size": 28},
+            {"id": "topic_2", "label": "método", "level": 1, "size": 20},
+            {"id": "topic_3", "label": "estrutura", "level": 1, "size": 15},
+            {"id": "topic_4", "label": "tempo", "level": 1, "size": 14},
+            
+            {"id": "sub_0_1", "label": "versão", "level": 2, "size": 8},
+            {"id": "sub_0_2", "label": "modelo", "level": 2, "size": 7},
+            {"id": "sub_1_1", "label": "fenômeno", "level": 2, "size": 10},
+            {"id": "sub_1_2", "label": "número", "level": 2, "size": 9},
+            {"id": "sub_2_1", "label": "curso", "level": 2, "size": 6},
+            {"id": "sub_2_2", "label": "análise", "level": 2, "size": 5}
+        ],
+        "edges": [
+            {"source": "central", "target": "topic_0", "weight": 0.23},
+            {"source": "central", "target": "topic_1", "weight": 0.28},
+            {"source": "central", "target": "topic_2", "weight": 0.20},
+            {"source": "central", "target": "topic_3", "weight": 0.15},
+            {"source": "central", "target": "topic_4", "weight": 0.14},
+            {"source": "topic_0", "target": "sub_0_1", "weight": 0.4},
+            {"source": "topic_0", "target": "sub_0_2", "weight": 0.3},
+            {"source": "topic_1", "target": "sub_1_1", "weight": 0.5},
+            {"source": "topic_1", "target": "sub_1_2", "weight": 0.4},
+            {"source": "topic_2", "target": "sub_2_1", "weight": 0.3},
+            {"source": "topic_2", "target": "sub_2_2", "weight": 0.25},
+            
+            {"source": "topic_0", "target": "topic_1", "weight": 0.6},
+            {"source": "topic_1", "target": "topic_2", "weight": 0.7},
+            {"source": "topic_2", "target": "topic_3", "weight": 0.5},
+            {"source": "topic_3", "target": "topic_4", "weight": 0.4}
+        ]
+    },
+    
+    
+    "word_frequencies": {
+        "fenômeno": 45,
+        "número": 38,
+        "curso": 35,
+        "teoria": 32,
+        "atributo": 28,
+        "causalidade": 25,
+        "ordem": 23,
+        "valor": 22,
+        "método": 20,
+        "variável": 18,
+        "medida": 17,
+        "relação": 16,
+        "processo": 15,
+        "estrutura": 14,
+        "dimensão": 13,
+        "categoria": 12,
+        "tempo": 11,
+        "análise": 10,
+        "dado": 9,
+        "resultado": 8
+    },
+    
+    
+    "contradictions": [
+        {
+            "text1": "A tecnologia é fundamental para educação moderna",
+            "text2": "Não podemos depender totalmente de tecnologia",
+            "score": 0.76,
+            "topics": ["tecnologia", "educação"],
+            "timestamp1": 12.5,
+            "timestamp2": 28.3
+        },
+        {
+            "text1": "Os alunos aprendem melhor com métodos tradicionais",
+            "text2": "A inovação pedagógica é essencial",
+            "score": 0.82,
+            "topics": ["metodologia", "aprendizagem"],
+            "timestamp1": 8.2,
+            "timestamp2": 35.7
+        }
+    ],
+    
+    
+    "concept_network": [
+        {"word1": "fenômeno", "word2": "teoria", "weight": 25},
+        {"word1": "número", "word2": "medida", "weight": 22},
+        {"word1": "curso", "word2": "método", "weight": 20},
+        {"word1": "teoria", "word2": "atributo", "weight": 18},
+        {"word1": "causalidade", "word2": "relação", "weight": 16},
+        {"word1": "ordem", "word2": "estrutura", "weight": 15},
+        {"word1": "valor", "word2": "medida", "weight": 14},
+        {"word1": "método", "word2": "análise", "weight": 13},
+        {"word1": "variável", "word2": "dimensão", "weight": 12},
+        {"word1": "processo", "word2": "tempo", "weight": 11},
+        {"word1": "estrutura", "word2": "categoria", "weight": 10},
+        {"word1": "análise", "word2": "resultado", "weight": 9}
+    ],
+    
+    
+    "segments": [
+        {
+            "id": "seg_1",
+            "text": "Então, eh... quando falamos sobre fenômeno, né, estamos tratando de...",
+            "start_time": 0,
+            "end_time": 2.5,
+            "sentiment": 0.3,
+            "topics": ["fenômeno", "teoria"],
+            "hesitations": 2
+        },
+        {
+            "id": "seg_2", 
+            "text": "O número, tipo assim, ele representa uma medida, mas também...",
+            "start_time": 2.5,
+            "end_time": 5,
+            "sentiment": 0.5,
+            "topics": ["número", "medida"],
+            "hesitations": 1
+        }
+        
+    ]
+}
