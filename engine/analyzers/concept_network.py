@@ -15,6 +15,65 @@ class ConceptNetworkAnalyzer(BaseAnalyzer):
     3. Implemente o método analyze()
     4. Crie arquivo de config em config/analysis_configs/
     """
+
+    @staticmethod
+    def get_config_schema():
+        """Retorna o schema de configuração deste analyzer"""
+        return {
+            'max_words_for_network': {
+                'type': 'int',
+                'range': [10, 100],
+                'default': 30,
+                'short_text': 20,
+                'long_text': 50,
+                'description': 'Número máximo de palavras para construir a rede'
+            },
+            'cooccurrence_window': {
+                'type': 'str',
+                'options': ['sentence', 'paragraph', 'fixed_window'],
+                'default': 'sentence',
+                'description': 'Janela para detectar coocorrência'
+            },
+            'fixed_window_size': {
+                'type': 'int',
+                'range': [3, 20],
+                'default': 10,
+                'description': 'Tamanho da janela fixa (se usar fixed_window)'
+            },
+            'min_cooccurrence_count': {
+                'type': 'int',
+                'range': [1, 10],
+                'default': 1,
+                'short_text': 1,
+                'long_text': 2,
+                'description': 'Número mínimo de coocorrências para criar conexão'
+            },
+            'max_connections': {
+                'type': 'int',
+                'range': [10, 200],
+                'default': 20,
+                'short_text': 15,
+                'long_text': 50,
+                'description': 'Número máximo de conexões na rede'
+            },
+            'use_word_frequencies': {
+                'type': 'bool',
+                'default': True,
+                'description': 'Usar análise de frequência para filtrar palavras'
+            },
+            'centrality_metric': {
+                'type': 'str',
+                'options': ['degree', 'betweenness', 'closeness', 'eigenvector'],
+                'default': 'degree',
+                'description': 'Métrica de centralidade para análise da rede'
+            },
+            'include_weak_ties': {
+                'type': 'bool',
+                'default': False,
+                'description': 'Incluir conexões fracas (coocorrência = 1)'
+            }
+        }
+
     
     def analyze(self, text: str, word_frequencies: dict = None) -> Dict:
         """Constrói rede de conceitos baseada em coocorrência"""
