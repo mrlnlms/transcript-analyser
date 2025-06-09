@@ -19,7 +19,7 @@ class TimelineChart(BaseChart):
         if 'temporal_analysis' in data:
             temporal_data = data['temporal_analysis']
             x_data = [seg.get('timestamp', f"{i}%") if isinstance(seg, dict) else f"{i}%" for i, seg in enumerate(temporal_data)]
-            y_data = [seg.get("sentiment", 0) if isinstance(seg, dict) else 0 for seg in temporal_data]
+            y_data = [seg['sentiment'] for seg in temporal_data]
         else:
             x_data = data.get('x', [])
             y_data = data.get('y', [])

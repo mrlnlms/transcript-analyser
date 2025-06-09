@@ -128,10 +128,7 @@ class AnalysisRunner:
             # 6. Gerar relatórios se habilitado
             if config.output['generate_markdown']:
                 print(f"\n📝 Gerando relatórios...")
-                try:
-                    self._generate_markdown_reports(results, project_dir / "output")
-                except Exception as e:
-                    print(f"⚠️ Relatório markdown com problema (gráficos OK): {e}")
+                self._generate_markdown_reports(results, project_dir / "output")
             
             # 7. Resumo final
             self._print_analysis_summary(results, project_name)
@@ -265,21 +262,12 @@ class AnalysisRunner:
                 content += f"{i}. **{word}**: {freq} vezes\n"
             content += "\n"
         
-
-        # Tópicos Principais  
-        if result.get('topics'):
-            content += "## 📈 Tópicos Principais\n\n"
-            try:
-                topics_list = result['topics'] if isinstance(result['topics'], list) else []
-                for i, topic in enumerate(topics_list[:5]):
-                    if i < len(result.get('topic_distribution', [])):
-                        distribution = result['topic_distribution'][i]
-                        content += f"### Tópico {i+1} ({distribution:.1%})\n"
-                        if isinstance(topic, dict) and 'words' in topic:
-                            words = topic['words'][:8] if isinstance(topic['words'], list) else []
-                            content += f"**Palavras-chave:** {', '.join(words)}\n\n"
-            except Exception as e:
-                content += f"Tópicos: {len(result.get('topics', []))} encontrados\n\n"
+        # Tópicos Principais
+        content += "## 📈 Tópicos Principais\n\n"
+        for i, topic in enumerate(result['topics'][:5]):
+            distribution = result['topic_distribution'][i]
+            content += f"### Tópico {i+1} ({distribution:.1%})\n"
+            content += f"**Palavras-chave:** {', '.join(topic['words'][:8])}\n\n"
         
         # Rede de Conceitos
         if result.get('concept_network'):
@@ -356,7 +344,7 @@ class AnalysisRunner:
         print(f"💭 Abertura média: {avg_openness:.2f}")
         
         # Arquivos com problemas
-        problematic = [r for r in results if isinstance(r.get('global_metrics'), dict) and r['global_metrics'].get('thematic_coherence', 0) < 0.3]
+        problematic = [r for r in results if r['global_metrics']['thematic_coherence'] < 0.3]
         if problematic:
             print(f"\n⚠️ Arquivos com baixa coerência: {len(problematic)}")
             for r in problematic:
