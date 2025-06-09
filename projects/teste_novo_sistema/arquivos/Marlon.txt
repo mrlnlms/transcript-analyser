@@ -1,0 +1,2817 @@
+Olá pessoal boa tarde boa tarde boa
+noite bom dia né para quem dependendo do
+do local onde você esteja eh bem-vindos
+ao curso três
+então estamos começando aqui nossa a
+primeira aula né do curso estatística
+aplicada a psicobiologia parte 3 aqui em
+2025 é prazer estar com os senhores e as
+senhoritas aqui de volta eh Já é a
+segunda edição né do curso três e tal
+então A ideia é a gente sempre ter o
+compromisso de melhorar o curso três em
+relação ao ano anterior Eh vamos ver se
+se eh temos sucesso nessa empreitada mas
+é é um prazer estar com os senhores e as
+senhoritas novamente né Eh bom vocês já
+fizeram o curso um e o dois alguns já
+fizeram o três até estão aí de volta
+Então você já sabe como funciona eh eh
+vamos tocar o barco a partir daí tá
+eh eu do do ano passado para cá eu fui
+meditando algumas coisas do curso né
+então vamos ver se eu consegui deixar um
+pouco mais concisa algumas coisas eh e e
+conseguir trazer coisas novas também
+atualizações em relação ao ano passado
+né E
+aperfeiçoamentos então conto com a ajuda
+de dos Senhores e senhoritas também nos
+feedbacks ao longo das aulas para para
+ver se tá engrenando como como engrenou
+na primeira versão do do curso 3 vamos
+ver se a gente consegue chegar mais
+longe aqui
+tá a primeira aula a gente vai retomar a
+discussão do da primeira aula do curso
+um tá
+então o objetivo inicial aqui é a gente
+retomar o a primeira aula do curso um
+sobre teoria da medida com o olhar do
+curso um e dois né então aqui a gente
+vai redefinir né vamos vamos eh
+redefinir a ideia da teoria da
+medida teoria da medida lá no curso um a
+gente não tinha muito ferramental para
+falar disso né da teoria da medida mesmo
+então Eh eu falava assim que a a teoria
+da medida ela eu não explicava direito o
+que era eu falava que era uma coisa que
+era ligada com a ideia do que é medir né
+E aí tem a a ideia das réguas E aí como
+é que você mede uma régua né a régua tem
+que ter validade precisão precisão
+aquela coisa toda né na época do curso
+um como você tava começando e tinha
+muita muita coisa ali eh você não se
+dava muita conta disso tinha outros
+conceitos que tinham tinham que ser
+entendidos antes mas agora no começo do
+curso três eh a gente pode dar uma
+definição mais própria da teoria da
+medida isso vai conversar bastante com a
+ideia da com a ideia de epistemologia e
+vai conversar bastante com a teoria da
+mensuração da psicologia tá Então
+finalmente a gente vai conseguir falar
+de Psicologia de verdade tá não não
+assim eu duvido eu duvido que no
+espectro de vida que a gente tenha e a
+gente essa discussão vai aparecer na
+graduação em psicologia nem na pós tá E
+é um pecado porque na verdade se
+conversa com coisas muito particulares
+da da Psicologia mesmo então uma uma
+reedição da ideia da teoria da medida
+seria
+e é uma uma área né teoria do do a
+teoria da mensuração seria a utilização
+utilização do símbolo
+matemático símbolo
+matemático utilização do símbolo
+matemático que aí é o número é um dos
+símbolos matemáticos tá o a matemática
+não tem não usa só o número como símbolo
+matemático mas é é um deles utilização
+do símbolo matemático do número no
+estudo eh no estudo
+científico científico do fenômenos
+naturais dos
+fenômenos naturais Então nesse sentido a
+teoria da medida é uma área que utiliza
+o número como eh eh como o o material o
+insumo de de entendimento dos fenômenos
+naturais então a a teoria da medida é
+uma área que usa o número como o objeto
+e a ferramenta para entender fenômenos
+naturais então uma outra forma de ver
+isso essa área né Você estuda o uso do
+número
+como
+ferramenta o uso do número como
+ferramenta para
+descrição descrição de
+fenômenos isso que é a teoria da medida
+mesmo tá a teoria da mensuração E aí a
+gente tem que definir o que é um número
+né Se o se o se o o número é o insumo
+que a gente usa para descrever fenômenos
+naturais a gente tem que definir um
+número então um número ele é uma uma
+entidade composta de dois dois
+atributos é uma
+entidade
+imbuída
+imbuída de valor e
+Ordem Esses são os dois atributos do
+número tá a valor e a ordem tá bom
+eh então é é alguma coisa que tem uma
+qualidade né então a a o valor de um de
+um número seria é respe relacionado com
+a qualidade dele tá e a ordem seria
+relacionado com a posição a ordem é uma
+medida de
+quantidade é a ordem tá isso a gente
+relaciona muito com o tipo de variável
+então por exemplo quando você tem uma
+variável
+eh contínua né uma variável contínua ela
+tem valor e Ordem tem os números 1 2 3 4
+5 e tem a ordem deles você consegue
+estabelecer uma ordenação dos números tá
+quando você tem uma variável contínua
+quando você tem uma variável ordinal
+tipo eutrófico sobrepeso e obeso também
+tem valor e Ordem cada cada categoria
+tem um valor e tem uma ordem né alum o
+eutrófico é mais leve que o sobrepeso
+que é mais leve que o obeso tá quando
+você pega uma variável nominal tipo sexo
+masculino e feminino é não tem ordem só
+tem valor tá nesse sentido a a variável
+ordinal a variável nominal desculpa ela
+não seria ela ela não teria um número
+tanto é que quando você pega o sexo por
+exemplo e coloca masculino e feminino
+você pode atribuir o número 1 do né mas
+você pode atribuir o valor 2 um pras
+categorias meio que tanto faz porque não
+tem a ordem tá então por exemplo quando
+eu trato de variáveis e nominais
+variável nominal não tem
+ordem se não tem ordem você não pode
+usar o atributo número para ela você
+pode associar esse objeto número com uma
+categoria mas podia ser o contrário tá
+quando eu trabalho com variáveis
+nominais por exemplo eh e aí eu você
+trabalha por exemplo com com com outro
+elemento que é a qualidade você usa o
+valor tem o valor masculino e feminino
+isso é um valor tá só que não tem ordem
+então e é por isso que quando você tem
+variável nominal ou variável dam né a a
+o número não importa muito o que importa
+é a categoria que você tá trabalhando tá
+a a teoria da medida ela ela é a é a
+área que utiliza números para descrever
+fenômenos naturais Tá bom então por
+exemplo quando você tem a variável
+nominal né a Rigor o número um mero
+adereço né tanto é que quando você tem
+variável nominal você não pode tirar
+média você não tira média de variável
+nominal né você calcula a proporção né e
+a partir das proporções você usa outras
+distribuições mas se você parar para
+pensar a variável nominal tem uma uma
+quantidade de informação menor que a a
+variável ordinal que tem uma quantidade
+de informação menor que a discreta menor
+que a contínua né então o contínua é o
+que tem mais informação você vai
+perdendo informação conforme você vai
+aumentando a granularidade da da
+variável né ela deixa a continuidade
+vira grânulos né conforme você vai
+aumentando a a diminuindo a quantidade
+de grãos né vai vai caindo da
+continuidade a variável perde informação
+tá
+eh tudo bem gente tá eh eh vocês estão
+comigo essa esse comecinho tá a gente tá
+aquecendo ainda tá a a discussão do
+curso três e a gente começa numa
+discussão bem basal mesmo né então Ó o o
+exemplo que eu dei por exemplo da
+variável nominal né traz já uma questão
+já traz uma questão que é a seguinte
+tudo bem se a teoria da medida é é a
+utilização do símbolo matemático que é o
+número no estudo científico de fenômenos
+naturais eh a gente já chega num numa
+num numa observação aqui né a gente
+chega já numa observação importante
+eh nem todos os nem todo o
+fenômeno nem todo fenômeno pode ser
+eh
+estudado estudado usando número usando o
+símbolo
+número né nem todo fenômeno pode ser
+estudado usando número por quê Porque
+essa teoria da medida é como você
+utiliza o símbolo matemático no estudo
+científico dos fenômenos naturais
+claramente deve ter fenômenos que não dá
+para usar a teoria da medida né então a
+gente vai eh eh aqui abre uma pergunta
+né Eh será que esse
+símbolo Será que este
+símbolo vale para qualquer
+Fenômeno Para
+qualquer
+fenômeno e a gente vai ver que não né
+Tem fenômenos que você a teoria da
+medida não se aplica né na verdade assim
+tem fenômenos que a teoria da medida não
+se aplica e tem fenômenos que você tem
+que fazer adaptações No método para a
+teoria da medida valer então assim aqui
+tem uma observação dois a gente tem e
+fenômenos que a teoria da medida não
+vale a teoria da
+medida não vale
+né Isso é um caso a gente vai ver isso
+isso é a segunda parte do curso né que
+aí são são fenômenos que você precisa
+dos discursos não dá para usar eh
+sistemas eh e a gente tem também
+fenômenos fenômenos
+onde um
+método um método deve ser
+adaptado deve ser adaptado
+para a teoria da medida
+valer medida valer tá então tem
+fenômenos assim que a gente tem que
+coletar os dados de um certo jeito ou
+pensar o fenômeno em termo de em termos
+de uma certa estrutura lógica né para ir
+coletar os dados E aí a teoria da medida
+vale não dá para coletar diretamente né
+E tem outros tem outros casos que aí não
+vale mesmo a a teoria da medida não vale
+mesmo aí não não tem o que ser feito tá
+nos fenômenos que a teoria da medida não
+vale ou seja não dá para usar número são
+os casos que a gente tem
+ausência de zero
+absoluto de zero absoluto tá e a gente
+vai ver a segunda parte do curso a
+segunda metade do curso a gente vai
+estudar esses fenômenos mas os fenômenos
+onde a gente tem um método que dá para
+adaptar para teoria da medida valer a
+gente entra num conceito muito
+importante que é o conceito de
+isomorfismo Então são fenômenos
+isomórficos fenômenos
+isomórficos tá E aí a gente eu vou
+definir o que é isomorfismo e Vou
+definir os tipos de isomorfismo E aí a
+primeira metade do curso 3S é estudar
+esses fenômenos o fenômeno onde eu eu
+identifico ele eu consigo desenvolver um
+método para captar os dados né da
+realidade e aí por meio desse tipo de
+isomorfismo que aí só dando os nomes
+pode ser isomorfismo por número deixa eu
+colocar assim os fenômenos né Você pode
+ter isomorfismo por número isomorfismo
+por Matriz
+eh isomorfismo por
+método isomorfismo por
+aptidão aptidão isomorfismo por jogos
+então e a gente vai estudar esses
+métodos ao longo do curso três tá eh o
+isomorfismo por número eh a gente já
+estudou no curso dois né os outros
+isomorfismos a gente vai estudar aqui no
+curso trê então a a primeira metade do
+curso três a gente vai ver vários
+métodos vários pá Então a gente vai
+atacar todas esse povo aqui mas vai
+chegar uma hora que vai ter fenômeno que
+nenhum deles funciona né Ou seja a gente
+vai cair na na na ausência de zero
+absoluto que são os fenômenos não
+isomórficos então aqui a gente tem
+fenômenos não
+isomórficos né E aí vocês perceberam que
+a palavra isomorfismo é importante ela
+tem que ser definida eu não defini ainda
+tá que vai ser o final da aula de hoje a
+gente vai definir o isomorfismo que eu
+tenho que construir um um caminho ali tá
+mas aqui eu já estou aent entando a
+ideia do início do curso três o início
+do curso três ele volta no início do
+curso um ele redefine o que é a teoria
+da medida e a importância do número né o
+número é um símbolo matemático que tem
+valor e Ordem e aí a partir do do da do
+exemplo dos tipos de variável você já
+vai você já vai ver que tem tipos de
+variável que só tem valor e não tem
+ordem né então já abre um problema nem
+tudo pode ser medido pela teoria da
+medida né E aí o que que a gente faz né
+Então como que eu pego o meu fenômeno e
+e manipulo ele Entendo ele de forma a
+criar uma estrutura isomórfica para ir a
+teoria da medida valer e a gente vai ver
+vários casos né de que dá certo pá pá
+mas aí vai chegar uma hora que nenhum
+desses isomorfismos funciona por quê
+Porque o evento o fenômeno não tem zero
+absoluto e aí a gente tem que usar todo
+a gente tem que abrir mão do número aí
+não dá mais para usar número aí é por
+exemplo onde a a Rosan que é minha
+colega estatística e e morre na praia né
+[ __ ] se não tem número não dá nem para
+fazer estatística Pois é né aí já deixa
+de ser estatística a gente vai pra
+análise do discurso mesmo e aí é uma
+outra história tá aí a Rosan vai vai
+abrir mão do chapeuzinho dela de exatas
+vai botar o chapeuzinho de humanas
+também e vai ideia ter todos os
+chapeuzinhos também tá porque essa
+discussão de fenômeno não isomórfico
+estatístico podia entrar também tá mas
+não vai entrar porque não sabe nem dar
+bom dia então é difícil mas a gente vai
+ver né porque para para para trabalhar
+com fenômeno não isomórficos você tem
+que fazer uma coisa muito difícil que é
+conversar com as pessoas né e conversar
+com as pessoas é uma coisa complicada
+porque tem fobia social não é verdade
+então o o o estatístico aqui isomorfismo
+é uma uma área importante até da da da
+teoria de categorias que é uma coisa bem
+da matemática e aí se você vence o
+isomorfismo aí entra na estatística e dá
+para fazer coisa tá mas metade do curso
+vai ser de coisa não isomórfica e a
+gente tem que estudar né então não tem
+jeito tá então o estatístico vai ter que
+ter amigo antropólogo sociólogo esse
+povo aí também tá e o psicólogo onde tá
+a psicologia aqui em nenhum lugar né
+porque a formação é tão ruim que não tem
+o que ser feito a psicologia está
+poderia contribuir com essa discussão
+poderia né vale a pena em todas as aulas
+você olhar a a os os os artigos na
+descrição são imperdíveis muitos deles
+são de psicólogos né Mas você vai ver os
+caras Eles não estão na faculdade de
+psicologia eles estão em outros cursos
+né estão perdidos foram execrados estão
+em ostracismo tá porque o psicólogo não
+abraça isso aí né então é é é é
+complicado mesmo então eh eh aqui né
+agora que eu apresentei essa ideia
+Inicial né Eu não defini o que é
+isomorfismo Vou definir ainda devagar tá
+eu quero apresentar algumas
+problemáticas antes tá eh eh eu quero eh
+eh dar uma outra observação
+aqui observação três né que é a
+diferença entre eh caráter
+numérico caráter numérico de um
+fenômeno versus eh
+quantificação quantificação tá eu posso
+quantificar uma coisa sem atribuir a ela
+um número
+isso por exemplo aqui é estatístico ou
+das exatas é completamente maluco mas dá
+tá você pode quantificar uma coisa sem
+atribuir a essa coisa um número e o que
+que seria isso o caráter o caráter
+numérico é atribuir um número né então
+aqui você atribui
+número atribui número né Beleza então o
+o a diferença do caráter numérico tipo
+eu estou atribuindo a esse fenômeno um
+caráter numérico ou estou contribuindo
+esse fenômeno uma quantificação tudo
+depende dos operadores que você vai usar
+tá tudo depende dos
+operadores os operadores que você vai
+utilizar para trabalhar para descrever o
+fenômeno então por exemplo quando você
+dá um caráter numérico para um fenômeno
+você usa operadores da Matemática mesmo
+né você usa soma subtração multiplicação
+e divisão Tá aí você consegue operar com
+isso mas você pode quantificar coisas
+que não necessariamente você consegue
+atribuir número né e e que é quando você
+usa o tipo de operador Da Lógica né Você
+pode usar Da Lógica ou da teoria dos
+conjuntos você pode usar maior menor
+igual né diferente contido né está
+contido não está contido tudo isso são
+formas de quantificar coisas tá eu não
+sei aqui quando você faz comparação
+relativa por exemplo de coisas por eu
+vou dar um exemplo tem um um uma
+quantidade né que é muito usado tanto em
+teoria de jogos quanto da decisão né que
+a gente vai ver vai trabalhar com isso
+ao longo do curso que é a métrica de
+utilidade utilidade tá utilidade de
+opções utilidade de produtos isso é
+muito usado em microeconomia coisas do
+tipo né a utilidade é uma é uma
+quantidade aí a gente vai ver mais na
+frente como calcular isso tá a utilidade
+ela tem
+eh
+ordem mas sem
+valor ela tem ordem tá você consegue
+ordenar mas não tem valor não tem e eh
+valor da utilidade então por exemplo se
+eu tenho duas opções a opção um e a
+opção do e a utilidade da opção 1 e vale
+10 e a utilidade da opção do vale 5 né
+eu consigo dizer que a a opção um tem
+uma utilidade maior que a opção dois tá
+mas eu não consigo dizer por exemplo que
+a opção um vale duas vezes mais tem uma
+utilidade duas vezes maior eu não
+consigo fazer comparações dos números tá
+esses números Eles podiam ser qualquer
+um por exemplo eu podia trocar eu podia
+fazer a conta diferente e aqui dá 7 e
+aqui dá TR né quando você trabalha por
+exemplo com ess com esse operador que é
+a utilidade a utilidade do um sempre vai
+ser maior que a do do Tá mas a distância
+entre os números não importa Pode ser
+por exemplo aqui podia ser aqui podia
+ser se tá a gente vai trabalhar com a
+ideia quem viu um pouquinho de economia
+microeconomia tem aquelas isoquantas
+curvas de substituibilidade de produto e
+são curvas de comparação relativa né
+então se o se a opção um é um produto e
+a opção dois é outro produto e eu
+calculei a utilidade de cada produto é a
+utilidade de um produto em relação ao
+outro não tem um valor ideal de
+utilidade é sempre uma comparação
+relativa tá toda comparação relativa ela
+tem ordem uma vai sempre tá na frente da
+outra mas não necessariamente tem um
+valor você não consegue fazer proporções
+você só consegue ordenar né agora vocês
+repararam por exemplo se vocês estão me
+acompanhando até aqui que toda variável
+nominal a variável nominal é uma é uma
+variável que tem valor mas não tem ordem
+então por exemplo masculino e feminino
+masculino e feminino eu podia colocar o
+masculino 10 o feminino 8 né mas eu
+podia inclusive inverter a ordem eu
+podia colocar o masculino s e o e o
+feminino 10 por exemplo eu posso
+inverter os números porque importa a
+ordem o que importa é o valor tá a a
+utilidade é uma é uma métrica parecida
+também e logo eu estou quantificando eu
+não estou dando o caráter numérico
+porque eu não consigo operar tá eu não
+consigo fazer operações com os valores
+por quê porque na verdade quando eu
+penso em utilidade esse esse sete e seis
+não são números por quê Porque número
+tem que ter valor e Ordem então a Rigor
+isso aqui são E é só representações não
+são
+números vocês estão comigo gente Ei eu
+eu eu fico com medo de você tá o chat de
+cogumelo bater muito forte porque o
+começo do curso TR é assim mesmo tá você
+é é por exemplo deixa eu dar um caráter
+numérico e pensa
+um pensa uma escala lickert por exemplo
+eu fiz uma questão aqui né Eu fiz uma
+questão aqui a questão Um as pessoas
+tinham que responder numa escala de 0 a
+c aqui né 0 1 2 3 4 e 5 né E aí eh eh a
+pessoa um respondeu dois e a pessoa dois
+respondeu quatro tá isso aqui é uma
+escala liquit de uma questão de um
+questionário tá bom se eu se eu assumo
+que o fenômeno pode ser medido por uma
+escala liquit e tem um caráter numérico
+eu consigo dizer que a pessoa dois
+respondeu mais que a um e respondeu
+dobro que a um eu consigo fazer eh eh
+comparações e proporções
+tá se eu se eu faço quantificação a
+apenas uma pessoa é quatro a outra é
+dois Eu só consigo dizer que o dois é
+maior que o 4ro mas eu não consigo fazer
+proporção tá eh então na na que o Luiz
+né E quando quando eu
+quantificou trabalhar com esses
+operadores eu consigo dizer que um é
+maior que o outro mas eu não consigo
+dizer o quanto maior porque a comparação
+é relativa Isso aqui é uma comparação
+relativa e isso é uma comparação
+absoluta tá ISO são comparações
+absolutas e relativas
+a comparação absoluta você consegue
+atribuir um caráter numérico você
+consegue fazer maior menor você consegue
+fazer maior e menor mas você também
+consegue Comparar as observações em si
+por quê Porque quando tem caráter
+numérico vai ter zero tem um zero
+absoluto né quando você só quantifica
+com onde tem valor e não tem ordem não
+tem o zero absoluto nesse sentido não é
+isomórfico isso aqui também tá então
+essa essa distinção de caráter numérico
+e quantificação é importante também e
+Tudo bem Luiz faz sentido tá você não
+pode você pode colocar maior ou menor
+igual ou diferente é operadores da
+teoria de conjuntos pode colocar contido
+e não contido
+tá não cara e não é isso não assim e eh
+cada cada cada pessoa né ou cada opção
+cada opção é uma categoria cada
+categoria vai ter um valor
+né vai ter cada categoria vai ter um
+atributo isso é melhor do que número vai
+ter cada categoria tem um atributo
+esse atributo ele vai ter uma ordem
+então o o a opção um sempre vai ser
+maior que a dois mas o número que você
+coloca não interessa não interessa tá eh
+eh você você não consegue comparar a
+pessoa com ela mesma nem a pessoa com
+outra você consegue comparar par a par
+tá o número que eu coloco aqui não
+interessa o que interessa é que o um
+sempre vai ser maior que o dois
+tá então não tem a ver com o teste Não
+paramétrico Vitor no teste não
+paramétrico você vai atribuir o ranking
+o ranking é uma ordem mas também tem
+valor então vai ter o ranking um o
+ranking do o ranking 3 sempre vai ter o
+primeiro né sempre vai começar de algum
+lugar tá não tem a ver com o teste Não
+paramétrico não é mais complexo que isso
+tá eu posso comparar coisas de forma
+relativa independente do número que eu
+uso a gente vai ter uma uma aplicação
+disso mais paraa frente na teoria da
+decisão onde a utilidade vai aí eu vou
+explicar o que que é isoquanta e tal que
+é usado em microeconomia Tá mas é
+importante você você perceber assim tipo
+vai meditando os conceitos da primeira
+aula que a gente a gente vai usar depois
+tipo será que um fenômeno que eu tô
+vendo eu posso estabelecer um caráter
+numérico se eu posso estabelecer um
+caráter numérico para um fenômeno ele
+tem um zero né se ele tiver um zero eu
+posso dar ordem posso dar valor e posso
+fazer comparações relativas tá desse
+fenômeno e aí pense sobre isso agora Tem
+fenômenos que eu não consigo eu consigo
+atribuir ordem mas não dá valor se eu
+não consigo atribuir valor é porque não
+tem zero absoluto então eu consigo fazer
+comparações relativas mas não
+comparações Absolutas
+E aí o que que eu faço com isso né são
+as meditações a partir dos tipos de
+isomorfismo que a gente vai estabelecer
+então eu tô apresentando os problemas
+primeiro depois a gente vai melhorando
+eles tá então beleza é é caráter
+numérico a a a quantificação então
+quantificação só vai trabalhar com
+teoria dos conjuntos né maior menor
+diferente intersecção complementar
+quando tem caráter numérico você pode
+trabalhar com álgebra também E aí dá
+para tem o zero absoluto então aqui
+quando você trabalha com caráter
+numérico você pode trabalhar com álgebra
+quando você trabalha só com
+quantificação a teoria dos
+conjuntos teoria dos conjuntos e a
+lógica né lógica também tá então você
+vai ver que quando você trabalha com
+fenômenos que só dá para quantificar né
+é mais complicado é bem mais complicado
+porque não tem o zero absoluto E aí o
+povo o povo tem medo de número Imagina
+você quantificar fenômenos que não dá
+para por número né
+E então esses valores de utilidades pode
+ser colocado da regressão não então pode
+ser colocado se você trabalhar com esse
+número um pouco se você trabalhar com
+esse número um pouco aí dá para colocar
+mas puro não dá puro não tem como fazer
+tá mas se você colocar por exemplo a a
+teoria da utilidade dentro de uma teoria
+de decisão dentro de um prospecto que a
+gente vai ver o que é prospecto aí dá
+para pôr na regressão se você colocar o
+valor da utilidade dentro de uma equação
+de prospecto aí dá para mexer só que a
+gente tem que ver isso como funciona
+primeiro tá então a a teoria dos
+prospectos é uma forma de pegar
+fenômenos que só dá para quantificar
+transformar eles em fenômenos
+isomórficos porque aí vai ter zero e aí
+você consegue operar com eles tá mas
+pegar valor de utilidade puro não tem
+como fazer aí não dá tá isso a lógica
+booleana o Renan né a lógica booleana
+você vai trabalhar com coisas que só dá
+para quantificar né
+Tem tem ordem mas não tem valor tá então
+uma coisa que eu vou deixar latente com
+vocês que a gente vai construindo com
+tempo tem fenômenos que tem zero
+absoluto ou a gente tem que fazer uma
+modificação do fenômeno para ele ter zer
+E aí cai numa coisa que a gente consegue
+trabalhar com número aí é papo de
+estatístico Mas vai ter uma quantidade
+de coisas que não vai dar não vai dar
+não vai ter jeito de ser isomórfico não
+tem como modificar e a gente só vai
+trabalhar com esses operadores aqui né E
+a gente tem que criar toda uma outra
+tecnologia para isso é isso que
+diferencia por exemplo a pesquisa Quali
+da qu a pesquisa Quali né ela trabalha
+com quantificações pesquisa qu não é
+bobagem tem gente que dá aula de
+pesquisa ativa e fala ess asneira que na
+pesquisa qualitativa você não quantifica
+nada bobagem você não atribui caráter
+numérico as coisas mas você quantifica
+tudo tem que quantificar né se você
+atribui valor as coisas mas não tem
+ordem tem maior menor mais frequente
+menos frequente tem essas coisas né
+então quando você pensa em epistemologia
+tá tudo errado velho o que você estuda
+em método na faculdade meu Deus do céu
+velho tá tudo errado e aí aí aí vem o
+desafio agora né temos um problema então
+se a gente tem fenômenos que dá para
+atribuir o número Beleza se der para
+atribuir número ótimo aí eu vou usar
+tudo que eu fiz o curso um dois
+regressão a nova modelagem com ação
+estrutural Dag beleza né Agora se o se o
+fenômeno não dá para atribuir caráter
+numérico só dá para eh atribuir
+quantificação já dá uma doída né porque
+aí já já não é tão isomórfico aí eu vou
+ter que mexer nesse fenômeno um pouco
+para ver se dá para encaixar alguns dá
+para encaixar né E aí beleza a gente vai
+ver um monte de método no curso três que
+e dá para encaixar beleza e Mas vai ter
+fenômeno que mesmo assim não dá aí fala
+a Maria agora o que que eu faço aí a
+gente vai ter que ir pro que é chamado
+de pesquisa Quali né que não é Quali
+coisa nenhuma só não dá para são
+fenômenos que você quantifica também tá
+então a gente vai vai trabalhar com isso
+ainda então coloquei essa problemática
+PR você vocês meditarem né da da do
+caráter numérico versus a quantificação
+e e vamos falar um sobre um outro
+fenômeno aqui uma outra problemática que
+é a ideia de sobreposição
+sobreposição tá isso é um conceito
+importante da
+epistemologia a sobreposição E aí essa
+palavra é muito importante é a
+interface
+Inter
+interface isso aqui ó tem que brilhar 30
+vezes é uma
+interface entre sistemas teóricos do
+saber
+entre sistemas teóricos
+de
+saber porque ó o que que acontece eu
+acho que vocês conseguiram pegar isso né
+a gente tem fenômenos que a gente quer
+estudar alguns desses fenômenos dá para
+usar número né Lembrando que o número é
+uma entidade imbuída de valor e Ordem tá
+se eu consigo atribuir valor e Ordem
+para um certo fenômeno Beleza então
+consigo usar número curso um e dois
+ótimo consigo fazer tudo tudo né mas tem
+fenômenos que que você e aí se a coisa
+dá para ter tem um caráter numérico
+consigo usar a álgebra média variância
+pá dá tudo certo né E quando os
+fenômenos não tem valor e só tem ordem
+dá um problema quando o fenômeno só tem
+valor e não tem ordem dá problema também
+né então a gente fica ali e já tem
+fenômenos mais complicados E aí eu vou
+ter que usar uma uma coisa um pouco mais
+qualitativa vou ter que trabalhar com a
+a o isomorfismo para modificar esses
+fenômenos para poder usar outras
+técnicas beleza aí se eu conseguir dá
+certo ótimo mas Mas mesmo assim tem
+fenômenos que não tem nem valor nem
+ordem não tem nenhum dos dois ou seja
+não dá para usar nem número nem algo que
+se aproxima de número lascou-se né não
+tem como E aí eu vou ter que criar uma
+interface entre diferentes sistemas
+teóricos do saber eu quero eu eu eu
+quero construir essa interface né E esse
+é o objetivo do curso três o objetivo do
+curso três né É É primeiro apresentar os
+métodos né os métodos isomórficos os
+métodos não isomórficos os métodos que
+geram sistemas e os métodos que geram
+discurs a gente vai estudar todos eles
+né aí estudando esses métodos nosso
+objetivo último é criar uma interface né
+a gente vai criar uma interface
+entre entre
+sistemas e
+discursos veja que eu não defini nenhum
+dos dois e não vou definir hoje tá não
+vou definir e eh não não defini hoje
+então Artur o curso três Tem que rolar
+né tem que ter tem que ter muito Ché de
+cogumelo ainda para bater aqui tá Então
+segure segure a ansiedade segure a
+angústia aí porque vai demorar tá eu não
+vou definir o que é um sistema hoje
+nenhum discurso mas a gente vai ter que
+criar uma Interface para juntar esses
+dois e uma coisa que eu vou começar a
+definir hoje é o isomorfismo isomorfismo
+tem que definir tá então assim é é uma
+coisa bem abstrata tá mas se você já fez
+o curso um e dois você já tá um pouco
+namorando Isso porque no no curso um eh
+o curso é bem é bem básico né então a
+gente apresenta o começo e tal a gente
+chega nas regressões no curso do dois na
+metade do curso dois paraa frente a
+gente já faz a distinção entre eh modelo
+e teoria né o modelo é aquilo que você
+modela por um experimento que é uma
+regressão né que é uma equação quando
+você concatena equações de regressão
+você gera uma teoria né E aí a gente tem
+todas as aulas de modelagem equação
+estrutural aí tem os tipos de
+causalidade o Dag toda aquela coisa toda
+né tudo aquilo a gente já avança né dos
+modelos mais básicos experimentais para
+uma teoria né Agora no curso a gente vai
+quebrar isso ainda né a gente já tem as
+teorias então a gente vai estudar
+fenômenos que não dá para quantificar
+então não dá para usar nem modelo nem
+teoria a gente vai criar novos
+isomorfismos para colocar certos
+fenômenos de uma forma onde a teoria da
+medida Vale E aí você consegue
+quantificar aí você entra na teoria ou
+na no modelo Mas vai ter fenômeno que
+não tem nem valor nem ordem nem nada né
+E aí a gente vai ter que fazer uma outra
+coisa a gente vai ter que definir o que
+é um discurso E aí é F humanas F humanas
+vamos entrar discurso humana mesmo sem
+número verbal mesmo f de linguística e
+pá sociologia antropologia pá para
+construir os métodos da da chamado de
+análise Quali né A análise do discurso é
+um dos métodos mas tem vários outros né
+E a ideia e aí o objetivo final do curso
+TR é criar uma interface Entre esses
+dois e aí e aí o ponto importante
+onde onde
+ocorre onde ocorre esta
+interface
+interface onde a gente vai construir ir
+essa interface entre sistemas e
+discursos né entre coisas onde a teoria
+da medida vale por diferentes métodos
+isomórficos e onde a teoria da da medida
+não vale E aí a gente tem que usar
+discurso onde ocorre essa interface
+você vai ser em você você indivíduo cada
+um de vocês aqui as 21 almas que estão
+aqui nesse momento e as outras que verem
+verem as aul a aula depois e e
+eventualmente A ideia é que essa
+interface ocorra em você e aí eu volto
+na definição do curso um de ciência né
+definição definição né
+ciência é o
+uso do método
+científico método
+científico por um
+agente por um agente que se auto
+observa Agora no curso TR vai ficar mais
+forte no final principalmente na segunda
+metade do curso trê a gente vai
+trabalhar muito com essa Auto observação
+E aí você vai entender que essa
+interface entre sistemas teóricos de
+saber entre os sistemas e os discursos
+vai acontecer em você em você não vai
+ser externo não vai ter mais essa coisa
+externa porque a quando você trabalha
+com sistemas né que é a teoria da medida
+quando você trabalha com a teoria da
+medida você coloca para fora né o o se
+dá para quantificar eu coletei o
+questionário então o resultado está fora
+está no questionário né é o questionário
+que dá o resultado a regressão está fora
+de mim é o programa que faz é o software
+né tudo que dá para usar a teoria da
+medida seja por de um jeito isomórfico
+não independente do tipo de isomorfismo
+né Você trabalha com sistemas então o
+dado está fora do agente está fora do
+agente e é por isso que muita gente que
+trabalha com divulgação Científica hoje
+é o povo de biológicas e exatas em geral
+né tem pouca gente de humanas humanas
+humanas mesmo raiz fazendo divulgação
+Científica por quê primeiro que tem um
+problema de método e depois porque eu
+entendo a crítica que muito muita muito
+Muitas dessas pessoas não vem sentido na
+divulgação Científica e faz todo sentido
+não ver né porque quando você parte do
+discurso quando você parte do discurso
+você vê por exemplo quando eu coleto um
+questionário o dado está fora de mim
+quem que faz a análise o software tá
+tudo fora de mim né tá tudo então quando
+eu tenho um fenômeno que eu consigo usar
+a teoria da medida eu coloco o dado e a
+análise do dado fora de mim né Ou seja
+quando eu trabalho com sistemas eu tô
+trabalhando com os dados fora de mim né
+E aí esse povo o povo que trabalha só
+com sistemas né é eh é o povo que que
+diz que ciência é Método né ciência é
+Método Acabou só isso né mas não você tá
+jogando fora o discurso que são as
+coisas que você não tem zero absoluto
+que não tem valor nem ordem né então
+para você trabalhar com fenômenos que
+não t valor nem ordem ou seja não tem
+zero absoluto quem tem que ser a régua
+você você tem que ser o objeto de estudo
+também você tem que ser a régua pela
+qual aquele dado é produzido por meio de
+um m método sistemático Ah isso quer
+dizer que a minha opinião não é a sua
+opinião por isso que tem análise do
+discurso Ground Theory e e análise de
+conteúdo e método d todas a gente vai
+ver no curso três também só que esses
+métodos eles eles emergem a partir de
+dentro a partir de dentro você tem que
+desenvolver em você também uma
+capacidade de auto-observação para ser
+capaz de coletar esses dados usando os
+discursos por meio por meio de um método
+sistemático
+sem contaminar você e o dado porque
+dentro de você está o programa e dentro
+de você estão os dados né É É um negócio
+bem surreal parece aqui no começo do
+curso TR Mas é isso que a gente vai
+desenvolver a ideia que se você
+sobreviver até o final do curso 3 essa
+definição de ciência aqui vai vai vai
+ser Cristalina para cada um dos Senhores
+e das senhoritas o povo que já fez o
+curso três uma vez né sabe que que que
+essa definição é muito poderosa tem
+muitas camadas né sobretudo quando a
+gente vai entender o que é evidência eu
+não vou falar nada de evidência aqui na
+nesse curso só no final tá mas mas mas a
+ideia é essa que quando você trabalha
+com sistemas né quando você trabalha com
+fenômenos que a teoria da medida Vale
+você tá os dados estão fora e A análise
+dos dados estão fora né então então tem
+aquela aquele distanciamento entre o
+pesquisador e a pesquisa né fica meio
+Óbvio tá eh quando você trabalha com
+discurso não o o o pesquisador também se
+implica no resultado daquilo que Ele
+produz só que ele tem que ter um método
+adequado para separ par né ou seja isso
+é é de dentro para fora a ideia desse
+curso três é criar uma interface onde a
+gente consegue lidar os dois isso
+atenção isso a gente vai a gente vai ler
+os rever né revisitar textos clássicos
+de antropologia para ver essa atenção né
+Aí tem conceitos da tensão da adjunt a
+gente vai estudar tudo isso aí tá então
+assim e eh o curso três promete muita
+coisa mesmo mas a gente tem tem
+construir uma série de conceitos e o
+começo ele é meio árido mesmo tá ele é
+meio meio árido porque começa em coisas
+muito abstratas mas a gente vai vai
+conseguir
+tá já falei aqui da da interface e então
+a ideia aqui né seria assim para para
+criar a
+interface para criar a
+interface né Essa interface que é
+importante para criar a interface
+temos temos que perceber
+perceber o
+limite da teoria da
+medida da teoria da medida né temos que
+perceber o limite da teoria da medida e
+propor e
+propor uma
+epistemologia
+mologia né Eh
+baseado em ciência empírica
+ciência empírica
+eh e
+matemática e aqui vocês vão vocês vão
+ver uma coisa que é que é bem
+contraintuitiva Vocês estão entendendo
+ciência empírica como coisa de
+Experimenta e matemática como conta né e
+não não é não é não é isso tá a gente
+vai vai definir melhor
+eh mais uma pergunta pela ordem vocês
+estão me acompanhando gente hein vocês
+estavam para quem tá assistindo o curso
+de novo vocês estão com saudades que eu
+sei que vocês gostam do chá de cogumelo
+já estão viciados né mas quem tá vendo a
+primeira vez você vocês estão vivos
+vivos Hein gente tão tão tão tão
+Resistindo né Beleza então ó a gente vai
+vamos pensar nessa coisa da ciência
+empírica e da matemática tá então Ó aqui
+tá tendo aula de epistemologia mesmo tá
+é Aqui o bagulho é duro tá bom é é por
+isso que o cara vai cair aqui de aberto
+de Alegre Nossa Jesus Maria José melhor
+ficar no x vídeo não é verdade ISO aqui
+nossa senhora né Melhor ficar lá no no x
+vídeos mesmo então ó e eh
+vamos dividir aqui então vamos falar um
+pouco da ciência
+empírica ciência
+empírica a a ciência empírica é o
+seguinte
+eh ela é baseada em indução tá isso é a
+aula a aula oito do curso um ela é
+indutiva indução você parte a partir dos
+dados né E vai criando princípios regras
+a partir dos dados então a ciência
+empírica ela é indutiva e e ela estuda
+regularidades ela vai estudar
+regularidades é basicamente as as exatas
+e as biológicas tá você você usa ciência
+empírica para de forma indutiva por meio
+de experimentos para buscar
+regularidades né Você quer entender o
+que que é regular o que é comum O que é
+normativo tal né E aí você parte
+da de fenômenos
+naturais fenômenos naturais
+a partir desses fenômenos naturais você
+cria
+modelos modelos eu tô falando no esquema
+do curso dois né que pode ser uma
+equação Y = beta0 mais Beta 1 x mais o
+erro ou
+teorias que são os agrupamentos de de
+modelos né que aí ent os gráficos tal né
+Entra os gráficos aqui aí pode ser 100
+Dag e tudo mais tá a partir dos
+fenômenos naturais você pode estabelecer
+modelos e teorias né e o e o objetivo
+né o objetivo último aqui você pode
+trabalhar com glm ou com o 100 e o Dag
+né e o objetivo último aqui é
+estabelecer observação e
+controle observação e
+controle né controle dos fenômenos então
+Você prevê coisas você observa descreve
+né Muito legal a ciência empírica ótimo
+mas mas tem em mente que ela é indutiva
+e ela é baseada em regularidades você
+busca regularidades né
+e esse é o vício é o vício do Povo das
+das das biológicas o povo das biológicas
+tipo a Vilan nutre aí a nutricionista
+adora isso educador físico Nossa gosta
+tanto né de buscar regularidade o que
+que é comum né O que que é comum a todos
+e tal né e e e e tem um discurso
+interessante assim por trás dessas áreas
+que buscam regularidade medicina
+psiquiatria tal psicologia não busca
+nada né que é é ruim mesmo mas assim
+áreas com um pouquinho mais de Rigor
+metodológico né É e as áreas de
+biológicas principalmente fica buscando
+ciência empírica né fica coleta dados
+estabelece modelo e teoria usa os
+métodos para ter observação e controle
+então ah se as pessoas fazem uma dieta x
+se todo mundo fizer Todo mundo vai ter o
+mesmo resultado Essa é a esperança né se
+todo mundo faz o treino Y vai ter o
+mesmo resultado tal então essa a
+medicina toda é assim né Então essa essa
+sistematização né é importante não tô
+dizendo que é errado é ótimo tem que ser
+feito é importante também né Só que tem
+uma outra área que aí tem que ser
+contemplada também que que é que é ah
+todo isso taxonomia tudo isso aí cai
+nisso aqui tá é é área da
+matemática a área da matemática é
+engraçado porque a pessoa pensa
+matemática como só full exatas né tal e
+não é o que eu quero dizer aqui com
+matemática é é uma uma área né a
+matematização né Você pode chamar essa
+essa esse termo matemática de
+axiomatização axiomatização
+tá a a a então a voltando aqui né como
+que a gente cria a interface para criar
+a interface temos que perceber o limite
+da teoria da medida e propor uma
+epistemologia baseada em ciência
+empírica e matemática a ciência isso é
+matemática pura mesmo a ciência empírica
+né coleta os fenômenos tal pá né vê as
+regularidades então aqui tudo que você
+faz em ciência empírica e eh tá na
+teoria da medida a teoria da medida dá
+conta teoria da medida ótimo né beleza
+obrigado curso um e dois Veja quanta
+coisa ó você chegou aqui do curso três
+passou pelo um e o dois Veja quanta
+coisa a gente viu dá para fazer muita
+coisa tá E essa coisa
+axiomatização né ou seja o que que é uma
+coisa dedutiva você estabelece um axioma
+um princípio Então você
+parte de um axioma ou princípio
+né eu digo princípio quando é as
+humanidades tá humanas é isso aqui
+humanas também é isso aqui é é você pode
+chamar de matemática ou lógica também tá
+então você precisa da ciência empírica e
+da Matemática lógica também né da
+axiomatização então por exemplo quando
+você pega um um sociologia né ou
+economia pega economia Ortodoxa né por
+isso que tem um monte de teórico né tem
+o teórico Sei lá o keines da da a escola
+de Chicago você pega lá aquela escola de
+Chicago Econômica eles t tem axiomas
+esses axiomas você tem que assumir que
+eles são verdadeiros e você estuda as
+consequências disso né e eh eu até falo
+na na no curso dois lá na aula oito né
+Eu falo do do paradigma do do da da
+ideia da riqueza das Nações do Adon
+Smith né Eh tenha como axioma que uma
+nação rica é uma nação capaz de gerar
+trabalho isso é axioma não é falseável é
+uma afirmação que você faz que não tem
+causa é é o início a partir daí você
+estuda as consequências então boa parte
+da sociologia assim a economia Ortodoxa
+é assim né e é antropologia é assim
+então esse modelo axioma né Então pega
+na antropologia por exemplo eh
+antropologia estrutural né você pega lá
+Quais são as três grandes estruturas que
+todas as culturas têm né Você sabe se
+todas as culturas TM assim por enquanto
+a gente não achou uma exceção né mas a
+gente não sabe mas Assumimos que sim é o
+axioma então toda a cultura tem três
+grandes estruturas que é língua
+alimentação e religião se você estudar
+essas três estruturas né você vai ter as
+bases para entender a Constituição de
+uma cultura né da onde veio que isso é
+verdade não é um princípio é um
+princípio de uma certa área de
+antropologia e daí os antropólogos eh eh
+listrou por exemplo tá eu quero estudar
+uma cultura nova vou estudar língua
+religião e comida língua religião e
+comida alimentação eu estabeleço as
+bases das estruturas antropológicas que
+criaram aquela cultura tá então é muito
+importante então então a a a essa parte
+matemática né Ela é baseada em em e eh
+axiomas né e o e o objetivo O objetivo
+dessa área né o principal é
+verificar verificar consistência
+interna consistência
+interna né Eu quero verificar então eu
+tenho os meus axiomas estabeleci os meus
+axiomas e de novo eu não tô falando só
+da matemática tá isso vale pra
+sociologia pra antropologia pra economia
+infelizmente vale pra psicologia também
+né a a a tem que ter C certos axiomas né
+na na psicologia O problema é que a
+psicologia não pode ser igual à
+sociologia né sociologia Você tem os
+porquinhos da Sociologia o Durkheim O
+Weber e o Marx né então ah e aí o povo
+das humanas fala sou marxista sou
+weberiano sou o dur kaime né E aí parece
+time de futebol né Por quê Porque quando
+a pessoa fala que é Weber por exemplo
+ela ela está compactuando dos axiomas
+básicos de entendimento da sociedade
+pelo Weber E aí ela estuda as
+consequências disso né Então pega um
+professor de sociologia ou de filosofia
+o professor quando ele fala estudo Hegel
+né O que que ele pega ele pega a teoria
+do Hegel vê os axiomas básicos e vai
+estudando consequências dos axiomas
+aplicados às situações do cotidiano né E
+aí é por isso que filósofo fica falando
+das ideias e tal né da palestra faz
+essas coisas mas pensar em algo empírico
+para mudar a realidade não muda só só
+fica falando das ideias eu acho meio
+zoado né então se você e aí o O Renan é
+exemplo né quando você pensa em
+matemática pura o cara descreve bem os
+axiomas eu dei uma flic eu dei uma flic
+aqui mas acho que
+voltou voltou voltou gente voltou Ah
+beleza dei uma fcad tá bom desculpa né
+então assim e eh quando se você é muito
+muito muito matemático né você vai ter
+você vai estudar os axiomas da dessa
+área matemática e aí vai estudar as
+aplicações disso as consequências Você
+estuda aplicações então e pensa na
+matemática pura o cara o cara matemático
+puro ele fica estudando os axiomas de
+uma área do conhecimento da Matemática
+aí ele vai estudando eh eh consequências
+desses axiomas e depois no final se ele
+quiser ele vai vindo aplicações disso E
+aí as aplicações viram os objetos que a
+gente tem na nossa sociedade então é
+muito importante você ter matemáticos
+puros para testar os limites dos axiomas
+porque eles podem gerar novas
+consequências que depois tem aplicações
+né É legal Às vezes não mas tá tudo bem
+também né quando você pensa em
+sociologia ou filosofia tem o filósofo o
+o o cara estuda um certo autor ele pega
+os axiomas os princípios né básicos
+daquele autor e vai estudando
+consequências E aí o estudo dessas
+consequências ele pode aplicar em
+situações normais do dia a dia né E aí
+ele faz faz análises né faz análises
+sociais faz coisas do tipo que é muito
+legal também é muito importante né o bom
+sociólogo filósofo tal ele faz leituras
+de situações sociais a partir dos
+princípios dos autores que ele estuda é
+muito importante esse esse tipo de coisa
+né É É legal mesmo então o objetivo de
+você ser dessa área é verificar
+consistência interna né dos argumentos
+que você constrói então verificar eh eh
+consistência interna Cadê o negócio que
+eu pus aqui
+verificar consistência interna dos
+argumentos por
+meio de
+argumentos né E aí a a gente vê uma
+coisa que é diferente da ciência
+empírica porque na ciência empírica Você
+estuda regularidades né O que que é
+comum e tal nessa área aqui você vai
+estudar as diferentes consequências dos
+axiomas aqui Você
+estuda diferentes consequências
+con
+sequências dos
+princípios ou
+axiomas né nesse sentido a ciência
+empírica estuda regularidades a área
+matemática lógica ela vai estudar
+variabilidades
+variabilidades tá não sei se o Renan tá
+aí mas tem tem uma área da matemática
+pura que é chamado variabilidades né que
+estudar diferentes objetos matemáticos
+em função de certos axiomas Como que eu
+posso representar a mesma coisa de
+formas diferentes né isso tem total
+conexão com a sociologia e a filosofia
+também né se eu tenho um certo princípio
+social ou uma regra moral né que Quais
+as diferentes consequências eles tem
+aplicação pro direito né quando eu tenho
+uma jurisprudência eu tenho uma certa
+jurisprudência lá um certo princípio
+moral né em em diferentes casos onde que
+ISO né Quais são as diferentes
+representações disso então direito
+sociologia economia filosofia e
+matemática pura estudam variabilidades
+não estuda e regularidade regularidade é
+uma coisa das biológicas né então quando
+você tá aqui na estudando essas
+variabilidades aqui a gente tá falando
+das humanas a gente tá falando das
+humanas Quando você estuda regularidade
+que a gente tá falando das
+biológicas né as as exatas de verdade é
+um jeito de juntar os dois é isso que a
+gente tá fazendo isso que é o objetivo
+do curso três é juntar esses dois é
+criar de novo essa interface aqui daqu
+esse nome importante é criar essa
+interface é colocar dentro de você né o
+o métodos para você estudar
+regularidades que é ligado a teoria da
+medida e métodos para você conseguir
+descrever variabilidades por meio do quê
+de
+discursos por meio de discurso e isso
+aqui vai ficar mais forte no final do
+curso três mas a a matemática pura é uma
+forma de análise do discurso não tem a
+ver com quantificação né O que tem a ver
+a quantificação é a parte aplicada a
+parte pura é discurso também vamos ver
+isso depois mais pra frente tá e eh
+vocês estão comigo gente no no no no
+chat de cogumelo aqui vocês estão vocês
+estão me acompanhando o chá de cogumelo
+como é que tá o Glasgow de vocês tá
+muito baixo hein gente vocês estão vivos
+vivas porque essa essa parte é
+periclitante tá é É nevrálgica mesmo é
+importante tá e eh e aí assim quando
+você pensa agora quando você pensa agora
+em pesquisa
+interdisciplinar né em pesquisa
+interdisciplinar ou pesquisa
+translacional
+translacional porque o que a gente tá
+trabalhando aqui são os dois tá a gente
+tá trabalhando os dois juntos então a
+ideia aqui do curso TR é juntar a
+ciência empírica com a axiomatização é
+estudar o o o de regularidades e
+variabilidades é estudar essas duas
+partes aqui as regularidades e as
+variabilidades tá na mesma pessoa a
+gente vai criar esse pesquisador
+interdisciplinar então o pensamento do
+pesquisador interdisciplinar ele tem que
+ser abdutivo
+abdutivo ele tem que juntar indução mais
+dedução daí a importância das aulas do
+do de inferência basana do curso dois
+também que é o modelo abdutivo você
+junta o a priori com os dados que você
+tem e vai atualizando né se você parar
+para pensar modelo abdutivo ele gera um
+movimento né Você não tem o a priori
+mais os dados a priori mais os dados
+alguma coisa os dados alimentam a priori
+você vai criar esse ciclo Esse é o ciclo
+de auto-observação Tá e vai ter
+consequências desse ciclo como você já
+falaram o luí comentou a tensão a gente
+vai estudar esses fenômenos a tensão a a
+disjuntas esse tipo de coisa a gente vai
+estudando isso aqui tá que é a relação
+do modelo abdutivo presente no
+pesquisador interdisciplinar se você é
+um pesquis AD só de biológicas você não
+fica você não precisa pensar né se a se
+coitado da da da Vilan se a Vilan quiser
+ser a nutricionista padrão é melhor
+ficar dentro do quadrinho da
+regularidade fazendo vídeo no tiktok de
+como tomar suco detox né é trabalhar com
+as regularidades tá se você quiser ser
+por exemplo o Renan né matemático puro
+quiser só ficar dentro da matemática
+pura Vai lá ficar né pirando lá dentro
+do do do dos Delta dos é e dos conjuntos
+né E ninguém vai dar ele não vai dar bom
+dia para ninguém ninguém vai dar bom dia
+para ele ele fica ali fritado ali
+isolado também a gente que tá na
+pesquisa interdisciplinar tem que pegar
+os dois a gente tem que pegar os dois
+lados e é e é a área mais difícil porque
+você vai ter que conversar com os dois
+lados né então e eh A ideia é a gente
+conseguir integrar isso aqui também tá e
+esse é um dos objetivos do curso TR de
+novo desenvolver essa essa interface né
+Eh então e aqui a gente já chega numa
+conclusão importante né E chegamos numa
+conclusão importante aqui que é a
+seguinte
+que essa
+interface primeiro a interface vai ser
+feita em você né então a interface Ela
+nasce do sujeito ela não é externa ao
+sujeito ela nasce
+dele resultado do do do movimento então
+ó ó vamos descrever o que a gente
+concluiu até aqui tá vamos descrever o
+que a gente concluiu até aqui então Ó
+observamos né a partir de uma de um
+conjunto de assertivas né observamos
+aqui que e eh o
+pesquisador pesquisador
+interdisciplinar
+interdisciplinar né É abdutivo
+abdutivo
+se ele é abdutivo e uma consequência
+disso vai gerar um movimento
+gerando um
+movimento movimento
+dentro dele tá esse movimento dentro
+dele aqui do a priori os dados vai
+gerando esse movimento dentro dele qual
+é a consequência desse movimento então
+aqui dentro dele vai
+gerar
+dentro do
+pesquisador dentro do pesquisador temos
+a interface teremos né
+teremos teremos a interface
+tá teremos essa interface que liga
+sistemas e discursos né E essa interface
+ela integra integra
+a ciência
+empírica ciência empírica e a
+matemática matemática lógica né Eh por
+meio
+por meio dos tipos de
+causalidade causalidade e os
+métodos tá e os métodos então assim e é
+isso isso a gente volta no curso dois tá
+eh no curso dois a gente estuda os tipos
+de causalidade lembra causalidade do a
+primeira do Aristóteles depois
+causalidade do descart causalidade do do
+do Carl hefel né Depois entra no
+ringback E aí entra no Jude AP no Dag e
+tudo mais né a gente estuda os tipos de
+causalidade e eh para você gerar esse
+movimento abdutivo em você tem que ter
+necessariamente uma relação entre
+método e eh eh método e causa Então
+deixa eu dar um exemplo para ficar mais
+fácil por exemplo que que hoje Acontece
+muito na na na área acadêmica sobretudo
+nas biológicas hoje a gente tem um
+problema que é o fetiche da técnica né
+então e o fetiche da técnica é assim o
+cara usa a técnica pela técnica então o
+Luiz por exemplo né luí E deve passar
+muito por isso lá na na área de
+biológicos né Às vezes o o povo usa uma
+uma regressão diferente só porque é
+legal não é só porque tá todo mundo
+usando que é mais chique para conseguir
+publicar o artigo melhor esse tipo de
+coisa tá então isso é o fetiche da
+técnica então por exemplo hoje em dia
+tem muita gente usando Dag né Tem muita
+gente usando Dag modelação estrutural
+tem aumentada a popularidade só que a
+pessoa não repara que o Dag é é
+automaticamente quando você usa ele você
+já está comprando um princípio
+epistemológico de causalidade né que é o
+princípio que que que aí a a aqui né
+então por exemplo
+exemplo se eu uso
+Dag se eu uso Dag
+assumo assumo que meu
+fenômeno meu fenômeno né assumo que o
+meu fenômeno
+eh tem causalidade
+regular causalidade
+regular e não
+estrita né isso do curso dois isso é uma
+coisa do curso dois tá lembra da
+diferença entre causalidade regular e
+estrita causalidade estrita é a física
+né Toda vez você joga uma pedra para
+cima vai cair pela lei da gravidade não
+tem jeito tá isso acontece
+gravidade 9.8 m/s qu é isso tá então
+causalidade estrita é uma causalidade
+que tem uma relação um para um 100% das
+vezes acontece por isso que tem uma
+equação né causalidade estrita Tem
+equação f = m x a alguma coisa assim
+então toda vez que eu uso a equação
+descreve o fenômeno né não dif dif no
+economia Não é nada disso dif dif no
+economia nada a ver n a gente vai ter
+aula de disso teve isso no curso dois
+tem nada a ver dif da economia Tá longe
+de ser causalidade estrita Tá longe mas
+muito longe inclusive é ruim tá então
+assim eh quando você tem uma uma
+causalidade estrita é Física mesmo é
+química é é bioquímica essas coisas bem
+básicas mesmo tá isso é causalidade
+estrita tá eh quando você tem a equação
+né Eh causalidade
+regular causalidade ah é verdade e luí
+boa é desculpa João e os dif dif nem
+omia é um fetiche da técnica isso Total
+tem vários problemas no curso dois a
+gente fala É verdade então assim
+causalidade estrita é uma coisa que você
+consegue desver descrever por uma
+equação e sempre dá certo tá causalidade
+regular já entra a ideia de
+probabilidade e aqui a gente entra a a
+ideia aqui da probabilidade
+condicional probabilidade
+condicional Então se por exemplo você tá
+usando Dag né necessariamente você
+assume que tem causalidade regular no
+seu fenômeno Como é que você sabe como é
+que você sabe é verdade o leg deu uma
+atrasada Desculpa então e eh Se eu
+escolher ó repare como isso é forte tá e
+esmagadora a maioria dos pesquisadores
+não tem um puto de uma ideia porque é
+muito mais fácil a pessoa aprender a
+usar a o Dag e num tutorial da internet
+do que entender aplicação epistemológica
+então por exemplo
+e vamos ver uma
+conclusão por exemplo é possível é
+razoável razoável
+é razoável usar
+Dag em
+biomol em em mais que biomol Em
+genética é razoável usar Dag Em genética
+eu quero fazer um estudo com genética Tá
+mas genética mesmo tipo engenharia
+Engenharia Genética tá vale a pena usar
+Dag Hein gente você tem um aluno de
+doutorado ele tá lá fazendo ele tá
+fazendo não eh pode ser com ôm vai pode
+ser com ôm se ele tá estudando ômicas né
+e ele resolveu usar Dag nas ômicas e ele
+ele propõe isso como uma técnica nova
+ele já está assumindo que o fenômeno que
+ele está estudando tem que ter
+causalidade regular Será que tem mesmo
+ou pode ser descrito por uma fórmula né
+Então você vai ter que justificar isso
+você vai ter que justificar que o seu
+fenômeno que você tá estudando não é
+descrito por uma causalidade estrita mas
+sim regular Ou seja pode ser descrito
+por meio de de probabilidade condicional
+e se pode ser descrito por probabilidade
+condicional dá para usar Dag que que o
+povo da genética faz usa por usar só
+para fazer graça né só para fazer volume
+só para encher paper Claro que não dá dá
+tudo errado né aí o a técnica dá errado
+fica tudo feio não não faz sentido fica
+fica um Frankenstein tá ou por exemplo
+se você trabalha com química estrutural
+tá química estrutural mesmo experimentos
+químicos mesmo não faz sentido usar Dag
+tem química estrutural é uma coisa
+ligada muito à causalidade estrita né É
+é é aquela causalidade do
+Aristóteles
+Aristóteles né que é aquela coisa que
+forma é
+função forma é função Tá então não dá
+para usar aí ou a técnica dá errado ou o
+cara vai tirar um resultado que não faz
+nenhum sentido
+né não dá certo tá então tem você tem
+que saber que tem áreas do conhecimento
+que você pode usar certas técnicas
+baseada em certos princípios de
+causalidade que em outras não dá né E aí
+como é que você justifica o US uso da
+técnica pelo sentido epistemológico que
+ela tem né então se se se você começa a
+entender agora né você como agente
+abdutivo você como um pesquisador
+abdutivo você consegue verificar a
+técnica tá eu entendo a técnica mas eu
+sei que essa técnica é ligado a uma
+noção de causalidade regular e eu vejo
+que o fenômeno só trabalha com
+causalidade estrita para que que você tá
+usando vai dar errado você tá só fazendo
+o fetiche da técnica tá então você tem
+que tomar cuidado com isso e isso é o
+que você tem que ficar pensando é isso
+que vai gerar em você a a interface essa
+interface abdutivo que tem que tem que
+aparecer em você
+tá então se se o Dag for apenas uma
+ferramenta de representação visual não é
+Dag aí é grafo o o rus né aí o Dag não é
+o Dag usa certas técnicas da análise de
+grafo mas não é um grafo o Dag é uma é
+uma um uma análise teórica Inclusive tem
+no curso dois na disciplina dois eu
+explico direitinho Dag tá você pode
+fazer um grafo o grafo tem cara de Dag
+mas não é um Dag tá então se você quer
+só fazer representação visual faça o
+grafo o o grafo aí beleza o grafo é sua
+continha Tá mas o Dag não o Dag
+Realmente você vai ter que classificar
+os objetos tem um nome tem um sentido
+teórico para cada um Tá então não
+confunda o Dag com o grafo tá bom o Dag
+usa um pouco da matemática do grafo mas
+não é ele tá não não é só representação
+visual não tá
+e é importante deixar isso claro então A
+tá então e eh eh isso Exatamente é o o É
+isso mesmo tá quem usa como
+representação visual usa
+epistemologicamente errado porque o Dag
+não tem essa premissa tá então ele
+aparece em outros contextos fora da
+causalidade mas tem um problema sério
+ali tá porque por exemplo se você faz um
+Dag e você verifica que tem por exemplo
+um colisor ou tem um moderador proxy ou
+tem um confus alguma coisa do tipo isso
+é a classificação causal das variáveis
+se você já faz isso isso não é não é
+representação visual é uma representação
+causal que você tá fazendo Tá isso é
+grave outra coisa é você entrar lá no no
+daget fazer o desenhinho só usar o
+desenhinho aí outra coisa aí você não tá
+aí não é Dag você só tá usando a
+ferramenta do Dag para fazer um desenho
+tá é igual US o paint brush aí é uma
+coisa outra coisa você faz o Dag e
+começa a interpretar isso é um colisor
+isso aí aí não não é representação
+visual E aí muitas vezes não faz sentido
+causal tá tem que tomar cuidado com isso
+e de novo é o fetiche da técnica tá
+então exatamente o eu Concordo
+totalmente com o com o Richard lá no
+curso dele né a galera viaja a galera
+mete um louco vira uma astrologia é
+igual jog Búzio Sabe tem que tomar
+cuidado com isso também tá E e esse
+processo é a interface que você vai
+criando dentro de você esse é o processo
+tá aqui é bem o comecinho tô pegando a
+parte do curso dois mas isso aqui vai
+vai vai bem PR bem pra frente então a
+gente gente tem um um um um desafio aqui
+né o primeiro desafio é isso né como é
+que a gente desenvolve um pesquisador
+interdisciplinar deixa até pegar colocar
+aqui a gente tem dois desafios né e no
+no curso TRS a gente tem dois desafios o
+primeiro desafio é como como que a gente
+desenvolve ess esse pesquisador
+interdisciplinar Você já viu que não é
+fácil negócio é nervoso já viu que não
+não é fácil fazer isso né como é que a
+gente
+desenvolve esse esse pesquisador né
+então a a o desafio
+Um Desafio um né será
+como
+desenvolver como desenvolver a
+interface né no
+pesquisador no pesquisador
+interdisciplinar
+interdisciplinar Esse é o primeiro
+desafio né e a gente a gente vai vendo
+vendo isso ao longo do curso tem que
+mostrar os métodos e tal mas você já
+percebeu que essa coisa é abdutivo E vai
+ter que acontecer dentro de
+você voltou aí vai ter o desafio
+dois vai ter o desafio
+dois
+eh o desafio dois o desafio dois é
+baseado no no no que eu falei no começo
+da aula é é é voltar lá na teoria da
+medida
+então a teoria da medida é o segundo
+desafio né A Teoria da medida é
+baseada no uso do número no uso do
+número Lembrando que o número tem valor
+e Ordem né teoria da medida é baseado eh
+no uso do número e nem todo
+fenômeno nem todo
+fenômeno tem
+número tem número às vezes só uma parte
+né E aí vem como
+fazer como fazer o que que eu faço né E
+aí a gente vai eh eh começar a verificar
+isso agora agora eu vou vou falar da
+definição de
+isomorfismo né porque o que que acontece
+eh eu vou dar um exemplo eu vou dar um
+exemplo de uma de um eu vou dar o
+exemplo da flor né que é o quem já viu o
+curso já eu sempre falo do exemplo da
+flor que ele é mais fácil mas tem um
+exemplo também da doença mental que eu
+acabo falando
+eh então assim a teoria da medida é
+baseada no uso do número que tem valor e
+Ordem né E nem todo fenômeno tem um
+número né como é que eu faço como é que
+a gente resolve isso essa primeira parte
+aqui a gente resolve na primeira metade
+do curso três a segunda parte o desafio
+um a gente vai resolver na segunda
+metade do curso três tá então aqui
+a nem todo nem todo fenômeno tem número
+essa parte nem todo fenômeno tem número
+aí vem aqui
+por é o Pedro já tava esperando né Você
+tem uma colega aí também acho viu Pedro
+que é psiquiátra que nem você né que tá
+aí no curso Então nem todo fenômeno tem
+um número aí por né Por por causa
+basicamente de três problemas o primeiro
+problema é o problema da representação
+problema da
+representação Então por que que tem
+certos fenômenos que não encaixa o
+número tá que não encaixa número e o
+primeiro é o problema da representação
+Então seria o problema da representação
+é como
+eh
+representar Como representar um
+objeto Como representar um objeto por
+meio como representar o objeto por meio
+de uma estrutura
+numérica
+estrutura numérica então por exemplo tem
+fenômenos que não T zero né Tem
+fenômenos que não tem zero
+absoluto Então aqui tem
+fenômenos que não tem zero absoluto Isso
+já é um
+problema mas tem tem métodos pra gente
+fazer eh comparações relativas a gente
+vai ver o método de thurston né a
+conjoint analises é uma técnica que Visa
+reduzir o problema da representação tá
+quando o fenômeno não tem um zero
+absoluto dá pra gente fazer comparações
+relativas então aqui para fenômenos que
+não tem zero absoluto O que que a gente
+vai ver no curso que dá para dar uma
+melhoradinha nisso né A gente vai ver
+por exemplo o método de
+thurston
+thst né e a a gente vai ver também a
+método de e a a conjoint
+análises conjoint análises isso já são
+métodos que ajuda a lidar com o problema
+da representação a gente vai ver um
+outro método qualitativo que é a
+metodologia
+aqui metodologia aqui que é muito útil
+também para esse tipo de fenômeno tal né
+então mas tem fenômenos que não t tem
+esse problema de representação que eu
+não consigo colocar numa escala né eu
+não consigo colocar numa escala seja
+porque eu não tenho zero né ou seja
+porque por exemplo eu tenho lá uma
+escala eh 0 1 2 3 4 e c pode ter pode
+ser que tenha um certo fenômeno né que a
+a a distância de zero para um seja
+diferente da distância de um para dois
+não não é não é um fenômeno equidistante
+né eu não consigo representar essa
+estrutura numérica de forma equitativa
+pode ter tamanhos diferentes aqui né E
+aí como é que eu lido com isso e a aí
+para esses casos tem técnicas pra gente
+resolver ou melhorar isso Tá Mas é um
+problema presente alguns fenômenos então
+a distância do zero para um é muito
+grande do um pro dois é menor do dois
+pro três é menor tem fenômenos que tem
+uma escala logarítmica né que números
+pequenos fica grande números grandes vai
+ficando pequeno e e a gente vai ver
+técnicas para lidar com isso tem um
+outro problema né um outro tipo de
+problema de fenômenos que é o problema
+da
+unicidade problema da unicidade
+o problema da unicidade é
+assim isso o pedro gosta né de Quando
+você pensa em doença mental é cheio de
+cheio de problema de
+unicidade é quando cada aspecto do
+fenômeno cada aspecto do fenômeno Olha a
+Malu dando suporte pros soldados
+né ô Malu a galera a galera que tá vendo
+aqui o curso TR é a galera que já fez o
+curso TR ano passado porque eles estão
+se sentindo sozinhos né não tem
+interlocução B tá vendo Ô maluco a gente
+tem que trazer os docentes para fazer o
+curso para ter mais gente para conversar
+velho porque aí coitado ó Ficam todos
+desamparados aí ó tá então assim o
+problema da unicidade cada aspecto do
+fenômeno né Eh cada aspecto do fenômeno
+tem de
+estar tem de estar né Eh
+atrelado tem de estar atrelado a um
+número
+a
+um número único
+um número único que
+representa que represent
+representa uma
+certa propriedade do
+objeto do
+objeto então por exemplo né Por exemplo
+eh o exemplo mais clássico é doença
+mental você pega a
+depressão tá mais fácil de de de mostrar
+o problema da unicidade
+e e se depressão desse para medir por
+número tá se a depressão fosse uma coisa
+que daria para medir um número e eu já
+tô batendo batendo pau em todo todo tipo
+de questionário de depressão tá se a
+depressão desce para medir para um
+número tem lá o número né então aqui né
+o 0 1 2 3 4 5 de novo tá se a depressão
+desce para medir para um número cada
+cada grau da depressão deveria estar
+atrelado a um número cada grau né cada
+grauzinho e esses graus são de juntos
+então por exemplo eu posso aplicar eu
+tenho duas pessoas pessoa um pessoa dois
+eu posso aplicar o questionário de
+depressão nas duas pessoas uma a pessoa
+um Deu 10 pontos e a pessoa dois deu
+oito tá a pessoa um Deu 10 pontos a
+pessoa dois deu oito pontos tá
+clinicamente E aí o Pedro sabe muito bem
+clinicamente a pessoa dois ela pode
+estar pior que a um clinicamente mesmo
+dando menos no questionário
+né Por quê Porque tem o problema da
+unicidade Quando você pensa o quadro
+depressivo o quadro depressivo para cada
+pessoa é um processo estocástico
+diferente por ser um processo
+estocástico diferente não tem zero
+absoluto o o depressão não tem zero
+absoluto zero de cada um é diferente e
+não tem unicidade se você pega a a
+depressão e e pega as perguntas do
+questionário e aplica no indivíduo pode
+dar pontuação diferente né inclusive
+pode um paciente mais grave pode dar uma
+pontuação menor do que o paciente mais é
+menos grave clinicamente tá por quê
+porque depressão por exemplo entre
+outras coisas não tem representação né
+não tem zero absoluto e não tem
+unicidade cada valor da escala não é
+associado com o nível da etiologia né
+então assim depressão é o caso mais
+fácil assim de verificar que é um
+fenômeno que não tem número não dá para
+medir por número sozinho né não dá para
+medir para a escala não mede nada a
+escala pode ter um objetivo eh e
+epidemiológico tá aplicar escala de
+depressão você tem que aplicar numa
+galera para ver para ver um problema eh
+econômico ou ou epidemiológico agora
+clinicamente não serve para nada né
+então exatamente Ô luí os questionários
+que passearam por por CFA análise de
+invariância Ótima pergunta então se eu
+se eu valido uma escala né isso
+exatamente a escala não fala com a
+clínica mas mas foi bom seu comentário
+se eu pego um questionário mesmo que eu
+fiz toda a validação tá eu validei para
+uma amostra né eu validei ele tem boas
+propriedades se eu pego um
+questionário né e fiz lá 100 né Fiz CFA
+imagina que os indicadores ficaram bons
+ficou bom tá a escala mediu bem e tal A
+partir do momento que você escolheu essa
+técnica Qual é a pressuposição
+epistemológica que você tá comprando
+acredito Acredito que meu fenômeno
+meu fenômeno é
+isomórfico por
+número por número por quê Porque essas
+medidas de qualidade não não não servem
+para testar isomorfismo tem nada a ver a
+escala pode ficar boa e mesmo assim ela
+não medir porque o fenômeno não é
+isomórfico por número entende só que
+fetiche da técnica né o povo fica só na
+pira da técnica o que que é validar
+validar e aplicar a análise fural
+confirmatória aí aplica e não e não
+percebe o princípio epistemológico dos
+tipos de causalidade Ah é complicado tá
+vendo tem que juntar ass essa parte aqui
+é Ciência empírica
+né essa parte aqui aplicar o
+questionário fazer isso aqui ó é a
+ciência empírica ótimo mas e a parte
+matemática lógica Quais são os axiomas
+que você tá aceitando ou os princípios
+no momento de aplicar aquela escala ou
+descrever o fenômeno se você der um
+passo atrás e voltar que por exemplo
+depressão não pode ser descrita por um
+número porque não é isomórfico por
+número para que que você tá fazendo tudo
+isso aqui já já quebrou todo o resto já
+foi embora tá vocês perceberam a
+problemática Né É complicado então a
+primeira coisa antes de coletar o
+primeiro paciente meditações você vai
+pensar no problema da representação dá
+para representar tem zero absoluto
+beleza se não tiver tem outras técnicas
+que dá para usar a gente vê né problema
+da unicidade na escala cada cada
+atributo do fenômeno tem que estar
+condicionado a um nível da escala a
+gente tem vários casos que isso não
+acontece beleza e o terceiro problema
+que é mais fácil é o erro de
+medida erro de medida o erro de medida
+aí você é é é mais simples né o erro de
+medida é só a ideia do do Você pode ter
+erros de medida do
+método ou do
+respondente respondente só que você
+resolve o erro de medida com mais
+treinamento né com mais treinamento
+treinamento da escala aplicação das
+técnicas e tal você redus o erro de
+medida mas o grande problema é que tem
+por exemplo você pode ter fenômenos que
+é muito difícil de medir por causa do
+erro de medida Então pensa por exemplo
+situações em que eh a pessoa tem que
+falar sobre algo muito íntimo dela né
+você até você imagina que você tá
+estudando um fenômeno que é isomórfico
+por número e tal tem não tem problema de
+representação nem unicidade Mas é uma
+coisa que é muito íntima pra pessoa ela
+não quer falar né E aí pode dar erro de
+medida e aí o que que você tem que fazer
+treinamento né entrevista né técnicas de
+entrevista aí a gente vai estudar uma
+coisa muito importante lá no curso mais
+para frente a ideia do
+rapor né rapor é super importante então
+aí tem a ver com o erro da medida mesmo
+da coleta tá então isso isso é é é é
+legal tudo bem gente então ó para para
+resolver esse desafio dois né A Teoria
+da medida é baseada no uso do número e
+nem todo fenômeno tem número dá para
+usar número e por quê Por causa do
+problema da representação problema da
+unicidade ou erros de medida né então
+você tem que meditar sobre isso e
+dependendo dessa meditação você já vai
+já vai verificar que tem certas técnicas
+certos métodos que nem adianta usar
+porque o fenômeno já não é isomórfico
+por número então não adianta ficar
+usando coisas do curso dois por exemplo
+tá agora finalmente a gente entra no
+conceito de
+isomorfismo então em fenômenos não
+isomórficos pensando no delineamento de
+pesquisa não isso não faz não tem nada a
+ver com delineamento Débora você fazer
+crossover não não muda nada isso isso é
+é a maneira como o fenômeno existe não
+tem a ver nem com a coleta de dados é
+bem mais complicado que isso
+tá você fazer crossover por exemplo eu
+apliquei um questionário em você e
+coloquei você num tratamento depois eu
+aplico o questionário de novo você
+fazendo cruzando você com você mesma se
+o questionário que você tá usando mede
+uma coisa que não é isomórfica por
+número não importa se é crossover ou não
+não interessa não faz diferença tá isso
+é antes é antes do delineamento
+experimental tá quando você pensa em
+crossover você tá pensando lembra que a
+gente tem dois tipos né tem a a ciência
+empírica e a matemática lógica você só
+tá na ciência empírica e eh a matemática
+lógica é que princípios que você tá
+aceitando no momento que você escolhe os
+seus métodos tá mudar o delineamento da
+pesquisa não muda nada é uma questão bem
+anterior né então a a se por exemplo a
+Débora se você tá estudando depressão tá
+o seu a sua variável dependente é
+depressão Você tá estudando isso saiba
+que depressão não é isomórfica por
+número não é então se você só aplicar
+questionário você não vai captar vários
+problemas do do fenômeno Ou você tem que
+coletar uma amra muito grande né ou você
+vai ter que fazer várias adaptações e
+controles assim então é complicado né
+então a a
+ã Então você você colocar o paciente
+como próprio controle tem vantagens mas
+tem vantagens para fenômenos isomórficos
+por número quando o fenômeno é não
+isomórfico por número a gente tem que
+usar outras coisas que a gente vai ver
+aqui no curso três Então agora que eu
+mostrei esses três problema vocês estão
+anotando né Tá agora a gente vai entrar
+finalmente a última parte de hoje que é
+a definição de isomorfismo
+tá vamos entrar aqui na definição de
+isomorfismo mesmo
+eh e aí as as consequências disso então
+a gente vai dar a definição é uma
+definição axiomática e a partir daí a
+gente estuda algumas das consequências
+do isomorfismo né eu fico realmente com
+esperança que vocês estão me
+acompanhando hein gente o povo que já
+viu o curso três antes eu tenho mais
+esperança meu a priori ainda não é muito
+forte então Gustavo como saber o
+isomorfismo do fenômeno meditações
+lembra que eu falei que essa interface
+tem que acontecer dentro de você então
+você vai ter que estudar tudo no curso
+três e meditar e usar esse espaço ó por
+isso que a galera que fez o curso trê
+antes tá voltando porque isso você vai
+ter que gerar esse movimento né você vai
+ter que gerar esse a priori esse a
+priori só que esse a priori vai tá em
+você você vai ter que entender bem essas
+técnicas do curso três tá então então
+assim Gustavo eu sei Ai desgraça eu sei
+que você fica ansioso mas é assim mesmo
+a gente vai devagarzinho
+pronto a gente vai devagarzinho aqui
+Então vamos lá Vamos
+definir
+isomorfismo tá esse é um conceito
+importante então a a a Rosane né meu
+medo não conseguir essa interface aí ó o
+o Renan Luiz a Fernanda que já estão
+fazendo então o seu medo é não não
+conseguir essa interface e Exatamente
+esse medo que vai te movimentar é essa
+pegada tá E aí volta lá na discussão do
+curso um né a ideia não é tá certa tá
+menos errado então quanto mais quanto
+mais você congregar conosco né menos
+medo você vai ter mas ele nunca vai
+sumir Pode ser que ser regrida pode
+sempre pode tá é esse movimento que o
+malinovski descreve né é a atenção mesmo
+tá então Vamos definir isomorfismo
+isomorfismo seria a
+relação entre relação entre um
+número um número que seria o
+símbolo né então
+o número tem ordem e e Ordem e valor tá
+é a relação entre um número e e um
+atributo um número e um
+atributo um número e um atributo de um
+objeto de um objeto ou um
+fenômeno tá é relação entre um número e
+um atributo de um objeto ou fenômeno
+natural natural eh por meio de suas
+propriedades por meio de
+suas
+propriedades por meio de suas
+propriedades né as propriedades dos
+números as
+propriedades dos
+números né as propriedades dos números
+que seria eh
+ordem
+aditividade aditividade
+eh e
+identidade as propriedades dos números
+eh devem
+ser devem ser
+associadas
+associadas com meu Deus
+eh com os atributos
+os atributos do objeto
+natural objeto
+natural natural o desgraça de letra
+disgrafia do [ __ ] eh objeto
+na natural e não com o objeto em
+si
+objeto em si Então essa essa essa
+definição é é é tensa Tá mas vamos vamos
+devagarzinho então assim ó o isomorfismo
+é a relação entre um número e um
+atributo tá então Lembrando que número
+número vai ter valor e Ordem né então
+aqui você vai no número vai ter valor e
+Ordem beleza é a relação entre um número
+e um atributo de um objeto então eu vou
+dar o exemplo eu vou dar um exemplo da
+flor tá que eu que eu que eu sempre falo
+aí né então uma flor ela tem um tamanho
+quando você mede o tamanho de uma flor o
+tamanho de uma flor é uma atributo da
+flor e quando você mede Você mede por
+meio de um número que tem um valor e uma
+ordem tá então a flor tem 30 cm Tudo bem
+então todo e eh todo objeto todo objeto
+natural tem atributos cor tamanho forma
+esse tipo de coisa tá e cada atributo
+Você mede por um número usando um número
+beleza essa primeira parte né então
+relação entre um número e um atributo de
+um objeto natural por meio de suas
+propriedades Então já mostrando um
+exemplo né eu tenho por exemplo uma flor
+tenho uma flor aqui ó eu tenho uma flor
+tá a a flor a flor ela é o
+objeto eu posso decompor esse objeto em
+atributos né aí eu vou ter um atributo
+um que seria a cor o atributo
+do que seria a o
+tamanho né um atributo TR
+cor tamanho seria a
+A sei lá o número de flores ou a
+forma tá então a a a flor tem a flor é o
+objeto esse objeto tem atributos E aí
+para cada atributo eu posso atribuir um
+número número né Número
+1 número
+do número TR posso atribuir um número
+para cada atributo tudo bem tudo bem
+gente tá eu tenho objeto esse objeto
+decomposto em atributos cada atributo
+posso atribuir um número vocês estão
+comigo gente essa parte é importante é
+nevrálgica agora tá essa parte da aula é
+mais importante agora então Ó eu tenho
+eu tenho um objeto esse objeto eu
+decomponho em atributos cada atributo eu
+associo com um número beleza e aqui eu
+tenho as propriedades né então eu posso
+dizer a propriedade da cor do tamanho da
+forma e tal né as agora aqui que é
+importante as propriedades dos números
+que a é a ordem aditividade mais
+identidade
+vai dar o
+valor tá então o o agora agora vou
+decompor né o valor ele é decomposto
+numa coisa aditiva e numa identidade tá
+então por exemplo eu posso eu posso
+dizer que o tamanho da flor é 10 cm 10
+cm o 10 é uma identidade o número 10 tem
+uma identidade e que pode ser aditiva
+porque vai ter um número vai ter um
+número ele ele é mais alguma coisa menos
+alguma coisa vai ter um intervalo dele
+tá então esse número nmero ele é ele é
+ele é identitário com uma uma adição ele
+vem de alguém tá depois depois vou
+mostrara essa essa prova né quando eu
+for falar de zero absoluto eu mostro
+essa prova que na verdade nenhum número
+existe o único número que existe é o
+zero tá a partir do zero todos os outros
+números existem né e é por isso que
+quando tem fenômenos que não tem zero
+absoluto não dá para usar número porque
+os números na verdade não existem o
+único número que existe é o zero é uma
+desgraça Total isso aí né tô pensando
+numa forma mais fácil de de provar isso
+mas eu vou vou conseguir tá então assim
+todo número tem uma identidade e ele é
+aditivo né Ele é aditivo ele tem um ele
+veio de alguém né E se ele é aditivo ele
+tem ordem então tem tem antes e depois
+maior menor a ordem gera aditividade e
+identidade tá então isso que é o valor o
+valor de uma coisa que pode ser medida
+por número é por meio da identidade que
+é o número em si mais um um um uma um
+caráter aditivo porque aí da aditividade
+você consegue fazer operações tá isso a
+gente vai chegar nessa parte ainda tá
+mas não hoje então assim e eh uma coisa
+isomórfica é uma coisa que tem um número
+e que você pode fazer uma relação entre
+um atributo e o número né o cada um dos
+atributos vai ter um número beleza né Eh
+por meio das suas propriedades as
+propriedades dos números devem ser
+associadas com os atributos do objeto
+natural e não com o objeto em si essa
+parte Essa parte é fundamental então
+aqui ó ó
+as propriedades doss números devem ser
+associadas com os atributos do do objeto
+mas não com o objeto em si Então isso é
+um é um caminho sem então isso aqui é
+uma
+relação relação C
+então ou seja ela é unidirecional só vai
+no sentido não volta tá o c somente C
+que vai e volta é uma relação C então
+assim flores
+tem cor
+tamanho e
+forma flores tem cor tamanho e forma que
+são os
+atributos atributos beleza né então do
+objeto ó aqui do
+objeto né eu vou para os
+atributos do objeto eu vou pros
+atributos beleza né a volta eu não
+consigo fazer a volta
+a volta não
+vale não vale a volta então assim
+imagine um objeto que tem cor tamanho e
+forma então ó imagine um objeto vermelho
+que tem um tamanho 10 cm uma forma
+circular né você vai lembrar você vai
+associar com uma flor não
+necessariamente ou seja isso aqui é uma
+relação unidirecional então do do objeto
+você extrai os atributos e mede por meio
+de isomorfismo por número né Ou seja
+quando você consegue pega uma flor
+decompõe atributos e mede cada um dos
+atributos eu consigo dizer que os
+atributos não é o objeto os
+atributos são
+isomórficos isomórficos por
+número os atributos são isomórficos por
+número tá
+eh então a cor quando eu tô estudando
+uma flor a cor é isomórfica por número o
+tamanho é isomórfico por número e a
+forma isomórfico por número para estudar
+a flor tá então o isomorfismo não fala
+da flor fala dos atributos que eu uso
+para medir a flor tá E e essa é a parte
+é fundamental então quando eu tenho um
+objeto da natureza eu consigo decompor
+nos atributos e medir né só que se eu te
+mostro os atributos eu não volto eu não
+volto no objeto tá isso é fundamental
+isso é fundamental Cadê a Cadê a Rosiane
+Rosiane dá oi aí dá oi aí a você vai se
+você tiver viva ainda não sei né se você
+já foi mas se a ros tiver viva aí que a
+minha colega estatística ela aprendeu
+isso no primeiro ano da graduação ó
+Rosane eu eu tô te explicando eu tô
+explicando uma coisa aqui que é o feijão
+com arroz que você viu que é o conceito
+de variável aleatória tá então o
+isomorfismo existe para aqui ó
+observação tá ó
+isomorfismo é para os atributos do
+objeto atributo
+do
+objeto e não para o objeto em
+si para o
+objeto em si eu não tô falando da flor
+eu tô falando dos eu não tô falando da
+flor tô falando dos atributos tá os
+atributos eu sei são isomórficos por
+número Beleza se eles são isomórficos
+eles têm Associação com número consigo
+fazer conta consigo fazer estatística
+média variancia intervalo de confiança
+regressão tudo mais tá bom né e e e aí
+uma observação
+dois
+todo todo
+isomorfismo essa isso aqui é muito forte
+todo isomorfismo é uma variável
+aleatória é uma variável
+aleatória da estatística você ô Rosen
+Você tinha que ter estudado isso na
+estatística tá você tinha que ter
+aprendido isso no no começo da graduação
+estatística todo isomorfismo é uma
+variável aleatória e o que que que é uma
+variável aleatória
+Relembrando variável aleatória é uma
+função função que
+liga cada
+elemento cada elemento oh meu Deus a
+letra
+Cada
+elemento do espaço de
+eventos do espaço de eventos
+a reta real por meio de um número
+a reta
+real a reta
+real por meio de um
+número então isso exatamente a a o povo
+fala que variável aleatória é uma função
+e pronto mas é mais que isso o o toda a
+variável aleatória é um isomorfismo é um
+isomorfismo Fantástico aliás é um
+isomorfismo entre teoria dos conjuntos e
+álgebra né é um isomorfismo E aí você
+vai ver que é exatamente igual e e e
+isso que a gente tá vendo a que pecado
+que o estatístico não entende isso
+porque ele ia entender tantos fenômenos
+porque assim ó ó clássico primeiro ano
+do curso de estatística tem lá os
+eventos né Aí cada evento vai ter um
+valor na reta real por meio de um número
+aqui né Cada valor vai ter um cada
+evento vai ter um valor na reta real
+Isso aqui vai ser feito por meio de uma
+de uma função essa função é a variável
+aleatória né só que e e tudo bem então a
+variável relatório é uma função de duas
+coisas né Só que ela é uma função que
+liga os eventos Quais são os operadores
+dos eventos é a teoria dos
+conjuntos quando você tá no mundo dos
+eventos né Você tá trabalhando com união
+intersecção e
+complementar quando você trabalha depois
+que você coloca na reta real aí você
+trabalha com soma e multiplicação faz
+álgebra tá Então na verdade a variável
+aleatória é um isomorfismo entre duas
+áreas da Matemática é o isomorfismo
+entre a teoria dos conjuntos e a álgebra
+né Na matemática pura isso é chamado
+teoria das categorias eu consegui criar
+uma categoria que liga e eh duas áreas
+teóricas da matemática que é a teoria
+dos conjuntos e a e a álgebra né Toda
+variável aleatória é um isomorfismo né o
+que eu quero o que eu quero mostrar que
+isso é aplicado à teoria da mensuração
+quando você e e e aí é muito importante
+estatístico saber isso por exemplo pega
+um evento idade
+e vou pegar o Luiz o o Gustavo que tá aí
+por último Ô Gustavo Quantos anos você
+tem quantos anos você tem Coloca aí pode
+mentir não não tem problema aqui ó
+Gustavo 29 tá então o Gustavo tem 29
+anos nem nem nem tá aqui ó e dentro do
+espaço de eventos tem o Gustavo e o
+Gustavo tem uma
+idade o Gustavo tem uma série de
+características O Gustavo é igual a flor
+um dos atributos do Gustavo é a idade né
+aí eu pego esse atributo idade jogo na
+reta real e tem 29 Esse é o valor que eu
+atribuo a ele tá então aqui do mesmo
+jeito que o objeto tem um tamanho O
+Gustavo tem uma idade né essa idade eu
+atribuo na reta real por meio de um
+número 29 aí ros eu posso fazer o
+caminho contrário se eu pegar qualquer
+pessoa com 29 anos vai ser o Gustavo não
+vai né ou seja variável aleatória é
+igual a
+isomorfismo isomorfismo que é igual uma
+função injetora
+é uma função
+injetora apenas injetora tá é uma função
+injetora então o do objeto eu Gero os
+atributos e verifico se os atributos são
+isomórficos né E aí eu eu se for se os
+atributos são isomórficos toca a
+variável aleatória toca a conta já era
+estatística básica acabou né E só que a
+volta não consigo fazer os atributos não
+reconstroem o objeto e aí a gente entra
+numa conclusão muito importante né
+porque boa parte da Psicologia não sei
+se tem algum tem o o Vitor tá aí não sei
+se ela já morreu já né já deve ter deg
+engolado dissolvido Ah a Fernanda né Por
+exemplo a psicologia Quando você estuda
+Psicologia de verdade né não não a parte
+de bateção de tambor A psicologia de
+verdade é o estudo dos atributos dos
+objetos psicológicos né você vai estudar
+um objeto psicológico Ah bom reflexões
+de inverno isso pode ser o senhor também
+ou a senhorita não sei né
+Eh então o o reflexões lá quando ele tá
+fazendo faculdade de psicologia em geral
+se o curso é minimamente é que todo o
+curso é coxa mas é um pouquinho menos
+coxa Quando você vai estudar os
+fenômenos psicológicos né Você estuda e
+eh por a a você vai estudar sei lá
+atenção né atenção você estuda os
+componentes da atenção que são os
+atributos né E aí tem formas de medir né
+até se você for estudar inconsciente o
+que quer que seja quando você vai
+estudar inconsciente Você estuda por
+meio de atributos né Eh eh ah James boa
+então você vai estudar os atributos né
+do do do objeto você tem um objeto
+psicológico que é um fenômeno pode ser
+social ou não não esse fenômeno social
+vai ser decomposto em atributos E aí
+cada atributo você vai medir primeiro
+você vai ver se dá para ser isomórfico
+né Por número se for isomórfico por
+número dá para fazer variável aleatória
+toca o barco acabou né fácil né O
+problema é que você não pode fazer a
+volta e aí o que que acontece por isso
+que eu tô falando dos meus colegas
+psicólogos agora né Tem muito psicólogo
+vocês vão ver que tem colegas de vocês
+aí né Tem muito psicólogo você chega por
+que que você foi fazer psicologia Ah
+para eu me entender você não vai se
+entender desgraçado porque o que que
+acontece imagina que esse objeto é você
+aí você vai estudar psicologia você vai
+estudar os atributos os seus atributos
+só que quando você entende esses
+atributos você não consegue fazer o
+caminho de volta não vai voltar em você
+sabe pense uma uma justificativa burra
+para fazer psicologia é essa né você não
+vai se entender a última coisa que você
+vai fazer é se entender quando você faz
+psicologia você quer você quer se
+entender vai fazer arte faz crítica e
+crítica literária teatro essas coisas
+você se entende aí porque aí fala de
+você só do seu discurso a gente vai ver
+isso depois só do seu discurso não tem
+nada a ver com com você fazer psicologia
+Com certeza você não vai se conhecer
+você vai conhecer os atributos que te
+compõe mas você não consegue fazer a
+volta né porque injetor a função é
+injetora tá E aí eu quero eu quero
+mostrar uma coisa mais grave até pros
+senhores e senhoritas vou V vou colar
+aqui em cima vou colar em cima de tudo
+dane-se né e
+e para ser um isomorfismo pelo menos na
+udba linear para então não não precisa
+ser bijetora tá álgebra linear não a na
+verdade variável aleatória é sempre
+injetor sempre tá isomorfismo porque a
+álgebra linear é um é um outro Campo da
+matemática tá o o isomorfismo que eu tô
+falando aqui é entre teoria dos
+conjuntos de álgebra Esse isomorfismo é
+sempre injetor é sempre injetor aí tem a
+área da matemática que é a teoria das
+categorias que estuda as categorias né
+os tipos de categoria alguns casos é
+injetor outros casos não tá o que eu
+quero mostrar para vocês é um exemplo
+muito bom de um livro que a gente vai
+ver no curso mas é é Vou colocar aqui ó
+que é isso aqui ó
+ah
+aqui esse exemplo é fantástico eu pelo
+menos gosto muito aqui Vou até aumentar
+para ficar grande para vocês verem ó
+agora até c v hein não tem desculpa mais
+ó Quero mostrar um exemplo disso na
+parte na na prática arte mesmo ó aqui e
+isso aqui é uma obra do Picasso que
+chama o Stúdio tá ele fez 1927 28 é
+Picasso já sabe né uma coisa meio
+cubista aqui muito louco só que o o
+próprio Picasso disse ele disse a gente
+não ia saber se não sou se lembra ó aqui
+tem os atributos mas eu não sei a que
+ele se refere ele vai ter que falar né
+então ele fala que isso aqui é uma
+versão é uma versão desse quadro aqui de
+1671 então o que que o Picasso viu o
+Picasso viu essa obra né que é a arte da
+pintura viu essa obra que tem duas
+pessoas tem um véu aqui uma cortina
+Parece que tem uma terceira pessoa
+olhando essas duas né aqui tá então a a
+tem a pessoa aqui tem tem esse quadro né
+E aí o que que o que que o Picasso fez
+ele viu isso aqui e decompôs isso nessa
+obra dele onde você tem os
+atributos tem os atributos apenas tá se
+você olha essa obra você não consegue
+voltar na outra né você precisa daquele
+que fez esse aqui é o agente o agente
+que fez né é o
+agente tá então o que que se você agora
+se você olhar Ó tem isso isso aqui é
+essa essa pessoa aqui que tá atrás da
+porta seria essa pessoa que está vendo
+tá a pessoa que tá vendo as outras duas
+é essa pessoa aqui ó atrás da porta
+parece uma porta uma cortina o que quer
+que seja né Aí você vai ter ó essa
+pessoa aqui é essa branca e essa outra
+aqui que tá olhando a janela esse esse
+desenho aqui ó tá menor tá então assim
+quando eu explico se eu não explicar
+você não vai entender mas quando eu
+explico os atributos você até consegue
+fazer as paridades né fazer as paridades
+se o pic não falasse que essa obra tem a
+ver com essa você nunca ia descobrir
+nunca ia descobrir Tá mas é exatamente
+isso a gente chega numa conclusão aqui
+fantástica uma observação aqui que é
+fantástica que é a seguinte
+e E aí eu volto naquela coisa da
+Psicologia a psicologia ela não Ela
+estuda os atributos do comportamento e
+não necessariamente o o comportamento el
+el Ela estuda os atributos das emoções e
+não necessariamente as emoções Tá e é
+por isso que fazer faculdade de
+psicologia você não vai entender nada de
+você nada mas você vai entender os
+atributos comuns você vai entender as
+regularidades né E algumas
+variabilidades que talvez você aplica a
+você mas você vai ter que ser mais
+formado em métodos com a formação porca
+que a gente tem em psicologia você não
+vai entender isso então e eh aqui né
+aqui o que uma uma observação aqui que
+grave é importante né aqui ó toda
+representação toda representação
+realista toda representação realista
+sempre acaba
+sempre
+acaba presa no
+tempo presa no tempo toda a
+representação realista ela fica presa
+num tempo histórico sempre né Toda
+representação realista sempre acaba
+presa no tempo aí
+Aqui tendo os
+atributos tendo os atributos
+tendo os atributos do fenômeno tendo os
+atributos
+isomórficos tendo os atributos
+isomórficos do fenômeno de um fenômeno
+isso aqui é bonito demais gente tendo os
+atributos isomórficos de um fenômeno Eu
+não reconstruo eu não o
+reconstruo
+reconstruo eu não re construo
+eu não reconstruo e mas tenho as
+bases mas tenho as
+bases para
+reedit
+re
+deitá-lo em outro
+contexto outro
+contexto E aí que a gente faz ciência
+gente é aí que a gente faz ciência
+porque a gente consegue coletar os
+atributos isomórficos de um fenômeno e
+não construir o fenômeno como ele foi
+mas reedit em outro contexto isso gera
+generalização e E aí esse
+movimento esse movimento de reedição né
+gera a educação científica é é o
+mecanismo disso é exatamente isso gente
+tá então o que eu não sei de vocês mas
+essa é uma discussão formidável
+fantástica mesmo importante demais mesmo
+né Isso é fazer pesquisa fazer pesquisa
+é isso Verê o fenômeno decompor ela em
+atributos verificar qual o tipo de
+isomorfismo desses atributos aplicar o
+método a isso né e a partir daí você não
+vai reconstruir o fenômeno como ele é
+você pode reeditar Esse fenômeno de
+outras formas você aprende a a o o aqui
+você aprende agora tem que apagar isso
+aqui você aprende a as variabilidades e
+as e as regularidades então a uma outra
+conclusão formidável que a gente chega é
+que entendendo
+eh entendendo e e verificando o
+isomorfismo dos atributos a gente tem
+acesso às variabilidades e as
+regularidades E aí gerando no indivíduo
+a a interface que ele necessita para ser
+um pesquisador
+interdisciplinar Hein gente começamos
+bem o curso três Hein gente começamos
+bem já damos todas as bases para motivar
+vocês a acompanhar o resto do curso não
+será fácil né não será fácil mas estamos
+aí tá então porque porque aí você vai
+chegar não tudo bem mas como é que eu
+faço isso como é que eu faço isso então
+o como a gente vai precisar das outras
+aulas para ir fazendo aos pouquinhos a
+gente vai estudar um monte de métodos
+diferentes um monte mesmo né de métodos
+diferentes então aqui a gente conclui né
+aqui a gente conclui que o o o
+entendimento o entendimento do
+isomorfismo isomorfismo
+relativo o entendimento do morfismo
+relativo aos
+atributos aos atributos de um
+fenômeno de um
+fenômeno
+permite sua
+reedição
+reedição em outros
+contextos em outros
+contextos né eh eh destituindo
+destituindo
+o
+tempo destituindo o tempo né porque toda
+a representação realista sempre acaba
+presa no tempo você desconecta o tempo e
+gerando a aprendizagem a educação
+científica desculpa a educação
+científica educação
+científica por meio da criatividade
+metodológica cri
+atividade
+metodológica né E é isso que vamos
+desenvolver é isso que vamos desenvolver
+tá
+eh isso que vamos desenvolver em vocês é
+essa parte essa criatividade
+metodológica então só para só vou
+apresentar tá a gente tem tipos de
+isomorfismo tipos de
+isomorfismo aí tem a ver com a pergunta
+do
+do do Gustavo fross né que ele falou
+como é que eu sei o isomorfismo do meu
+fenômeno né primeiro a gente tem que
+entender os tipos de isomorfismo Mas a
+partir daí entendendo os tipos de
+isomorfismo você vai ter acesso aos seus
+fenômenos E aí você vai decidir né você
+vai isso é uma decisão teórica você vai
+propor Teoricamente qual o isomorfismo
+mais adequado então a ideia que a partir
+do
+tipo de
+isomorfismo a partir do tipo de orfismo
+você vai ter um
+método para
+aplicação né E aí você vai ter o o
+resultado resultado
+empírico vai ter o resultado empírico e
+também você vai ter uma reflexão
+teórica reflexão
+teórica para o fenômeno por meio do tipo
+de isomorfismo
+tá então assim eh eh os tipos de
+isomorfismo só para enunciar você vai
+ter o isomorfismo por número que é o
+mais fácil que isso é se o fenômeno é
+isomórfico por número é o curso um e
+dois curso um e o dois a gente resolve
+regressão glm eh modelado deação
+estrutural Dag você pode usar tudo isso
+aí tudo que a gente viu no curso um e
+dois você usa para fenômenos isomórficos
+por número né se o fenômeno for E aí a
+gente vai começar na aula que vem tem
+fenômenos que não são isomórficos por
+número o primeiro tipo de isomorfismo
+vai ser o isomorfismo por Matriz né o
+isomorfismo por matriz um um exemplo é a
+doença mental vários tipos de doença
+mental são só isomórficos por matriz e
+aí a gente vai estudar uma técnica que é
+o Network
+models Network models né Tem fenômenos
+que são isomórficos por aptidão aí eu
+vou definir o que que é aptidão e tal a
+gente vai a gente vai estudar a tri
+teoria de resposta ao
+item teoria de resposta ao o item né
+Depois vão ter fenômenos que são isor
+mórficos por
+método e aí a gente vai entrar no método
+psicofísico e aí vai ter várias aulas né
+que é um bloco de aulas que chama
+psicofísica e valor a gente vai estudar
+várias coisas da psicofísica então
+teoria da decisão teoria da escolha
+microeconomia e e eh aí vai ter a método
+de thurston vai ter o o o Stevens e kem
+vsk vai ver um monte de coisa até teoria
+do né E vai entrar em teoria dos jogos
+tal que também é isomórfico por método
+né E aí basicamente Esses são os quatro
+tipos de isomorfismo basicamente e no
+final desse bloco A gente vai chegar num
+num bloco final que é existem fenômenos
+que não é isomórfico por nenhum desses
+quatro não é nem por método nem por
+aptidão nem por Matriz nem por número aí
+lascou-se né E aí e aí a gente bate
+metade do curso mais ou menos 60% do
+curso e aí tem fenômenos que não é isom
+por nada tá
+e que não é isomórfico por nada e o que
+que a gente faz né Aí se se isomorfismo
+não funciona vai ter fenômenos não
+isomórficos
+isomórficos os fenômenos não isomórficos
+a gente vai ter que cair na análise do
+discurso a gente vai ter que entrar na
+coisa do discurso E aí vai virar Fas tá
+E aí é outra metade
+tá ah depois você me mostra isso aí ô
+Vitor depois você me mostra esse Brad aí
+né É é o nome eu não lembro mas deve
+deve ser parente do do thurston tá que o
+thurston é o mais antigo Tá bom então o
+que que o que a gente vai ver a começar
+a ver a partir das próximas aulas a
+gente vai ter mais uma aula teórica mas
+depois a gente vai começar a ver os
+tipos de isomorfismo metade do curso vai
+ser isso isomorfismo por número Matriz
+aptidão e método aí são vários métodos
+essa parte quatro tem várias aulas né aí
+vai bater num ponto e falar poxa a gente
+já viu um monte de métodos né Viu dá
+para estudar tudo aí vai aparecer uma
+coisa que não tem zero absoluto falou
+[ __ ] lascou-se e aí a gente vai vai ter
+que ir paraa análise de discurso E aí um
+monte de técnicas qualitativas análise
+do discurso análise de conteúdo Ground
+Theory metodologia q e eh etnografia e
+pá tá E aí vai ter outro bloco do curso
+também então teremos muitas emoções Eh
+tudo bem gente gostaram da primeira aula
+do curso três o chado de cogumelo é
+negócio tá
+Ah Boa pergunta do Gustavo é uma axioma
+dizer que só tem quatro isomorfismos
+essa área ainda está em criação tá essa
+área vocês estão no o rompante mesmo do
+conhecimento tá tem pouco tem pouca
+gente que conversa dessas coisas no no
+no mundo estou não estou exagerando tem
+pouca gente que conversa dessas coisas
+aqui no mundo tá então por enquanto tem
+quatro pode ser que tenha mais pode quer
+fazer doutorado nessa área felicidades
+tá felicidades isso aí que pode fazer a
+aula tá então a coisa vai longe tem tem
+é que assim o congresso dessas coisas
+eles fazem num bar é 20 pessoas faz um
+almoço já é o congresso todo tá então
+não tem muita gente esc estio isso mas a
+A ideia é que vocês consigam entrar
+nessa Seara também tá de trocar a ideia
+pelo menos entender o que o povo tá
+falando já é mais legal tá mas a gente
+vai devagarzinho E aí vocês vão ver que
+a cabeça de vocês vai ampliar para
+várias coisas e a ideia é criar essa
+Interface para geração de de um
+movimento abdutivo que gere a formação
+de um pesquisador interdisciplinar e
+esse é o nosso caminho aqui do do do
+curso três tá aí você vai carregar tudo
+que você trou do curso um e dois a gente
+vai carregar e começar a aplicar aqui
+também tudo bem gente então mais uma vez
+e eh prazer revê-los né aqui no curso
+três que quem caiu de Alegre aí normal
+tem a playlist do curso um e dois assim
+vai ficar muito difícil acompanhar o
+curso três sem o um e o dois tá mas tem
+as playlists lá do ano passado pode ir
+acompanhando e eh fica à vontade curso é
+aberto mesmo pode passar pra frente e
+tal e a gente vai devagarzinho tá então
+mais uma vez obrigado pela paciência e
+atenção de todos e a gente se vê daqui a
+dois dias tá na na com a continuidade
+aqui do curso Três beleza gente então
+obrigado e até
+mais n
