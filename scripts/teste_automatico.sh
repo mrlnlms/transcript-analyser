@@ -1,6 +1,18 @@
 #!/bin/bash
+
+# Teste automático com transcrições densas
+
+OPEN_RESULTS=${1:-"no"}  # Por padrão não abre
+
+
 echo "🧹 Limpando projetos de teste anteriores..."
 rm -rf projects/teste_auto_*
+
+echo "🗑️ Limpando comparações de teste..."
+# Debug - ver o que está sendo removido
+echo "  Arquivos a remover:"
+ls -la projects/comparisons/*_test* 2>/dev/null || echo "  Nenhum arquivo *_test encontrado"
+rm -rf projects/comparisons/*_test*
 
 source transcript_env/bin/activate
 
@@ -254,7 +266,16 @@ python run_analysis.py --project $PROJ3
 echo "📊 Comparando..."
 python run_analysis.py --compare $PROJ1 $PROJ2 $PROJ3
 
-echo "✅ Abrindo resultados..."
-open projects/teste_auto_*/output/*/*.html
+
+if [ "$OPEN_RESULTS" = "yes" ]; then
+    # Pegar o arquivo PNG mais recente
+    LATEST_PNG=$(ls -t projects/comparisons/*_test.png 2>/dev/null | head -1)
+    if [ -f "$LATEST_PNG" ]; then
+        echo "📊 Abrindo gráfico comparativo: $(basename $LATEST_PNG)"
+        open "$LATEST_PNG"
+    else
+        echo "⚠️ Nenhum arquivo PNG de teste encontrado"
+    fi
+fi
 
 echo "🎉 Teste completo com transcrições densas finalizado!"

@@ -34,7 +34,7 @@ class DashboardGenerator:
             print(f"❌ Erro ao gerar dashboard: {e}")
             return False
     
-    def generate_comparative_dashboard(self, comparison_results: Dict, output_dir: str) -> bool:
+    def generate_comparative_dashboard(self, comparison_results: Dict, output_dir: str = None, output_path: str = None) -> bool:
         """Gera dashboard comparativo"""
         
         print(f"📊 Gerando dashboard comparativo em: {output_dir}")
@@ -43,7 +43,7 @@ class DashboardGenerator:
             Path(output_dir).mkdir(parents=True, exist_ok=True)
             
             # Gerar visualizações comparativas
-            self._create_comparison_plots(comparison_results, output_dir)
+            self._create_comparison_plots(comparison_results, output_dir, output_path)
             
             print(f"✅ Dashboard comparativo gerado")
             return True
@@ -85,7 +85,7 @@ class DashboardGenerator:
         except Exception as e:
             print(f"⚠️ Erro ao gerar gráfico: {e}")
     
-    def _create_comparison_plots(self, comparison: Dict, output_dir: str):
+    def _create_comparison_plots(self, comparison: Dict, output_dir: str = None, output_path: str = None):
         """Cria gráficos comparativos"""
         
         try:
@@ -113,10 +113,17 @@ class DashboardGenerator:
             ax2.axis('off')
             
             plt.tight_layout()
-            plt.savefig(Path(output_dir) / 'comparacao_projetos.png', dpi=300, bbox_inches='tight')
+
+            if output_path:
+                # Salva direto no caminho especificado
+                plt.savefig(output_path, dpi=300, bbox_inches='tight')
+                print(f"📊 Gráfico comparativo salvo: {Path(output_path).name}")
+            else:
+                # Salva na pasta como antes
+                plt.savefig(Path(output_dir) / 'comparacao_projetos.png', dpi=300, bbox_inches='tight')
+                print(f"📊 Gráfico comparativo salvo: comparacao_projetos.png")
+
             plt.close()
-            
-            print(f"📊 Gráfico comparativo salvo: comparacao_projetos.png")
             
         except Exception as e:
             print(f"⚠️ Erro ao gerar gráfico comparativo: {e}")

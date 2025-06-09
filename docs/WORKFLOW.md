@@ -54,6 +54,24 @@ Use com suas transcrições reais.
 5. Oferece comparação
 6. Abre resultados
 
+---
+Sobre nomenclatura das pastas
+Você pode usar QUALQUER nome! Exemplos válidos:
+
+projeto_individual ✅
+entrevistas_professores_2024 ✅
+grupo_A ✅
+mestrado_coleta_1 ✅
+pilot_study ✅
+
+Evite apenas:
+
+Espaços: meu projeto ❌ (use meu_projeto ✅)
+Caracteres especiais: projeto#1 ❌
+Acentos: análise_são_paulo ❌ (use analise_sao_paulo ✅)
+
+---
+
 **Fluxo interativo:**
 ```
 📝 Digite o nome do projeto 1: estudo_professores
@@ -262,3 +280,5 @@ python run_analysis.py --project grande --file parte2.txt
 ---
 
 💡 **Lembre-se**: Sempre ative o ambiente virtual antes de usar o sistema!
+
+

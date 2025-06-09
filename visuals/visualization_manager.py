@@ -34,6 +34,10 @@ class VisualizationBackend(ABC):
         """Cria mapa de calor"""
         pass
 
+    @abstractmethod
+    def create_wordcloud(self, data: Dict, config: Dict) -> str:
+        """Cria word cloud"""
+        pass
 
 class MatplotlibBackend(VisualizationBackend):
     """Backend usando Matplotlib + Seaborn"""
@@ -166,6 +170,38 @@ class MatplotlibBackend(VisualizationBackend):
         
         return output_path
 
+    def create_wordcloud(self, data: Dict, config: Dict) -> str:
+        """Cria word cloud estático com matplotlib"""
+        try:
+            from wordcloud import WordCloud
+            
+            words = data.get('words', [])
+            frequencies = data.get('frequencies', [])
+            
+            # Criar dicionário
+            word_freq = dict(zip(words, frequencies))
+            
+            # Gerar word cloud
+            wc = WordCloud(width=800, height=600, 
+                          background_color='white',
+                          colormap='viridis',
+                          relative_scaling=0.5,
+                          min_font_size=10).generate_from_frequencies(word_freq)
+            
+            self.plt.figure(figsize=(10, 8))
+            self.plt.imshow(wc, interpolation='bilinear')
+            self.plt.axis('off')
+            self.plt.title(config.get('title', 'Word Cloud'))
+            
+            output_path = Path(config['output_path'])
+            self.plt.savefig(str(output_path), dpi=150, bbox_inches='tight')
+            self.plt.close()
+            
+            return str(output_path)
+            
+        except ImportError:
+            # Se não tiver wordcloud instalado, fazer versão simples
+            return self.create_bar_chart(data, config)  # Fallback pro bar chart
 
 class PlotlyBackend(VisualizationBackend):
     """Backend usando Plotly para gráficos interativos"""
@@ -323,6 +359,110 @@ class PlotlyBackend(VisualizationBackend):
         
         return output_path
 
+    def create_wordcloud(self, data: Dict, config: Dict) -> str:
+        """Cria word cloud com HTML/CSS puro"""
+        print("🔍 DEBUG - Entrando em create_wordcloud do PlotlyBackend")
+        print(f"🔍 DEBUG - Config title: {config.get('title')}")
+        words = data.get('words', [])
+        frequencies = data.get('frequencies', [])
+        
+        if not words:
+            print("⚠️ DEBUG - Sem palavras, usando fallback")
+            return self.create_bar_chart(data, config)
+        
+        print(f"✅ DEBUG - Gerando HTML para {len(words)} palavras")
+
+        # Normalizar tamanhos
+        max_freq = max(frequencies) if frequencies else 1
+        min_freq = min(frequencies) if frequencies else 1
+        
+        # Criar HTML customizado
+        html_content = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>{config.get('title', 'Word Cloud')}</title>
+            <style>
+                body {{
+                    font-family: Arial, sans-serif;
+                    background: white;
+                    margin: 0;
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }}
+                h2 {{
+                    color: #333;
+                    margin-bottom: 30px;
+                }}
+                .wordcloud {{
+                    width: 90%;
+                    max-width: 900px;
+                    min-height: 500px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 15px;
+                    padding: 20px;
+                    background: #f9f9f9;
+                    border-radius: 10px;
+                }}
+                .word {{
+                    display: inline-block;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }}
+                .word:hover {{
+                    transform: scale(1.2);
+                    font-weight: bold;
+                }}
+            </style>
+        </head>
+        <body>
+            <h2>{config.get('title', 'Word Cloud')}</h2>
+            <div class="wordcloud">
+        """
+        
+        # Cores para as palavras
+        colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
+                  '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
+        
+        # Adicionar cada palavra
+        for i, (word, freq) in enumerate(zip(words, frequencies)):
+            # Calcular tamanho (16px a 48px)
+            normalized = (freq - min_freq) / (max_freq - min_freq) if max_freq != min_freq else 0.5
+            size = int(16 + (32 * normalized))
+            color = colors[i % len(colors)]
+            
+            html_content += f"""
+                <span class="word" style="font-size: {size}px; color: {color};" 
+                      title="Frequência: {freq}">
+                    {word}
+                </span>
+            """
+        
+        html_content += """
+            </div>
+            <script>
+                // Adicionar alguma aleatoriedade na posição
+                document.querySelectorAll('.word').forEach(word => {
+                    const rotate = (Math.random() - 0.5) * 20;
+                    word.style.transform = `rotate(${rotate}deg)`;
+                });
+            </script>
+        </body>
+        </html>
+        """
+        
+        output_path = Path(config['output_path'])
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+        
+        return str(output_path)
+
 
 class TextBackend(VisualizationBackend):
     """Backend fallback que gera visualizações em texto"""
@@ -407,6 +547,9 @@ class TextBackend(VisualizationBackend):
         
         return output_path
 
+    def create_wordcloud(self, data: Dict, config: Dict) -> str:
+        """Fallback de word cloud em texto"""
+        return self.create_bar_chart(data, config)  # Usa bar chart como fallback
 
 class ScalableVisualizationManager:
     """Gerenciador escalável de visualizações com fallbacks"""
