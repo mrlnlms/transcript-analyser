@@ -15,7 +15,39 @@ class WordFrequencyAnalyzer(BaseAnalyzer):
     3. Implemente o método analyze()
     4. Crie arquivo de config em config/analysis_configs/
     """
-    
+    @staticmethod
+    def get_config_schema():
+        """Retorna o schema de configuração deste analyzer"""
+        return {
+            'min_frequency': {
+                'type': 'int',
+                'range': [1, 10],
+                'default': 2,
+                'short_text': 1,
+                'long_text': 5,
+                'description': 'Frequência mínima para considerar palavra relevante'
+            },
+            'max_words': {
+                'type': 'int',
+                'range': [10, 200],
+                'default': 50,
+                'short_text': 30,
+                'long_text': 100,
+                'description': 'Número máximo de palavras no resultado'
+            },
+            'use_stopwords': {
+                'type': 'bool',
+                'default': True,
+                'description': 'Remover palavras comuns (stopwords)'
+            },
+            'stopwords_file': {
+                'type': 'str',
+                'default': 'resources/stopwords_custom.txt',
+                'academic': 'resources/stopwords_academic.txt',
+                'medical': 'resources/stopwords_medical.txt',
+                'description': 'Arquivo de stopwords a usar'
+            }
+        }
     def analyze(self, text: str) -> Dict:
         """Analisa frequência de palavras no texto"""
         from collections import Counter
@@ -57,3 +89,4 @@ class WordFrequencyAnalyzer(BaseAnalyzer):
         }
         
         return {**base_params, **specific_params}
+    

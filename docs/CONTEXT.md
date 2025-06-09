@@ -79,3 +79,11 @@ from core.engine.analysis_orchestrator import AnalysisOrchestrator
 
 ---
 Próximo: Implementar get_config_schema() em cada analyzer
+## 🎯 Status ConfigurationRegistry V2.1-beta
+- ✅ BaseAnalyzer com get_config_schema() implementado
+- ✅ WordFrequencyAnalyzer com 4 parâmetros configuráveis
+- 🔄 Faltam 8 analyzers para implementar schemas
+## 🎯 Status ConfigurationRegistry V2.1-beta
+- ✅ BaseAnalyzer com get_config_schema() implementado
+- ✅ WordFrequencyAnalyzer com 4 parâmetros configuráveis
+- 🔄 Faltam 8 analyzers para implementar schemas
