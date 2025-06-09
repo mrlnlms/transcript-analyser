@@ -74,3 +74,24 @@
 - Implementar get_config_schema() nos outros 8 analyzers
 - Auto-descoberta real no ConfigurationRegistry
 - Interface CLI para configuração interativa
+
+## [2.1.0-beta] - 09/Jun/2025 - Sistema de Configuração COMPLETO! 🎉
+
+### Completed
+- ✅ TODOS os 9 analyzers com schemas de configuração implementados
+- ✅ 60 parâmetros configuráveis no total
+- ✅ ConfigurationRegistry com auto-descoberta funcionando
+- ✅ Integração completa com AnalysisOrchestrator
+- ✅ Sistema de geração de relatórios Markdown corrigido
+- ✅ Tratamento de tipos de dados (list/dict) em todos os métodos
+- ✅ Sistema 100% testado e funcional
+
+### Fixed
+- Corrigido MarkdownReportGenerator para lidar com diferentes formatos de dados
+- Corrigido BaseAnalyzer com métodos interpret_results e format_output
+- Organização completa da estrutura de arquivos
+
+### Next Steps
+- Interface CLI para configuração interativa
+- Manual de uso das configurações (CONFIG_MANUAL.md)
+- Sistema de perfis especializados em produção

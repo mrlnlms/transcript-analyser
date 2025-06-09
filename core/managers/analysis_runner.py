@@ -68,7 +68,7 @@ class AnalysisRunner:
                 self.chart_orchestrator.analyze(result, str(output_dir))
                 
                 # Relatório markdown
-                self.markdown_generator.generate_report(result, output_dir)
+                self.markdown_generator.generate_report(result, output_dir, result.get("filename", "arquivo.txt"))
             
             # Resumo final
             self._print_summary(results)

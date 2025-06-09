@@ -178,3 +178,73 @@ class TemporalAnalysisAnalyzer(BaseAnalyzer):
         }
         
         return {**base_params, **specific_params}
+
+    def interpret_results(self, results):
+        """Interpreta análise temporal em insights"""
+        interpreted = results.copy()
+        
+        if 'temporal_analysis' in results:
+            segments = results['temporal_analysis']
+            
+            # Calcular tendência
+            if len(segments) > 2:
+                first_third = segments[:len(segments)//3]
+                last_third = segments[-(len(segments)//3):]
+                
+                avg_first = sum(s['sentiment'] for s in first_third) / len(first_third)
+                avg_last = sum(s['sentiment'] for s in last_third) / len(last_third)
+                
+                if avg_last > avg_first + 0.1:
+                    interpreted['trend'] = 'Crescente'
+                    interpreted['trend_description'] = 'Sentimento melhorando ao longo do tempo'
+                elif avg_last < avg_first - 0.1:
+                    interpreted['trend'] = 'Decrescente'
+                    interpreted['trend_description'] = 'Sentimento piorando ao longo do tempo'
+                else:
+                    interpreted['trend'] = 'Estável'
+                    interpreted['trend_description'] = 'Sentimento manteve-se constante'
+            
+            # Identificar volatilidade
+            sentiments = [s['sentiment'] for s in segments]
+            if sentiments:
+                variance = sum((s - sum(sentiments)/len(sentiments))**2 for s in sentiments) / len(sentiments)
+                if variance > 0.1:
+                    interpreted['volatility'] = 'Alta'
+                    interpreted['volatility_description'] = 'Grandes variações emocionais'
+                elif variance > 0.05:
+                    interpreted['volatility'] = 'Média'
+                    interpreted['volatility_description'] = 'Variações emocionais moderadas'
+                else:
+                    interpreted['volatility'] = 'Baixa'
+                    interpreted['volatility_description'] = 'Emoções estáveis'
+        
+        return interpreted
+    
+    def get_insights(self, results):
+        """Gera insights da análise temporal"""
+        insights = []
+        interpreted = self.interpret_results(results)
+        
+        # Insight sobre tendência
+        if 'trend' in interpreted:
+            insights.append(f"Tendência emocional: {interpreted['trend_description']}")
+        
+        # Insight sobre volatilidade
+        if 'volatility' in interpreted:
+            insights.append(f"Estabilidade emocional: {interpreted['volatility_description']}")
+        
+        # Insight sobre picos
+        if 'temporal_analysis' in results:
+            segments = results['temporal_analysis']
+            sentiments = [s['sentiment'] for s in segments]
+            
+            if sentiments:
+                max_idx = sentiments.index(max(sentiments))
+                min_idx = sentiments.index(min(sentiments))
+                
+                if max(sentiments) > 0.3:
+                    insights.append(f"Pico positivo significativo no segmento {max_idx + 1}")
+                if min(sentiments) < -0.3:
+                    insights.append(f"Vale emocional preocupante no segmento {min_idx + 1}")
+        
+        return insights

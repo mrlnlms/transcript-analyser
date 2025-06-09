@@ -4,7 +4,7 @@
 import re
 
 # Schema para TemporalAnalysisAnalyzer
-SCHEMA_CODE = '''
+SCHEMA_CODE = '''    
     @staticmethod
     def get_config_schema():
         """Retorna o schema de configuração deste analyzer"""
@@ -87,3 +87,4 @@ if insert_index:
 else:
     print("❌ Não consegui encontrar onde inserir o schema")
     print("💡 Faça manualmente após a docstring da classe")
+

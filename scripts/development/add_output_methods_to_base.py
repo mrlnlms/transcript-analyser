@@ -1,45 +1,8 @@
 #!/usr/bin/env python3
-"""Base class para todos os analyzers com suporte a ConfigurationRegistry"""
+"""Adiciona métodos de interpretação e formatação ao BaseAnalyzer"""
 
-from abc import ABC, abstractmethod
-from typing import Dict, Any, List
-
-
-class BaseAnalyzer(ABC):
-    """Classe base para todos os analyzers"""
-    
-    def __init__(self):
-        self.config = self.get_default_config()
-    
-    @abstractmethod
-    def analyze(self, text: str, config: Dict[str, Any] = None) -> Dict[str, Any]:
-        """Método principal de análise"""
-        pass
-    
-    @staticmethod
-    @abstractmethod
-    def get_config_schema() -> Dict[str, Any]:
-        """Retorna o schema de configuração do analyzer"""
-        pass
-    
-    @classmethod
-    def get_default_config(cls) -> Dict[str, Any]:
-        """Retorna configuração padrão baseada no schema"""
-        schema = cls.get_config_schema()
-        config = {}
-        for param, info in schema.items():
-            config[param] = info.get('default')
-        return config
-    
-    def validate_config(self, config: Dict[str, Any]) -> bool:
-        """Valida configuração contra o schema"""
-        schema = self.get_config_schema()
-        for param, value in config.items():
-            if param not in schema:
-                return False
-            # TODO: Validar tipos e ranges
-        return True
-
+# Código para adicionar após get_config_schema
+NEW_METHODS = '''
     def interpret_results(self, results: Dict[str, Any]) -> Dict[str, Any]:
         """
         Interpreta resultados numéricos em insights qualitativos
@@ -86,8 +49,7 @@ class BaseAnalyzer(ABC):
     def _format_markdown(self, results: Dict[str, Any]) -> str:
         """Formata resultados como Markdown"""
         # Implementação base - override em analyzers específicos
-        lines = [f"## {self.__class__.__name__} Results"]
-        
+        lines = [f"## {self.__class__.__name__} Results\n"]
         for key, value in results.items():
             if not key.startswith('_'):
                 lines.append(f"- **{key}**: {value}")
@@ -100,3 +62,40 @@ class BaseAnalyzer(ABC):
             if not key.startswith('_'):
                 lines.append(f"{key}: {value}")
         return '\n'.join(lines)
+'''
+
+# Ler arquivo
+with open('engine/analyzers/base_analyzer.py', 'r') as f:
+    content = f.read()
+
+# Adicionar imports necessários
+if 'from typing import Dict, Any' not in content:
+    content = content.replace('from typing import Dict', 'from typing import Dict, List')
+
+# Encontrar onde inserir (após validate_config)
+lines = content.split('\n')
+insert_index = None
+
+for i, line in enumerate(lines):
+    if 'def validate_config' in line:
+        # Encontrar o fim do método
+        for j in range(i+1, len(lines)):
+            if lines[j].strip() and not lines[j].startswith(' '):
+                insert_index = j
+                break
+            elif j == len(lines) - 1:
+                insert_index = j
+                break
+        break
+
+if insert_index:
+    # Inserir os novos métodos
+    lines.insert(insert_index, NEW_METHODS)
+    
+    # Salvar
+    with open('engine/analyzers/base_analyzer.py', 'w') as f:
+        f.write('\n'.join(lines))
+    
+    print("✅ Métodos de output adicionados ao BaseAnalyzer!")
+else:
+    print("❌ Não encontrei onde inserir os métodos")
