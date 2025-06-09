@@ -104,12 +104,25 @@ class AnalysisRunner:
                 for result in results:
                     output_dir = project_dir / "output" / result['filename'].replace('.txt', '')
                     output_dir.mkdir(parents=True, exist_ok=True)
-                    # Criar subpasta para assets
-                    assets_dir = output_dir / "assets"
-                    assets_dir.mkdir(parents=True, exist_ok=True)
                     
-                    # Usar método inteligente de visualização
-                    self._generate_visualizations_smart(result, str(output_dir), config)
+                    print(f"\n🎨 Orquestrando visualizações para {result['filename']}...")
+                    
+                    # ChartOrchestrator - substitui TODO o código hardcoded!
+                    from engine.analyzers.chart_orchestrator import ChartOrchestrator
+                    chart_orchestrator = ChartOrchestrator()
+                    orchestration_result = chart_orchestrator.analyze(result, str(output_dir))
+                    
+                    print(f"📊 {orchestration_result['charts_created']}/{orchestration_result['charts_available']} gráficos criados com sucesso!")
+                    
+                    # Mostrar gráficos criados
+                    for chart_info in orchestration_result['created_charts']:
+                        print(f"  ✅ {chart_info['chart']}")
+                    
+                    # Mostrar erros se houver
+                    for error_info in orchestration_result['errors']:
+                        print(f"  ❌ {error_info['chart']}: {error_info['error']}")
+                
+                print("✅ Visualizações orquestradas geradas")
             
             # 6. Gerar relatórios se habilitado
             if config.output['generate_markdown']:
@@ -124,208 +137,6 @@ class AnalysisRunner:
         except Exception as e:
             print(f"❌ Erro crítico na análise: {e}")
             return False
-    
-    def _generate_visualizations_smart(self, result, output_dir, config):
-        """🎨 Gera visualizações usando sistema escalável ou fallback"""
-        
-        if SCALABLE_VISUALS:
-            try:
-                # Usar sistema novo e escalável
-                viz_manager = ScalableVisualizationManager(config.output)
-                
-                print(f"🎨 Backends disponíveis: {viz_manager.get_available_backends()}")
-                
-                # Gráfico de métricas
-                metrics_data = {
-                    'categories': ['Sentimento', 'Coerência', 'Abertura'],
-                    'values': [
-                        result['global_metrics']['global_sentiment'],
-                        result['global_metrics']['thematic_coherence'], 
-                        result['global_metrics']['emotional_openness']
-                    ]
-                }
-                extension = 'html' if hasattr(viz_manager, 'primary_backend') and viz_manager.primary_backend == 'plotly' else 'png'
-
-                metrics_config = {
-                    'title': f'Métricas Globais - {result["filename"]}',
-                    'output_path': str(Path(output_dir) / f'metricas_globais.{extension}'),
-                    'figsize': (12, 8),
-                    'bar_params': {'alpha': 0.8, 'color': ['skyblue', 'lightgreen', 'coral']}
-                }
-                
-                viz_manager.create_visualization('bar_chart', metrics_data, metrics_config)
-                
-                # DEBUG temporário
-                print(f"\n🔍 DEBUG - Dados disponíveis para {result['filename']}:")
-                print(f"  - temporal_analysis: {len(result.get('temporal_analysis', []))} items")
-                print(f"  - concept_network: {len(result.get('concept_network', []))} items")
-                if result.get('concept_network'):
-                    print(f"  - Primeiro item network: {result['concept_network'][0]}")
-                
-                # Timeline emocional se houver dados temporais
-                if result.get('temporal_analysis'):
-                    timeline_data = {
-                        'x': [seg.get('timestamp', f"{i}%") for i, seg in enumerate(result['temporal_analysis'])],
-                        'y': [seg['sentiment'] for seg in result['temporal_analysis']]
-                    }
-
-                    
-                    timeline_config = {
-                        'title': 'Timeline Emocional',
-                        'xlabel': 'Segmentos',
-                        'ylabel': 'Sentimento',
-                        'output_path': str(Path(output_dir) / 'timeline_emocional.html'),
-                        'trace_name': 'Evolução Emocional'
-                    }
-                    
-                    viz_manager.create_visualization('line_plot', timeline_data, timeline_config, backend='plotly')
-                
-                # Rede de conceitos se disponível
-                if result.get('concept_network'):
-                    network_data = {
-                        'nodes': [conn['word1'] for conn in result['concept_network'][:10]] + 
-                                [conn['word2'] for conn in result['concept_network'][:10]],
-                        'edges': [(conn['word1'], conn['word2']) for conn in result['concept_network'][:10]]
-                    }
-                    
-                    network_config = {
-                        'title': 'Rede de Conceitos',
-                        'output_path': str(Path(output_dir) / 'rede_conceitos.html'),
-                        'node_params': {'node_size': 300, 'node_color': 'lightblue'},
-                        'edge_params': {'width': 2, 'alpha': 0.7}
-                    }
-                    
-                    viz_manager.create_visualization('network_graph', network_data, network_config, backend='plotly')
-                # 4. Word Cloud (usando bar chart por enquanto)
-                if result.get('word_frequencies'):
-                    # Pegar top 10 palavras mais frequentes
-                    sorted_words = sorted(result['word_frequencies'].items(), 
-                                        key=lambda x: x[1], 
-                                        reverse=True)[:10]
-                    
-                    wordcloud_data = {
-                        'words': [word for word, freq in sorted_words],      # Mudou de 'categories' para 'words'
-                        'frequencies': [freq for word, freq in sorted_words]  # Mudou de 'values' para 'frequencies'
-                    }
-                    
-                    wordcloud_config = {
-                        'title': f'Word Cloud - {result["filename"]}',
-                        'output_path': str(Path(output_dir) / 'wordcloud.html'),
-                        'xlabel': 'Palavras',
-                        'ylabel': 'Frequência',
-                        'figsize': (12, 6),
-                        'bar_params': {'alpha': 0.9, 'color': 'purple'}
-                    }
-                    # DEBUG wordcloud
-                    print(f"DEBUG Wordcloud - Top 5 palavras: {list(result['word_frequencies'].items())[:5]}")
-                    #viz_manager.create_visualization('wordcloud', wordcloud_data, wordcloud_config)
-
-                    # DEBUG para wordcloud
-                    print(f"DEBUG - Tipo de visualização: wordcloud")
-                    print(f"DEBUG - Backends disponíveis: {viz_manager.get_available_backends()}")
-                    print(f"DEBUG - Backend primário: {viz_manager.primary_backend}")
-
-                    # DEBUG - Verificar se o método existe
-                    print(f"DEBUG - PlotlyBackend tem create_wordcloud? {hasattr(viz_manager.backends.get('plotly'), 'create_wordcloud')}")
-                    print(f"DEBUG - Métodos disponíveis no PlotlyBackend: {[m for m in dir(viz_manager.backends.get('plotly')) if m.startswith('create_')]}")
-
-                    # Forçar uso direto do método wordcloud
-                    if hasattr(viz_manager.backends.get('plotly'), 'create_wordcloud'):
-                        output = viz_manager.backends['plotly'].create_wordcloud(wordcloud_data, wordcloud_config)
-                        print(f"✅ Word Cloud criado diretamente: {output}")
-                    else:
-                        viz_manager.create_visualization('wordcloud', wordcloud_data, wordcloud_config)
-                
-                # 4.1 Top 10 Palavras em Barras (complementar ao wordcloud)
-                if result.get('word_frequencies'):
-                    # Mesmos dados, mas para gráfico de barras
-                    sorted_words = sorted(result['word_frequencies'].items(), 
-                                        key=lambda x: x[1], 
-                                        reverse=True)[:10]
-                    
-                    bar_words_data = {
-                        'categories': [word for word, freq in sorted_words],
-                        'values': [freq for word, freq in sorted_words]
-                    }
-                    
-                    bar_words_config = {
-                        'title': f'Top 10 Palavras (Frequência) - {result["filename"]}',
-                        'output_path': str(Path(output_dir) / 'top_palavras_freq.html'),
-                        'xlabel': 'Palavras',
-                        'ylabel': 'Frequência',
-                        'figsize': (12, 6),
-                        'bar_params': {'alpha': 0.9, 'color': 'indigo'}
-                    }
-                    
-                    viz_manager.create_visualization('bar_chart', bar_words_data, bar_words_config)
-
-                # 5. Padrões Linguísticos
-                if result.get('linguistic_patterns'):
-                    patterns = result['linguistic_patterns']
-                    patterns_data = {
-                        'categories': ['Certeza', 'Incerteza', 'Hesitações'],
-                        'values': [
-                            patterns.get('certainty_markers', {}).get('count', 0),
-                            patterns.get('uncertainty_markers', {}).get('count', 0),
-                            patterns.get('total_hesitations', 0)
-                        ]
-                    }
-                    
-                    patterns_config = {
-                        'title': f'Padrões Linguísticos - {result["filename"]}',
-                        'output_path': str(Path(output_dir) / 'padroes_linguisticos.html'),
-                        'figsize': (10, 6),
-                        'bar_params': {'alpha': 0.8, 'color': ['green', 'orange', 'red']}
-                    }
-                    
-                    viz_manager.create_visualization('bar_chart', patterns_data, patterns_config)
-
-                # 6. Hierarquia de Tópicos
-                if result.get('topic_hierarchy') and result['topic_hierarchy'].get('nodes'):
-                    # Agora sabemos que nodes tem 'id' e 'label'
-                    hierarchy_data = {
-                        'nodes': [node['label'] for node in result['topic_hierarchy']['nodes'][:15]],
-                        'edges': [(edge['source'], edge['target']) for edge in result['topic_hierarchy'].get('edges', [])]
-                    }
-                    
-                    hierarchy_config = {
-                        'title': f'Hierarquia de Tópicos - {result["filename"]}',
-                        'output_path': str(Path(output_dir) / 'hierarquia_topicos.html'),
-                        'node_params': {'node_size': 500, 'node_color': 'lightcoral'},
-                        'edge_params': {'width': 1, 'alpha': 0.5}
-                    }
-                    
-                    viz_manager.create_visualization('network_graph', hierarchy_data, hierarchy_config)
-                
-                # 7. Análise de Contradições
-                if result.get('contradictions') and len(result['contradictions']) > 0:
-                    contradictions_data = {
-                        'categories': [f"Contradição {i+1}" for i in range(len(result['contradictions']))],
-                        'values': [c['score'] for c in result['contradictions']]
-                    }
-                    
-                    contradictions_config = {
-                        'title': f'Análise de Contradições - {result["filename"]}',
-                        'output_path': str(Path(output_dir) / 'contradicoes.html'),
-                        'xlabel': 'Contradições Detectadas',
-                        'ylabel': 'Score de Contradição',
-                        'figsize': (10, 6),
-                        'bar_params': {'alpha': 0.7, 'color': 'salmon'}
-                    }
-                    
-                    viz_manager.create_visualization('bar_chart', contradictions_data, contradictions_config)
-
-                
-
-                print("✅ Visualizações escaláveis geradas")
-                
-            except Exception as e:
-                print(f"⚠️ Erro no sistema escalável: {e}")
-                print("🔄 Usando sistema tradicional como fallback...")
-                self._generate_visualizations_traditional(result, output_dir, config)
-        else:
-            # Usar sistema tradicional
-            self._generate_visualizations_traditional(result, output_dir, config)
     
     def _generate_visualizations_traditional(self, result, output_dir, config):
         """📊 Gera visualizações usando sistema tradicional"""

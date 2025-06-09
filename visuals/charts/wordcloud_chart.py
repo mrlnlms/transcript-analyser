@@ -39,26 +39,37 @@ class WordCloudChart(BaseChart):
     def _create_plotly(self, words, frequencies, output_path: str, adjustments: Dict) -> str:
         import plotly.graph_objects as go
         import random
+        import math
         
-        # Word cloud como scatter plot com tamanhos variados
-        x_pos = [random.uniform(0, 10) for _ in words]
-        y_pos = [random.uniform(0, 10) for _ in words]
-        sizes = [freq * 10 for freq in frequencies]  # Escalar tamanho
+        # Layout em espiral para evitar sobreposição
+        x_pos = []
+        y_pos = []
+        
+        for i, word in enumerate(words):
+            angle = i * 0.8  # Ângulo progressivo
+            radius = 1 + (i * 0.5)  # Raio crescente
+            x_pos.append(radius * math.cos(angle))
+            y_pos.append(radius * math.sin(angle))
+        
+        sizes = [max(20, freq * 3) for freq in frequencies]  # Tamanhos maiores
         
         fig = go.Figure()
         fig.add_trace(go.Scatter(
             x=x_pos, y=y_pos,
             mode='markers+text',
-            marker=dict(size=sizes, color=frequencies, colorscale='Viridis'),
+            marker=dict(size=sizes, color=frequencies, colorscale='Viridis', opacity=0.7),
             text=words,
-            textposition="middle center"
+            textposition="middle center",
+            textfont=dict(size=14, color='white')
         ))
         
         fig.update_layout(
             title=self.config.get('title', 'Word Cloud'),
             showlegend=False,
             xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-            yaxis=dict(showgrid=False, zeroline=False, showticklabels=False)
+            yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+            plot_bgcolor='rgba(0,0,0,0)',
+            paper_bgcolor='rgba(0,0,0,0)'
         )
         
         html_path = output_path.replace('.png', '.html')
