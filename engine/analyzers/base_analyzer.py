@@ -23,7 +23,6 @@ class BaseAnalyzer(ABC):
         pass
     
     @classmethod
-        @classmethod
     def get_default_config(cls) -> Dict[str, Any]:
         """Retorna configuração padrão baseada no schema"""
         schema = cls.get_config_schema()

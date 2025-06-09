@@ -67,7 +67,7 @@ class ConfigurationRegistry:
             return
         
         for filepath in sorted(analyzers_dir.glob('*.py')):
-            if filepath.name.startswith('_') or filepath.name == 'base_analyzer.py':
+            if filepath.name.startswith('_') or filepath.name in ['base_analyzer.py', 'analysis_orchestrator.py']:
                 continue
                 
             try:

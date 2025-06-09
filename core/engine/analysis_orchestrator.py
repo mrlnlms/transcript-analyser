@@ -118,6 +118,27 @@ class AnalysisOrchestrator:
         for key, deps in self.dependencies.items():
             if deps:
                 print(f"   📊 {key} → depende de: {deps}")
+
+    def get_analyzer_config(self, analyzer_name: str, text_length: int = None, profile: str = None) -> Dict:
+        """Obtém configuração para um analyzer baseado no contexto"""
+        if not self.config_registry:
+            return {}
+        
+        # Determinar tamanho do texto
+        text_size = 'medium'
+        if text_length:
+            word_count = text_length // 5  # Estimativa grosseira
+            text_size = self.config_registry.get_text_size_category(word_count)
+        
+        # Obter configuração
+        config = self.config_registry.get_config_for_analyzer(
+            analyzer_name, 
+            text_size=text_size,
+            profile=profile
+        )
+        
+        return config
+
     
     def analyze_transcript(self, file_path: Path, config: Dict = None) -> Dict[str, Any]:
         """
