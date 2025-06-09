@@ -7,8 +7,10 @@ import numpy as np
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
+
 from .analyzers.word_frequency import WordFrequencyAnalyzer
 from .analyzers.temporal_analysis import TemporalAnalysisAnalyzer
+from .analyzers.global_metrics import GlobalMetricsAnalyzer
 
 class TranscriptAnalyzer:
     """Analisador principal de transcrições"""
@@ -115,35 +117,13 @@ class TranscriptAnalyzer:
         return phases
     
     def _calculate_global_metrics(self, text: str, temporal_data: List[Dict]) -> Dict[str, float]:
-        """Calcula métricas globais do texto"""
-        # Sentimento global (média dos segmentos)
-        sentiments = [d['sentiment'] for d in temporal_data] if temporal_data else [0]
-        global_sentiment = sum(sentiments) / len(sentiments) if sentiments else 0
-        
-        # Variância do sentimento (abertura emocional)
-        if len(sentiments) > 1:
-            mean = sum(sentiments) / len(sentiments)
-            variance = sum((s - mean) ** 2 for s in sentiments) / len(sentiments)
-            sentiment_variance = variance
-        else:
-            sentiment_variance = 0.1
-        
-        # Hesitações totais
-        total_hesitations = text.lower().count('né') + text.lower().count('tipo') + \
-                          text.lower().count('assim') + text.lower().count('então')
-        
-        # Coerência temática (baseada em repetição de palavras-chave)
-        words = text.lower().split()
-        unique_words = len(set(words))
-        total_words = len(words)
-        coherence = 1 - (unique_words / total_words) if total_words > 0 else 0.5
-        
+        """Usa o novo sistema plugável"""
+        analyzer = GlobalMetricsAnalyzer()
+        result = analyzer.analyze(text, temporal_data)
         return {
-            'global_sentiment': round(global_sentiment, 2),
-            'thematic_coherence': round(coherence, 2),
-            'emotional_openness': round(1 + sentiment_variance, 2),
-            'sentiment_variance': round(sentiment_variance, 2),
-            'total_hesitations': total_hesitations
+            'global_sentiment': result['global_sentiment'],
+            'emotional_openness': result['emotional_openness'], 
+            'thematic_coherence': result['thematic_coherence']
         }
     
     def _detect_linguistic_patterns(self, text: str) -> Dict[str, Any]:

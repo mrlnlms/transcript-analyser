@@ -53,14 +53,14 @@ class GlobalMetricsAnalyzer(BaseAnalyzer):
         calibration = self.get_calibration_params(len(text))
         
         return {
-            'analysis_type': 'global_metrics',
-            'global_sentiment': round(global_sentiment, 3),
-            'sentiment_variance': round(sentiment_variance, 3),
-            'coherence': round(coherence, 3),
-            'total_hesitations': total_hesitations,
-            'segments_analyzed': len(temporal_data),
-            'calibration_used': calibration
-        }
+        'analysis_type': 'global_metrics',
+        'global_sentiment': round(global_sentiment, 3),
+        'emotional_openness': round(sentiment_variance, 3),  # ← MUDAR AQUI
+        'thematic_coherence': round(coherence, 3),
+        'total_hesitations': total_hesitations,
+        'segments_analyzed': len(temporal_data),
+        'calibration_used': calibration
+    }
     
     def get_calibration_params(self, text_length: int) -> Dict:
         """Sobrescrever se precisar de calibração específica"""

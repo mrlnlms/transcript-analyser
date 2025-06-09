@@ -17,16 +17,27 @@ Sistema escalável e modular para análise automatizada de entrevistas qualitati
 - 🎯 **Coerência Temática**: 0.72 (boa estrutura narrativa)
 - 💭 **Abertura Emocional**: 1.23 (expressivo)
 
-### Visualizações Disponíveis (8 tipos)
+## 🎨 Próxima Evolução: Sistema de Gráficos Plugável
 
-- Timeline emocional interativa com sentimento real
-- Rede de conceitos e coocorrências extraída do texto
-- Word cloud de termos frequentes (HTML interativo)
-- Top 10 palavras por frequência real
-- Análise de padrões linguísticos detectados
-- Hierarquia de tópicos categorizados
-- Análise de contradições (implementada)
-- Dashboard de métricas globais calculadas
+### Visualizações Atuais (8 funcionais)
+- Timeline emocional interativa com sentimento real ✅
+- Rede de conceitos e coocorrências extraída do texto ✅
+- Word cloud de termos frequentes (HTML interativo) ✅
+- Top 10 palavras por frequência real ✅
+- Análise de padrões linguísticos detectados ✅
+- Hierarquia de tópicos categorizados ✅
+- Análise de contradições funcionando ✅
+- Dashboard de métricas globais calculadas ✅
+
+### Sistema de Gráficos Plugável (Em Desenvolvimento)
+- **1 arquivo Python + 1 JSON = 1 gráfico novo**
+- Auto-descoberta de charts disponíveis
+- Scripts de automação: `novo_grafico.sh`, `nova_feature.sh`
+- Configurações externas específicas por tipo de gráfico
+- Calibração automática por volume de dados
+- Fallback inteligente: Plotly → Matplotlib → Text
+
+**Objetivo**: Facilitar criação de novas visualizações sem editar código principal
 
 ## 🚀 Quick Start
 
@@ -304,11 +315,11 @@ python3 run_analysis.py --compare educacao_2024 saude_2024
 
 ## 🏗️ Arquitetura
 
-## 🏗️ Arquitetura Plugável - IMPLEMENTADA!
+## 🏗️ Arquitetura Plugável - COMPLETA!
 
 ### Análises Implementadas (100% Real + 100% Plugável)
 - **Contagem de Palavras**: ✅ **WordFrequencyAnalyzer** - Frequências reais com calibração automática
-- **Análise Temporal**: ✅ **TemporalAnalysisAnalyzer** - Evolução temporal e sentimento por segmentos
+- **Análise Temporal**: ✅ **TemporalAnalysisAnalyzer** - Evolução temporal e sentimento (timeline funcional)
 - **Métricas Globais**: ✅ **GlobalMetricsAnalyzer** - Sentimento global, variância e coerência
 - **Padrões Linguísticos**: ✅ **LinguisticPatternsAnalyzer** - Hesitações, certeza/incerteza
 - **Rede de Conceitos**: ✅ **ConceptNetworkAnalyzer** - Coocorrência de palavras em sentenças
@@ -317,10 +328,11 @@ python3 run_analysis.py --compare educacao_2024 saude_2024
 
 ### Sistema Plugável Completo
 - **1 arquivo Python + 1 JSON = 1 funcionalidade nova**
-- Auto-descoberta de analisadores e gráficos funcionando
+- Auto-descoberta de analisadores funcionando perfeitamente
 - Scripts de automação para criação rápida (`nova_analise.sh`, `novo_grafico.sh`)
 - Calibração automática por tamanho de texto (pequeno/médio/grande)
 - Comunicação entre analisadores (ex: GlobalMetrics usa TemporalAnalysis)
+- Divisão inteligente de textos corridos para timeline funcional
 - Zero edição de código principal para adicionar funcionalidades
 - Sistema 100% retrocompatível
 
