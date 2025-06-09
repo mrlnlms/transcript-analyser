@@ -19,14 +19,14 @@ Sistema escalável e modular para análise automatizada de entrevistas qualitati
 
 ### Visualizações Disponíveis (8 tipos)
 
-- Timeline emocional interativa
-- Rede de conceitos e coocorrências
-- Word cloud de termos frequentes
-- Top 10 palavras por frequência
-- Análise de padrões linguísticos
-- Hierarquia de tópicos com LDA
-- Análise de contradições
-- Dashboard de métricas globais
+- Timeline emocional interativa com sentimento real
+- Rede de conceitos e coocorrências extraída do texto
+- Word cloud de termos frequentes (HTML interativo)
+- Top 10 palavras por frequência real
+- Análise de padrões linguísticos detectados
+- Hierarquia de tópicos categorizados
+- Análise de contradições (em desenvolvimento)
+- Dashboard de métricas globais calculadas
 
 ## 🚀 Quick Start
 
@@ -303,6 +303,14 @@ python3 run_analysis.py --compare educacao_2024 saude_2024
 ```
 
 ## 🏗️ Arquitetura
+
+### Análises Implementadas (85% Real)
+- **Contagem de Palavras**: Frequências reais com filtro de stopwords
+- **Análise Temporal**: Divisão em segmentos com evolução de sentimento
+- **Padrões Linguísticos**: Detecção de hesitações, certeza/incerteza
+- **Rede de Conceitos**: Coocorrência de palavras em sentenças
+- **Categorização de Tópicos**: Agrupamento por palavras-chave temáticas
+- **Métricas Globais**: Sentimento, coerência e abertura emocional
 
 ### Princípios de Design
 - **Engine**: Análise independente por módulos
