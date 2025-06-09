@@ -1,0 +1,35 @@
+{
+    "enabled": true,
+    "description": "Análise de Velocidade de Teste",
+    "calibration": {
+        "short_text": {
+            "max_length": 1000,
+            "parameters": {
+                "segments": 5,
+                "min_frequency": 2
+            }
+        },
+        "medium_text": {
+            "max_length": 10000,
+            "parameters": {
+                "segments": 10,
+                "min_frequency": 3
+            }
+        },
+        "long_text": {
+            "parameters": {
+                "segments": 20,
+                "min_frequency": 5
+            }
+        }
+    },
+    "parameters": {
+        "smoothing_factor": 0.2,
+        "min_confidence": 0.1
+    },
+    "output": {
+        "include_in_report": true,
+        "export_raw_data": false,
+        "create_visualization": true
+    }
+}

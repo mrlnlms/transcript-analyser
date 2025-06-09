@@ -1,0 +1,20 @@
+{
+    "version": "2.0",
+    "system": {
+        "auto_discovery": true,
+        "parallel_processing": false,
+        "cache_enabled": false
+    },
+    "defaults": {
+        "analysis_backend": "real",
+        "visualization_backend": "plotly",
+        "output_format": "markdown"
+    },
+    "calibration": {
+        "auto_adjust": true,
+        "text_size_thresholds": {
+            "short": 1000,
+            "medium": 10000
+        }
+    }
+}

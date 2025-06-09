@@ -132,7 +132,13 @@ output/
 - Suporte a diferentes formatos de transcrição (Zoom, Teams)
 - Cache de análises
 
-## 💻 Ambiente Técnico
+## 🎯 Objetivo Final
+
+Criar um sistema completo de análise qualitativa que:
+1. Funcione standalone via CLI ✅
+2. Integre com Obsidian para pesquisadores ⏳
+3. Evolua para incluir CodeMarker (codificação qualitativa) 🔮
+4. **Seja 100% plugável** - adicionar análises/gráficos sem editar código ⏳
 
 ### Dependências Core
 - Python 3.8+
@@ -153,12 +159,65 @@ transcript-analyser/
 └── requirements.txt   # Dependências
 ```
 
-## 🎯 Objetivo Final
+## 🏗️ Arquitetura Plugável - IMPLEMENTADA ✅
 
-Criar um sistema completo de análise qualitativa que:
-1. Funcione standalone via CLI ✅
-2. Integre com Obsidian para pesquisadores ⏳
-3. Evolua para incluir CodeMarker (codificação qualitativa) 🔮
+### Princípio Base
+**1 arquivo Python + 1 JSON = 1 funcionalidade nova**
+
+### Estrutura Atual
+```
+engine/analyzers/
+├── __init__.py               # Sistema de auto-descoberta
+├── _template_analyzer.py     # Template base
+├── word_frequency.py         # ✅ MIGRADO - Primeira análise
+└── test_velocity.py          # Exemplo de teste
+
+config/analysis_configs/
+├── _template.json            # Template base  
+├── word_frequency_config.json # ✅ Config externa
+└── test_velocity_config.json  # Exemplo
+
+visuals/charts/
+├── __init__.py               # Sistema de auto-descoberta
+├── _template_chart.py        # Template base
+└── (gráficos futuros)
+
+scripts/automation/
+├── nova_analise.sh           # ✅ Funcionando (macOS)
+├── novo_grafico.sh           # Template criado
+└── nova_feature.sh           # Template criado
+```
+
+### Sistema de Auto-descoberta ✅
+- Sistema encontra automaticamente classes que terminam em `*Analyzer` ou `*Chart`
+- Zero configuração manual - só criar os arquivos
+- Calibração automática por tamanho de texto
+- Integração retrocompatível
+
+### Status da Migração
+- ✅ **WordFrequencyAnalyzer**: Migrado e integrado
+- ⏳ **TemporalAnalyzer**: Próximo
+- ⏳ **SentimentAnalyzer**: Próximo  
+- ⏳ **LinguisticPatternsAnalyzer**: Próximo
+- ⏳ **ConceptNetworkAnalyzer**: Próximo
+- ⏳ **TopicAnalyzer**: Próximo
+- ⏳ **ContradictionAnalyzer**: Próximo
+
+### Workflow do Desenvolvedor
+```bash
+# Scripts funcionando para automatizar criação:
+./scripts/automation/nova_analise.sh "minha_analise" "Descrição"
+./scripts/automation/novo_grafico.sh "meu_grafico" "Descrição"  
+./scripts/automation/nova_feature.sh "nome" "Análise + Gráfico juntos"
+```
+
+### Testes Realizados
+- ✅ Auto-descoberta funcionando: encontra `WordFrequencyAnalyzer`
+- ✅ Scripts de automação corrigidos para macOS
+- ✅ Sistema principal 100% retrocompatível
+- ✅ Análise real testada com sucesso
+- ✅ WordCloud HTML aprimorado
+- ✅ Todas as 8 visualizações funcionais
 
 ## 📝 Notas Importantes
 
@@ -202,10 +261,11 @@ Criar um sistema completo de análise qualitativa que:
 - ✅ LDA avançado (simplificado mas funcional)
 
 ### Próximas Prioridades
-1. 🔴 ✅ Detecção de contradições implementada!
-2. 🟡 Refatorar run_analysis.py (600+ linhas)
-3. 🟢 POC integração Obsidian
-4. 🔵 Melhorias de UX (progress bar, tratamento de erros)
+1. 🟢 **Migrar análises restantes** (temporal, sentiment, linguistic_patterns, etc)
+2. 🟡 Criar AnalysisOrchestrator para coordenar análises
+3. 🟡 Migrar sistema de gráficos para arquitetura plugável
+4. 🔵 Refatorar run_analysis.py (orquestração apenas)
+5. 🔵 POC integração Obsidian
 
 ## 🗓️ Histórico de Atualizações
 
@@ -213,8 +273,12 @@ Criar um sistema completo de análise qualitativa que:
 - ✅ Sistema 100% completo com análise real!
 - ✅ Detecção de contradições implementada
 - ✅ Todas as 8 visualizações funcionando
+- ✅ **Arquitetura plugável implementada** - primeira migração
+- ✅ WordFrequencyAnalyzer migrado para novo sistema
+- ✅ Scripts de automação funcionando (macOS)
+- ✅ Auto-descoberta de analisadores funcionando
 - ✅ Relatórios Markdown enriquecidos e reorganizados
-- ✅ Word Cloud HTML interativo funcionando
+- ✅ Word Cloud HTML interativo aprimorado
 
 ### Janeiro 2025
 - Migração completa para estrutura output/

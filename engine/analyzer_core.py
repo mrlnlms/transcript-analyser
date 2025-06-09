@@ -3,9 +3,11 @@
 import json
 import os
 import numpy as np
+
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
+from .analyzers.word_frequency import WordFrequencyAnalyzer
 
 class TranscriptAnalyzer:
     """Analisador principal de transcrições"""
@@ -57,26 +59,10 @@ class TranscriptAnalyzer:
             raise
 
     def _count_word_frequencies(self, text: str) -> Dict[str, int]:
-        """Conta frequência real das palavras"""
-        from collections import Counter
-        import re
-        
-        # Limpar e tokenizar
-        text_lower = text.lower()
-        # Remove pontuação e separa palavras
-        words = re.findall(r'\b[a-záàâãéèêíïóôõöúçñ]+\b', text_lower)
-        
-        # Filtrar stopwords se disponível
-        stopwords = set()
-        if hasattr(self, 'resource_manager'):
-            stopwords = set(self.resource_manager.get_stopwords())
-        
-        # Contar palavras significativas
-        filtered_words = [w for w in words if len(w) > 3 and w not in stopwords]
-        word_counts = Counter(filtered_words)
-        
-        # Retornar top 50 palavras
-        return dict(word_counts.most_common(50))
+        """Usa o novo sistema plugável de análise"""
+        analyzer = WordFrequencyAnalyzer()
+        result = analyzer.analyze(text)
+        return result['word_frequencies']
     
 
 
