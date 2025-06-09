@@ -9,10 +9,10 @@ import logging
 from pathlib import Path
 
 # Imports dos módulos
-from cli_manager import CLIManager
-from project_manager import ProjectManager
-from analysis_runner import AnalysisRunner
-# from visuals.visualization_manager import test_visualization_system
+from core.managers.cli_manager import CLIManager
+from core.managers.project_manager import ProjectManager
+from core.managers.analysis_runner import AnalysisRunner
+# from core.visuals.visualization_manager import test_visualization_system
 
 
 def setup_logging(verbose: bool = False):
@@ -82,7 +82,7 @@ def main():
         
     elif command == 'test':
         # Testar visualizações
-        from visuals.visualization_manager import VisualizationManager
+        from core.visuals.visualization_manager import VisualizationManager
         viz = VisualizationManager()
         # Teste básico
         print("✅ Sistema de visualização carregado")

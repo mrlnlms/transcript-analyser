@@ -195,76 +195,100 @@ Limpeza inteligente com opções:
 - Mostra espaço a ser liberado
 - Confirmação para operações destrutivas
 
-## 💻 Uso Diário
+## 💻 Uso Diário (V2.0)
 
-### Ativação do Ambiente
-
-```bash
-# 1. Navegar para o projeto
-cd Desktop/transcript-analyser
-
-# 2. Ativar ambiente virtual
-source transcript_env/bin/activate
-
-# 3. Usar sistema normalmente
-python3 run_analysis.py --list-projects
-```
-
-### Comandos Principais
+### Comandos Essenciais
 
 ```bash
-# Listar projetos disponíveis
-python3 run_analysis.py --list-projects
-
 # Criar novo projeto
-python3 run_analysis.py --create-project meu_projeto
+python3 run_analysis.py --create-project meu_estudo
 
-# Executar análise
-python3 run_analysis.py --project meu_projeto
+# Analisar projeto
+python3 run_analysis.py --project meu_estudo
 
-# Análise comparativa
-python3 run_analysis.py --compare projeto1 projeto2 projeto3
+# Listar projetos
+python3 run_analysis.py --list-projects
 
-# Testar visualizações
+# Comparação (em desenvolvimento para V2.1)
+python3 run_analysis.py --compare projeto1 projeto2
+
+# Testar sistema
 python3 run_analysis.py --test-visuals
 ```
 
-## 📁 Estrutura do Projeto
+### Workflow Típico
+
+1. **Criar projeto**
+   ```bash
+   python3 run_analysis.py --create-project entrevistas_2025
+   ```
+
+2. **Adicionar arquivos**
+   ```bash
+   # Copie seus .txt para:
+   projects/entrevistas_2025/arquivos/
+   ```
+
+3. **Executar análise**
+   ```bash
+   python3 run_analysis.py --project entrevistas_2025
+   ```
+
+4. **Ver resultados**
+   ```bash
+   # Abrir pasta de output
+   open projects/entrevistas_2025/output/
+   
+   # Resultados incluem:
+   # - 8 visualizações HTML interativas
+   # - report_[arquivo].md com interpretações
+   # - Dados brutos em JSON
+   ```
+
+## 📁 Estrutura do Projeto V2.1
 
 ```
 transcript-analyser/
-├── 🚀 run_analysis.py          # CLI principal
-├── ⚙️ config_loader.py         # Sistema de configuração
+├── 🚀 run_analysis.py          # Entry point único na raiz
 ├── 🔧 setup_auto.py           # Setup automatizado
-├── 📦 requirements.txt        # Dependências
 │
-├── 📁 engine/                 # Módulos de análise
-│   ├── analyzer_core.py       # Analisador principal
-│   └── comparative_analyzer.py # Análise comparativa
+├── 📂 core/                   # Núcleo do sistema
+│   ├── managers/              # Gerenciadores principais
+│   │   ├── cli_manager.py     # Interface CLI
+│   │   ├── project_manager.py # Gestão de projetos
+│   │   └── analysis_runner.py # Coordenação de análises
+│   ├── config/               # Configurações
+│   │   ├── configuration_registry.py # V2.1 - Registry central
+│   │   └── config_loader.py  # Carregador de configs
+│   ├── generators/           # Geradores
+│   │   └── markdown_generator.py # Relatórios markdown
+│   ├── engine/              # Motor de análise
+│   │   ├── analysis_orchestrator.py # Orquestrador principal
+│   │   ├── analyzer_core.py  # Core do sistema
+│   │   └── comparative_analyzer.py # Análise comparativa
+│   └── visuals/             # Sistema de visualização
+│       ├── chart_orchestrator.py # Orquestrador de gráficos
+│       ├── visualization_manager.py # 3 backends
+│       └── dashboard_generator.py # Dashboard HTML
 │
-├── 📁 visuals/               # Sistema de visualizações
-│   ├── visualization_manager.py # 3 backends escaláveis
-│   └── dashboard_generator.py   # Gerador tradicional
+├── 📊 engine/                # Analisadores plugáveis
+│   └── analyzers/           # 9 análises disponíveis
 │
-├── 📁 projects/              # Seus projetos de análise
-│   └── nome_projeto/
-│       ├── config_analise.json  # ⚙️ Configuração do projeto
-│       ├── arquivos/           # 📄 Suas transcrições .txt
-│       └── output/            # 📈 Outputs gerados
-│           └── assets/        # 🖼️ Imagens e recursos
+├── 🎨 visuals/              # Visualizações plugáveis
+│   └── charts/              # 8 gráficos disponíveis
 │
-├── 📁 resources/             # 📝 Léxicos editáveis
-│   ├── stopwords_custom.txt
-│   ├── emocionais_positivos.txt
-│   ├── hesitacao_termos.txt
-│   └── pesos_formula_linguistica.json
+├── ⚙️ config/               # Configurações JSON
+├── 📚 resources/            # Léxicos e dicionários
+├── 🛠️ scripts/              # Scripts organizados
+│   ├── tests/               # Scripts de teste
+│   ├── maintenance/         # Scripts de manutenção
+│   └── development/         # Scripts de desenvolvimento
 │
-├── 📁 scripts/               # 🛠️ Scripts auxiliares
-│   ├── teste_automatico.sh
-│   ├── workflow_manual.sh
-│   └── limpar_projetos.sh
-│
-└── 📁 transcript_env/        # Ambiente virtual Python
+├── 📁 projects/             # Projetos dos usuários
+└── 📋 docs/                 # Documentação completa
+    ├── CONTEXT.md           # Contexto para novos chats
+    ├── DEVELOPMENT.md       # Guia de desenvolvimento
+    └── ROADMAP.md          # Planejamento V2.1+
 ```
 
 ## ⚙️ Configuração
