@@ -148,7 +148,7 @@ python3 run_analysis.py --create-project meu_teste
 python3 run_analysis.py --project meu_teste
 
 # 5. Ver resultados
-# Resultados em: projects/meu_teste/resultados/
+# Resultados em: projects/meu_teste/output/
 ```
 
 ## 🔄 Atualizações Futuras

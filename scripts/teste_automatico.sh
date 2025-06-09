@@ -255,6 +255,6 @@ echo "📊 Comparando..."
 python run_analysis.py --compare $PROJ1 $PROJ2 $PROJ3
 
 echo "✅ Abrindo resultados..."
-open projects/teste_auto_*/resultados/*/*.html
+open projects/teste_auto_*/output/*/*.html
 
 echo "🎉 Teste completo com transcrições densas finalizado!"

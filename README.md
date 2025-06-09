@@ -2,7 +2,9 @@
 
 Sistema escalável e modular para análise automatizada de entrevistas qualitativas, desenvolvido para pesquisadores, analistas e profissionais que trabalham com dados textuais.
 
-## ✨ Features Principais
+## ⚠️ Nota Importante
+
+**Versão atual usa dados simulados para demonstração**. A implementação completa da análise real (sentimentos via NLTK, LDA para tópicos, etc.) está em desenvolvimento. Os gráficos e estrutura estão funcionais para testes e desenvolvimento.
 
 - 🔍 **Análise Multidimensional**: Sentimentos, tópicos, padrões linguísticos e redes semânticas
 - 📊 **Visualizações Interativas**: HTML com Plotly, gráficos estáticos com Matplotlib
@@ -61,7 +63,7 @@ python run_analysis.py --project meu_estudo
 ### 4. Ver Resultados
 Os resultados estarão em:
 ```
-projects/meu_estudo/resultados/
+projects/meu_estudo/output/
 ```
 Abra os arquivos `.html` no navegador para visualizações interativas!
 
@@ -84,6 +86,10 @@ transcript-analyser/
 │   ├── visualization_manager.py # Gerenciador de backends
 │   └── plotly_backend.py   # Visualizações interativas
 ├── 📂 projects/            # Seus projetos de análise
+│   └── meu_projeto/
+│       ├── arquivos/       # Suas transcrições .txt
+│       ├── output/         # Resultados gerados
+│       └── config.json     # Configurações
 ├── 📂 resources/           # Léxicos e dicionários
 ├── 📂 docs/               # Documentação
 ├── 📂 scripts/            # Scripts auxiliares
@@ -137,6 +143,12 @@ Contribuições são bem-vindas! Por favor:
 5. Abra um Pull Request
 
 ## 📝 Changelog
+
+### v2.0.2 (Janeiro 2025)
+- ✅ Reorganização da estrutura de output (resultados → output)
+- ✅ Adição de suporte para pasta assets
+- ✅ Scripts movidos para pasta dedicada
+- ✅ Melhorias na documentação
 
 ### v2.0.1 (Janeiro 2025)
 - ✅ Correção de bug na extensão de arquivos HTML

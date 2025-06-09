@@ -70,18 +70,18 @@ python run_analysis.py --project meu_estudo
 ### 4. Ver os resultados
 ```bash
 # Listar o que foi gerado
-ls projects/meu_estudo/resultados/
+ls projects/meu_estudo/output/
 
 # Abrir o dashboard HTML no navegador (macOS)
-open projects/meu_estudo/resultados/dashboard_analise.html
+open projects/meu_estudo/output/dashboard_analise.html
 
 # Ou navegue manualmente para:
-# Desktop/transcript-analyser/projects/meu_estudo/resultados/
+# Desktop/transcript-analyser/projects/meu_estudo/output/
 ```
 
 ## 📊 O que esperar como resultado?
 
-Após rodar a análise, você encontrará em `projects/meu_estudo/resultados/`:
+Após rodar a análise, você encontrará em `projects/meu_estudo/output/`:
 
 ### Arquivos Gerados:
 1. **dashboard_analise.html** - Relatório visual completo (abra no navegador!)

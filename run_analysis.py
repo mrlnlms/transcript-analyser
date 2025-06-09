@@ -91,8 +91,11 @@ class AnalysisRunner:
                 print(f"\n📊 Gerando visualizações...")
                 
                 for result in results:
-                    output_dir = project_dir / "resultados" / result['filename'].replace('.txt', '')
+                    output_dir = project_dir / "output" / result['filename'].replace('.txt', '')
                     output_dir.mkdir(parents=True, exist_ok=True)
+                    # Criar subpasta para assets
+                    assets_dir = output_dir / "assets"
+                    assets_dir.mkdir(parents=True, exist_ok=True)
                     
                     # Usar método inteligente de visualização
                     self._generate_visualizations_smart(result, str(output_dir), config)
@@ -100,7 +103,7 @@ class AnalysisRunner:
             # 6. Gerar relatórios se habilitado
             if config.output['generate_markdown']:
                 print(f"\n📝 Gerando relatórios...")
-                self._generate_markdown_reports(results, project_dir / "resultados")
+                self._generate_markdown_reports(results, project_dir / "output")
             
             # 7. Resumo final
             self._print_analysis_summary(results, project_name)
@@ -140,6 +143,13 @@ class AnalysisRunner:
                 }
                 
                 viz_manager.create_visualization('bar_chart', metrics_data, metrics_config)
+                
+                # DEBUG temporário
+                print(f"\n🔍 DEBUG - Dados disponíveis para {result['filename']}:")
+                print(f"  - temporal_analysis: {len(result.get('temporal_analysis', []))} items")
+                print(f"  - concept_network: {len(result.get('concept_network', []))} items")
+                if result.get('concept_network'):
+                    print(f"  - Primeiro item network: {result['concept_network'][0]}")
                 
                 # Timeline emocional se houver dados temporais
                 if result.get('temporal_analysis'):
@@ -233,7 +243,13 @@ class AnalysisRunner:
             
             output_dir = Path("projects/comparisons") / f"comparative_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
             output_dir.mkdir(parents=True, exist_ok=True)
+            # Criar subpasta para assets
+            assets_dir = output_dir / "assets"
+            assets_dir.mkdir(parents=True, exist_ok=True)
             
+            assets_dir = output_dir / "assets"
+            assets_dir.mkdir(parents=True, exist_ok=True)
+
             dashboard.generate_comparative_dashboard(
                 comparison_results,
                 output_dir=str(output_dir)
@@ -252,13 +268,22 @@ class AnalysisRunner:
         """📝 Gera relatórios em Markdown"""
         
         for result in results:
-            filename = result['filename'].replace('.txt', '.md')
-            report_path = output_dir / filename
+            # Criar caminho correto dentro da pasta do arquivo
+            file_folder = result['filename'].replace('.txt', '')
+            # output_dir já é projects/nome/output/
+            # Então: projects/nome/output/arquivo/arquivo.md
+            report_path = output_dir / file_folder / f"{file_folder}.md"
             
-            with open(report_path, 'w', encoding='utf-8') as f:
-                f.write(self._create_markdown_content(result))
+            # Garantir que a pasta existe (caso ainda não tenha sido criada)
+            report_path.parent.mkdir(parents=True, exist_ok=True)
             
-            print(f"📄 Relatório gerado: {filename}")
+            try:
+                with open(report_path, 'w', encoding='utf-8') as f:
+                    f.write(self._create_markdown_content(result))
+                
+                print(f"📄 Relatório gerado: {file_folder}.md")
+            except Exception as e:
+                print(f"❌ Erro ao gerar relatório {file_folder}.md: {e}")
     
     def _create_markdown_content(self, result: dict) -> str:
         """📋 Cria conteúdo do relatório em Markdown"""
@@ -294,8 +319,21 @@ class AnalysisRunner:
             content += "## ⚠️ Contradições Detectadas\n\n"
             for i, contradiction in enumerate(result['contradictions'][:3]):
                 content += f"### Contradição {i+1}\n"
-                content += f"- **Tópico:** {', '.join(contradiction['topic_words'][:5])}\n"
-                content += f"- **Intensidade:** {contradiction['intensity']:.2f}\n\n"
+                # Tenta diferentes campos possíveis
+                if 'topic_words' in contradiction:
+                    content += f"- **Tópico:** {', '.join(contradiction['topic_words'][:5])}\n"
+                elif 'text1' in contradiction:
+                    # Se não tem topic_words, mostra os textos
+                    content += f"- **Texto 1:** \"{contradiction.get('text1', '')[:50]}...\"\n"
+                    content += f"- **Texto 2:** \"{contradiction.get('text2', '')[:50]}...\"\n"
+
+                # Intensidade ou score
+                if 'intensity' in contradiction:
+                    content += f"- **Intensidade:** {contradiction['intensity']:.2f}\n\n"
+                elif 'score' in contradiction:
+                    content += f"- **Score:** {contradiction['score']:.2f}\n\n"
+                else:
+                    content += "\n"  # Garante espaçamento mesmo sem score
         
         return content
     

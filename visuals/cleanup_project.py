@@ -114,7 +114,7 @@ transcript-analyser/
 │       ├── config_analise.json     # Configuração do projeto
 │       ├── arquivos/
 │       │   └── exemplo_entrevista.txt
-│       └── resultados/
+│       └── output/
 │           └── exemplo_entrevista/
 │               ├── metricas_globais.png
 │               └── exemplo_entrevista.md
