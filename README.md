@@ -58,6 +58,12 @@ chart_orchestrator.analyze(result, output_dir)  # Descobre e cria tudo automatic
 - **Mapeamento inteligente** dados → visualizações ✅
 - **Todos os HTMLs** gerados e funcionando ✅
 
+#### **MarkdownReportGenerator** - MODULARIZADO! ✅
+- **Gerador de relatórios** extraído para módulo próprio ✅
+- **Relatórios ricos** com interpretações automáticas ✅
+- **Padrão de nomes** report_[arquivo].md ✅
+- **Seções inteligentes** baseadas nos dados disponíveis ✅
+
 ```python
 # REVOLUÇÃO COMPLETA: Análises + Gráficos 100% orquestrados!
 
@@ -75,10 +81,12 @@ chart_result = chart_orchestrator.analyze(analysis_result, output_dir)  # 8/8 gr
 ### **Resultados da Revolução Orquestral - HISTÓRICO!**
 - **9/9 análises** executadas automaticamente ✅
 - **8/8 gráficos** criados automaticamente ✅
+- **Relatórios markdown** ricos e interpretativos ✅
 - **TODOS confirmados funcionando** com arquivo real (29.896 chars) ✅
 - **Auto-descoberta total** de funcionalidades ✅
 - **Zero código hardcoded** para análises e gráficos ✅
 - **Sistema 100% plugável** implementado ✅
+- **Estrutura de output limpa** - Todos arquivos no mesmo nível ✅
 
 ### **Gráficos Confirmados Funcionando (8/8):**
 1. PatternsChart, 2. NetworkChart, 3. TimelineChart, 4. ContradictionsChart
@@ -86,9 +94,10 @@ chart_result = chart_orchestrator.analyze(analysis_result, output_dir)  # 8/8 gr
 
 **🏆 PERFEIÇÃO ABSOLUTA ATINGIDA!**
 
-### Refatoração Final
-- run_analysis.py: De 700+ linhas para ~50 linhas (só orquestração)
+### Refatoração em Progresso (Junho 2025)
+- run_analysis.py: De 700+ linhas para 410 linhas (gerador markdown extraído)
 - Sistema 100% baseado em orquestradores inteligentes
+- Próximo passo: Extrair CLI e Project Manager (~200 linhas finais)
 - Configuração externa total
 - Zero hardcoding restante
 

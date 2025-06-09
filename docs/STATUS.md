@@ -7,7 +7,13 @@
 **Estado**: Funcional, em processo de otimização e integração com Obsidian  
 **Última atualização**: Janeiro 2025
 
-## 🏗️ O que foi feito
+## 🏗️ O que foi feito (Junho 2025)
+
+### Modularização e Refatoração
+- ✅ **Gerador Markdown modularizado** - Extraído para markdown_generator.py
+- ✅ **Caminhos de output corrigidos** - Todos os arquivos no mesmo nível
+- ✅ **Nomes de arquivo padronizados** - report_[nome_arquivo].md
+- ✅ **Script teste_real_simples.sh** otimizado - Abre pasta correta no Finder
 
 ### Estrutura e Organização
 - ✅ Sistema modular funcionando (engine/, visuals/, resources/)
@@ -381,10 +387,11 @@ scripts/automation/
 - **Sistema escalando perfeitamente**
 
 ### Próximas Melhorias (Opcionais) 🎯
-1. 🟡 **Corrigir gerador markdown** - Relatório em MD (erro dict comparison)
-2. 🟡 **Cache inteligente** - Performance otimizada
-3. 🟡 **Dashboard unificado** - HTML consolidado
-4. 🔵 **POC Obsidian** - Plugin integration
+1. ✅ **Gerador markdown corrigido** - Modularizado e funcionando perfeitamente
+2. 🟡 **Refatoração run_analysis.py** - Reduzir de 700+ para ~200 linhas
+3. 🟡 **Cache inteligente** - Performance otimizada
+4. 🟡 **Dashboard unificado** - HTML consolidado
+5. 🔵 **POC Obsidian** - Plugin integration
 
 ## 🗓️ Histórico de Atualizações
 
