@@ -304,23 +304,25 @@ python3 run_analysis.py --compare educacao_2024 saude_2024
 
 ## 🏗️ Arquitetura
 
-## 🏗️ Arquitetura Plugável
+## 🏗️ Arquitetura Plugável - IMPLEMENTADA!
 
-### Análises Implementadas (100% Real)
-- **Contagem de Palavras**: ✅ **Migrado para WordFrequencyAnalyzer** - Frequências reais com calibração automática
-- **Análise Temporal**: Divisão em segmentos com evolução de sentimento  
-- **Padrões Linguísticos**: Detecção de hesitações, certeza/incerteza
-- **Rede de Conceitos**: Coocorrência de palavras em sentenças
-- **Categorização de Tópicos**: Agrupamento por palavras-chave temáticas
-- **Métricas Globais**: Sentimento, coerência e abertura emocional  
-- **Detecção de Contradições**: Padrões linguísticos e negações detectadas
+### Análises Implementadas (100% Real + 100% Plugável)
+- **Contagem de Palavras**: ✅ **WordFrequencyAnalyzer** - Frequências reais com calibração automática
+- **Análise Temporal**: ✅ **TemporalAnalysisAnalyzer** - Evolução temporal e sentimento por segmentos
+- **Métricas Globais**: ✅ **GlobalMetricsAnalyzer** - Sentimento global, variância e coerência
+- **Padrões Linguísticos**: ✅ **LinguisticPatternsAnalyzer** - Hesitações, certeza/incerteza
+- **Rede de Conceitos**: ✅ **ConceptNetworkAnalyzer** - Coocorrência de palavras em sentenças
+- **Categorização de Tópicos**: ✅ **TopicModelingAnalyzer** - Agrupamento por palavras-chave temáticas
+- **Detecção de Contradições**: ✅ **ContradictionDetectionAnalyzer** - Padrões e negações detectadas
 
-### Sistema Plugável
+### Sistema Plugável Completo
 - **1 arquivo Python + 1 JSON = 1 funcionalidade nova**
-- Auto-descoberta de analisadores e gráficos
-- Scripts de automação para criação rápida
-- Calibração automática por tamanho de texto
+- Auto-descoberta de analisadores e gráficos funcionando
+- Scripts de automação para criação rápida (`nova_analise.sh`, `novo_grafico.sh`)
+- Calibração automática por tamanho de texto (pequeno/médio/grande)
+- Comunicação entre analisadores (ex: GlobalMetrics usa TemporalAnalysis)
 - Zero edição de código principal para adicionar funcionalidades
+- Sistema 100% retrocompatível
 
 ### Princípios de Design
 - **Engine**: Análise independente por módulos

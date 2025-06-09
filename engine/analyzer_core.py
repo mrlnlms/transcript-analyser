@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 
 from .analyzers.word_frequency import WordFrequencyAnalyzer
+from .analyzers.temporal_analysis import TemporalAnalysisAnalyzer
 
 class TranscriptAnalyzer:
     """Analisador principal de transcrições"""
@@ -63,101 +64,12 @@ class TranscriptAnalyzer:
         analyzer = WordFrequencyAnalyzer()
         result = analyzer.analyze(text)
         return result['word_frequencies']
-    
-
-
-
 
     def _analyze_temporal(self, text: str) -> List[Dict[str, Any]]:
-        """Divide texto em segmentos temporais e analisa evolução"""
-        import re
-        
-        # Dividir em parágrafos (ou sentenças grandes)
-        paragraphs = [p.strip() for p in text.split('\n\n') if p.strip()]
-        
-        # Se muito poucos parágrafos, dividir por sentenças
-        if len(paragraphs) < 5:
-            sentences = re.split(r'[.!?]+', text)
-            # Agrupar sentenças em blocos de 3-4
-            paragraphs = []
-            for i in range(0, len(sentences), 3):
-                block = ' '.join(sentences[i:i+3]).strip()
-                if block:
-                    paragraphs.append(block)
-        
-        # Limitar a 20 segmentos no máximo
-        if len(paragraphs) > 20:
-            # Agrupar parágrafos para ter ~20 segmentos
-            step = len(paragraphs) // 20
-            temp = []
-            for i in range(0, len(paragraphs), step):
-                temp.append(' '.join(paragraphs[i:i+step]))
-            paragraphs = temp[:20]
-        
-        # Analisar cada segmento
-        temporal_data = []
-        for i, paragraph in enumerate(paragraphs):
-            if not paragraph:
-                continue
-                
-            # Calcular métricas básicas
-            words = paragraph.split()
-            
-            # Análise de sentimento básica com palavras-chave
-            sentiment = 0.0
-            paragraph_lower = paragraph.lower()
-            
-            # Palavras positivas
-            positive_words = ['bom', 'ótimo', 'excelente', 'feliz', 'satisfeito', 'gosto', 
-                            'adoro', 'maravilh', 'incrível', 'positiv', 'melhor', 'sucesso',
-                            'consegui', 'aprendi', 'entendi', 'legal', 'bacana', 'top']
-            
-            # Palavras negativas  
-            negative_words = ['ruim', 'péssimo', 'triste', 'difícil', 'problema', 'erro',
-                            'não', 'nunca', 'medo', 'preocup', 'frustr', 'chato', 'cansado',
-                            'complicado', 'confuso', 'dúvida']
-            
-            # Contar palavras positivas e negativas
-            for word in positive_words:
-                if word in paragraph_lower:
-                    sentiment += 0.15
-            
-            for word in negative_words:
-                if word in paragraph_lower:
-                    sentiment -= 0.15
-            
-            # Ajustar por pontuação
-            if '!' in paragraph:
-                sentiment += 0.1
-            if '?' in paragraph and any(neg in paragraph_lower for neg in ['não', 'como', 'por que']):
-                sentiment -= 0.1
-            
-            # Variação para tornar mais interessante
-            import random
-            sentiment += random.uniform(-0.1, 0.1)
-            
-            # Detectar marcadores
-            marker = "normal"
-            if i == 0:
-                marker = "INICIO"
-            elif i == len(paragraphs) - 1:
-                marker = "CONCLUSAO"
-            elif "mas" in paragraph.lower() or "porém" in paragraph.lower():
-                marker = "CONFLITO"
-            elif "portanto" in paragraph.lower() or "assim" in paragraph.lower():
-                marker = "SINTESE"
-            
-            temporal_data.append({
-                'time': i * 5,  # Simular tempo em minutos
-                'minute': i * 2.5,
-                'sentiment': max(-1, min(1, sentiment)),  # Limitar entre -1 e 1
-                'marker': marker,
-                'phase': 'INICIO' if i < len(paragraphs) * 0.3 else 'DESENVOLVIMENTO' if i < len(paragraphs) * 0.7 else 'CONCLUSAO',
-                'cognitive_load': len(words),
-                'hesitations': paragraph.lower().count('né') + paragraph.lower().count('tipo')
-            })
-        
-        return temporal_data
+        """Usa o novo sistema plugável"""
+        analyzer = TemporalAnalysisAnalyzer()
+        result = analyzer.analyze(text)
+        return result['temporal_analysis']
     
 
     def _extract_phases(self, temporal_data: List[Dict]) -> Dict[str, Dict]:
