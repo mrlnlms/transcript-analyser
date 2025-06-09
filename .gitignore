@@ -9,9 +9,9 @@ venv/
 transcript_env/
 
 # Outputs e resultados
-projects/*/resultados/*.png
-projects/*/resultados/*.html
-projects/*/resultados/*.pdf
+projects/*/output/*.png
+projects/*/output/*.html
+projects/*/output/*.pdf
 temp/
 output/
 *.log
@@ -26,3 +26,4 @@ _development/
 test_bar_chart_*
 *.backup
 
+projects/comparisons/

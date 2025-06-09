@@ -38,9 +38,9 @@ if [ "$COMPARAR" = "s" ]; then
 fi
 
 echo "✅ Abrindo resultados..."
-open projects/$PROJ1/resultados/*/*.html
-open projects/$PROJ2/resultados/*/*.html
-open projects/$PROJ3/resultados/*/*.html
+open projects/$PROJ1/output/*/*.html
+open projects/$PROJ2/output/*/*.html
+open projects/$PROJ3/output/*/*.html
 
 echo "🎉 Concluído!"
 echo ""

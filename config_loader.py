@@ -147,7 +147,7 @@ class ConfigLoader:
         
         # Criar subdiretórios
         (project_dir / "arquivos").mkdir(exist_ok=True)
-        (project_dir / "resultados").mkdir(exist_ok=True)
+        (project_dir / "output").mkdir(exist_ok=True)
         
         # Configuração padrão
         default_config = {

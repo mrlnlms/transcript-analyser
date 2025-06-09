@@ -341,7 +341,7 @@ def create_quick_start_guide():
 
 ### 📁 Estrutura:
 - `projects/nome_projeto/arquivos/` → Adicione arquivos .txt aqui
-- `projects/nome_projeto/resultados/` → Resultados aparecem aqui
+- `projects/nome_projeto/output/` → Resultados aparecem aqui
 - `resources/` → Léxicos editáveis
 - `config/` → Configurações globais
 
@@ -353,7 +353,7 @@ def create_quick_start_guide():
 ### 💡 Próximos passos:
 1. Adicione arquivos .txt em projects/exemplo_docentes/arquivos/
 2. Execute análise: `python3 run_analysis.py --project exemplo_docentes`
-3. Veja resultados em projects/exemplo_docentes/resultados/
+3. Veja resultados em projects/exemplo_docentes/output/
 
 ---
 🎉 **Sistema pronto para uso!**
