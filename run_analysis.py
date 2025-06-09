@@ -496,22 +496,20 @@ class AnalysisRunner:
             content += "\n"
         
         # Contradições (se existirem)
-        if result.get('contradictions'):
+        if result.get('contradictions') and len(result['contradictions']) > 0:
             content += "## ⚠️ Contradições Detectadas\n\n"
-            for i, contradiction in enumerate(result['contradictions'][:3]):
-                content += f"### Contradição {i+1}\n"
-                if 'topic_words' in contradiction:
-                    content += f"- **Tópico:** {', '.join(contradiction['topic_words'][:5])}\n"
-                elif 'text1' in contradiction:
-                    content += f"- **Texto 1:** \"{contradiction.get('text1', '')[:50]}...\"\n"
-                    content += f"- **Texto 2:** \"{contradiction.get('text2', '')[:50]}...\"\n"
-
-                if 'intensity' in contradiction:
-                    content += f"- **Intensidade:** {contradiction['intensity']:.2f}\n\n"
-                elif 'score' in contradiction:
-                    content += f"- **Score:** {contradiction['score']:.2f}\n\n"
-                else:
-                    content += "\n"
+            for i, contradiction in enumerate(result['contradictions'][:3], 1):
+                content += f"### Contradição {i} (Score: {contradiction.get('score', 0):.2f})\n"
+                
+                if 'text1' in contradiction and 'text2' in contradiction:
+                    content += f"- **Trecho 1:** \"{contradiction['text1'][:80]}...\"\n"
+                    content += f"- **Trecho 2:** \"{contradiction['text2'][:80]}...\"\n"
+                
+                if 'topics' in contradiction and contradiction['topics']:
+                    topics_str = ', '.join(contradiction['topics'][:5]) if isinstance(contradiction['topics'], list) else str(contradiction['topics'])
+                    content += f"- **Tópicos relacionados:** {topics_str}\n"
+                
+                content += "\n"
         
         return content
     

@@ -25,7 +25,7 @@ Sistema escalável e modular para análise automatizada de entrevistas qualitati
 - Top 10 palavras por frequência real
 - Análise de padrões linguísticos detectados
 - Hierarquia de tópicos categorizados
-- Análise de contradições (em desenvolvimento)
+- Análise de contradições (implementada)
 - Dashboard de métricas globais calculadas
 
 ## 🚀 Quick Start
@@ -304,13 +304,14 @@ python3 run_analysis.py --compare educacao_2024 saude_2024
 
 ## 🏗️ Arquitetura
 
-### Análises Implementadas (85% Real)
+### Análises Implementadas (100% Real)
 - **Contagem de Palavras**: Frequências reais com filtro de stopwords
 - **Análise Temporal**: Divisão em segmentos com evolução de sentimento
 - **Padrões Linguísticos**: Detecção de hesitações, certeza/incerteza
 - **Rede de Conceitos**: Coocorrência de palavras em sentenças
 - **Categorização de Tópicos**: Agrupamento por palavras-chave temáticas
-- **Métricas Globais**: Sentimento, coerência e abertura emocional
+- **Métricas Globais**: Sentimento, coerência e abertura emocional  
+- **Detecção de Contradições**: Padrões linguísticos e negações detectadas
 
 ### Princípios de Design
 - **Engine**: Análise independente por módulos

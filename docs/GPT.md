@@ -1,5 +1,3 @@
-Verificar se faz sentido os debugs
-
 # run_analysis.py (só CLI e orquestração)
 AnalysisRunner (150 linhas)
   ├── run_single_analysis()
@@ -27,8 +25,15 @@ ReportGenerator
   └── create_comparative_report()
 
 
+---
 
+# Prompt de introdução para novo chat.
+---
+Alguma informação relevante
+---
+Crie os artefatos para cada documento que enviei para você, com isso você consegue ter mais contexto também, além de 
+---
+#Contexto recente:
+[... contexto-conversa-anterior]
 
-
-
- 
+[minha-resposta]
