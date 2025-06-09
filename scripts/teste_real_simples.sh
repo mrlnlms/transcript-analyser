@@ -19,7 +19,9 @@ echo "📁 Copie UM arquivo .txt para:"
 echo "  → projects/$PROJETO/arquivos/"
 echo ""
 echo "🔸 Abrindo pasta no Finder..."
-open -R projects/$PROJETO/arquivos/
+# Garantir que a pasta existe e abrir
+mkdir -p projects/$PROJETO/arquivos/
+open projects/$PROJETO/arquivos/
 
 echo ""
 echo "Pressione ENTER após copiar o arquivo..."

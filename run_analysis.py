@@ -1,3 +1,4 @@
+from typing import Dict, Any, List, Optional, Tuple
 #!/usr/bin/env python3
 """
 🎯 TRANSCRIPT ANALYZER - CLI PRINCIPAL
@@ -10,8 +11,8 @@ import argparse
 import sys
 import os
 from pathlib import Path
+from markdown_generator import MarkdownReportGenerator
 from datetime import datetime
-from typing import Optional, List
 
 # Importar módulos do sistema
 try:
@@ -103,7 +104,7 @@ class AnalysisRunner:
                 print(f"\n📊 Gerando visualizações...")
                 
                 for result in results:
-                    output_dir = project_dir / "output" / result['filename'].replace('.txt', '')
+                    output_dir = project_dir / "output"
                     output_dir.mkdir(parents=True, exist_ok=True)
                     
                     print(f"\n🎨 Orquestrando visualizações para {result['filename']}...")
@@ -129,7 +130,8 @@ class AnalysisRunner:
             if config.output['generate_markdown']:
                 print(f"\n📝 Gerando relatórios...")
                 try:
-                    self._generate_markdown_reports(results, project_dir / "output")
+                    for result in results:
+                        self._generate_markdown_report(result, project_dir / "output")
                 except Exception as e:
                     print(f"⚠️ Relatório markdown com problema (gráficos OK): {e}")
             
@@ -212,132 +214,13 @@ class AnalysisRunner:
             print(f"❌ Erro na análise comparativa: {e}")
             return False
     
-    def _generate_markdown_reports(self, results: List[dict], output_dir: Path):
-        """📝 Gera relatórios em Markdown"""
-        
-        for result in results:
-            # Criar caminho correto dentro da pasta do arquivo
-            file_folder = result['filename'].replace('.txt', '')
-            # output_dir já é projects/nome/output/
-            # Então: projects/nome/output/arquivo/arquivo.md
-            report_path = output_dir / file_folder / f"_report_{file_folder}.md"
-            
-            # Garantir que a pasta existe (caso ainda não tenha sido criada)
-            report_path.parent.mkdir(parents=True, exist_ok=True)
-            
-            try:
-                with open(report_path, 'w', encoding='utf-8') as f:
-                    f.write(self._create_markdown_content(result))
-                
-                print(f"📄 Relatório gerado: {file_folder}.md")
-            except Exception as e:
-                print(f"❌ Erro ao gerar relatório {file_folder}.md: {e}")
-    
-    def _create_markdown_content(self, result: dict) -> str:
-        """📋 Cria conteúdo do relatório em Markdown"""
-        
-        content = f"""# Análise de Entrevista: {result['filename']}
-
-**Data da Análise:** {datetime.now().strftime('%d/%m/%Y %H:%M')}
-
-## 📊 Métricas Globais
-
-- **Sentimento Global:** {result['global_metrics']['global_sentiment']:.2f}
-- **Coerência Temática:** {result['global_metrics']['thematic_coherence']:.2f}
-- **Abertura Emocional:** {result['global_metrics']['emotional_openness']:.2f}
-
-"""
-        
-        # Evolução Temporal
-        if result.get('temporal_analysis'):
-            content += "## 📈 Evolução Temporal\n\n"
-            phases = result.get('phases', {})
-            for phase_name, phase_data in phases.items():
-                if phase_data.get('sentiment_avg') is not None:
-                    sentiment_emoji = "😊" if phase_data['sentiment_avg'] > 0 else "😐" if phase_data['sentiment_avg'] == 0 else "😔"
-                    content += f"- **{phase_name}**: {sentiment_emoji} Sentimento médio: {phase_data['sentiment_avg']:.2f}\n"
-            content += "\n"
-        
-        # Top 10 Palavras
-        if result.get('word_frequencies'):
-            content += "## 🔤 Top 10 Palavras Mais Frequentes\n\n"
-            for i, (word, freq) in enumerate(list(result['word_frequencies'].items())[:10], 1):
-                content += f"{i}. **{word}**: {freq} vezes\n"
-            content += "\n"
-        
-
-        # Tópicos Principais  
-        if result.get('topics'):
-            content += "## 📈 Tópicos Principais\n\n"
-            try:
-                topics_list = result['topics'] if isinstance(result['topics'], list) else []
-                for i, topic in enumerate(topics_list[:5]):
-                    if i < len(result.get('topic_distribution', [])):
-                        distribution = result['topic_distribution'][i]
-                        content += f"### Tópico {i+1} ({distribution:.1%})\n"
-                        if isinstance(topic, dict) and 'words' in topic:
-                            words = topic['words'][:8] if isinstance(topic['words'], list) else []
-                            content += f"**Palavras-chave:** {', '.join(words)}\n\n"
-            except Exception as e:
-                content += f"Tópicos: {len(result.get('topics', []))} encontrados\n\n"
-        
-        # Rede de Conceitos
-        if result.get('concept_network'):
-            content += "## 🕸️ Principais Conexões entre Conceitos\n\n"
-            for conn in result['concept_network'][:10]:
-                content += f"- {conn['word1']} ↔ {conn['word2']} (força: {conn['weight']})\n"
-            content += "\n"
-        
-        # Análise Linguística
-        content += "## 🎭 Análise Linguística\n"
-        
-        linguistic = result.get('linguistic_patterns', {})
-        
-        # Para compatibilidade com estrutura antiga E nova
-        if 'uncertainty_markers' in linguistic:
-            uncertainty = linguistic.get('uncertainty_markers', {}).get('count', 0)
-            certainty = linguistic.get('certainty_markers', {}).get('count', 0)
-        else:
-            uncertainty = linguistic.get('uncertainty_count', 0)
-            certainty = linguistic.get('certainty_count', 0)
-        
-        content += f"- **Total de Hesitações:** {linguistic.get('total_hesitations', 0)}\n"
-        content += f"- **Marcadores de Incerteza:** {uncertainty}\n"
-        content += f"- **Marcadores de Certeza:** {certainty}\n"
-        
-        if certainty > 0:
-            ratio = uncertainty / certainty
-            content += f"- **Razão Incerteza/Certeza:** {ratio:.2f}\n"
-        else:
-            content += f"- **Razão Incerteza/Certeza:** N/A\n"
-            
-        content += f"- **Complexidade Média:** {linguistic.get('avg_sentence_length', 0):.1f} palavras/frase\n\n"
-        
-        # Padrões de Hesitação
-        if linguistic.get('hesitation_phrases'):
-            content += "## 💬 Padrões de Hesitação\n\n"
-            for word, count in sorted(linguistic['hesitation_phrases'].items(), key=lambda x: x[1], reverse=True)[:5]:
-                content += f"- **{word}**: {count} ocorrências\n"
-            content += "\n"
-        
-        # Contradições (se existirem)
-        if result.get('contradictions') and len(result['contradictions']) > 0:
-            content += "## ⚠️ Contradições Detectadas\n\n"
-            for i, contradiction in enumerate(result['contradictions'][:3], 1):
-                content += f"### Contradição {i} (Score: {contradiction.get('score', 0):.2f})\n"
-                
-                if 'text1' in contradiction and 'text2' in contradiction:
-                    content += f"- **Trecho 1:** \"{contradiction['text1'][:80]}...\"\n"
-                    content += f"- **Trecho 2:** \"{contradiction['text2'][:80]}...\"\n"
-                
-                if 'topics' in contradiction and contradiction['topics']:
-                    topics_str = ', '.join(contradiction['topics'][:5]) if isinstance(contradiction['topics'], list) else str(contradiction['topics'])
-                    content += f"- **Tópicos relacionados:** {topics_str}\n"
-                
-                content += "\n"
-        
-        return content
-    
+    def _generate_markdown_report(self, result: Dict[str, Any], output_dir: Path) -> None:
+        """Gera relatório Markdown usando o gerador modularizado"""
+        try:
+            generator = MarkdownReportGenerator()
+            generator.generate_report(result, output_dir)
+        except Exception as e:
+            self.logger.error(f"Erro ao gerar relatório Markdown: {e}")
     def _print_analysis_summary(self, results: List[dict], project_name: str):
         """📋 Imprime resumo da análise"""
         
