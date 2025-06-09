@@ -304,14 +304,23 @@ python3 run_analysis.py --compare educacao_2024 saude_2024
 
 ## 🏗️ Arquitetura
 
+## 🏗️ Arquitetura Plugável
+
 ### Análises Implementadas (100% Real)
-- **Contagem de Palavras**: Frequências reais com filtro de stopwords
-- **Análise Temporal**: Divisão em segmentos com evolução de sentimento
+- **Contagem de Palavras**: ✅ **Migrado para WordFrequencyAnalyzer** - Frequências reais com calibração automática
+- **Análise Temporal**: Divisão em segmentos com evolução de sentimento  
 - **Padrões Linguísticos**: Detecção de hesitações, certeza/incerteza
 - **Rede de Conceitos**: Coocorrência de palavras em sentenças
 - **Categorização de Tópicos**: Agrupamento por palavras-chave temáticas
 - **Métricas Globais**: Sentimento, coerência e abertura emocional  
 - **Detecção de Contradições**: Padrões linguísticos e negações detectadas
+
+### Sistema Plugável
+- **1 arquivo Python + 1 JSON = 1 funcionalidade nova**
+- Auto-descoberta de analisadores e gráficos
+- Scripts de automação para criação rápida
+- Calibração automática por tamanho de texto
+- Zero edição de código principal para adicionar funcionalidades
 
 ### Princípios de Design
 - **Engine**: Análise independente por módulos
