@@ -15,6 +15,46 @@ class TestVelocityAnalyzer(BaseAnalyzer):
     3. Implemente o método analyze()
     4. Crie arquivo de config em config/analysis_configs/
     """
+
+    @staticmethod
+    def get_config_schema():
+        """Retorna o schema de configuração deste analyzer"""
+        return {
+            'test_mode': {
+                'type': 'bool',
+                'default': True,
+                'description': 'Ativar modo de teste'
+            },
+            'mock_delay': {
+                'type': 'float',
+                'range': [0.0, 5.0],
+                'default': 0.5,
+                'description': 'Delay simulado em segundos'
+            },
+            'use_mock_data': {
+                'type': 'bool',
+                'default': True,
+                'description': 'Usar dados mockados ao invés de análise real'
+            },
+            'complexity_simulation': {
+                'type': 'str',
+                'options': ['simple', 'medium', 'complex'],
+                'default': 'medium',
+                'description': 'Nível de complexidade da simulação'
+            },
+            'error_rate': {
+                'type': 'float',
+                'range': [0.0, 1.0],
+                'default': 0.0,
+                'description': 'Taxa de erro simulada (0.0 = sem erros)'
+            },
+            'verbose_output': {
+                'type': 'bool',
+                'default': False,
+                'description': 'Saída verbosa para debug'
+            }
+        }
+
     
     def analyze(self, text: str) -> Dict:
         """

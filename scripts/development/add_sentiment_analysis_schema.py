@@ -1,21 +1,7 @@
-"""
-Template para criar novos analisadores
-Copie este arquivo e implemente os métodos abstratos
-"""
-from . import BaseAnalyzer
-from typing import Dict
+#!/usr/bin/env python3
+"""Adiciona schema ao SentimentAnalysisAnalyzer"""
 
-class SentimentAnalysisAnalyzer(BaseAnalyzer):
-    """
-    Análise de Sentimento
-    
-    Para criar um novo analisador:
-    1. Copie este arquivo: cp _template_analyzer.py meu_analyzer.py
-    2. Renomeie a classe: SentimentAnalysisAnalyzer -> MeuAnalyzer  
-    3. Implemente o método analyze()
-    4. Crie arquivo de config em config/analysis_configs/
-    """
-
+SCHEMA_CODE = '''
     @staticmethod
     def get_config_schema():
         """Retorna o schema de configuração deste analyzer"""
@@ -74,41 +60,28 @@ class SentimentAnalysisAnalyzer(BaseAnalyzer):
                 'description': 'Janela de contexto para análise (palavras antes/depois)'
             }
         }
+'''
 
-    
-    def analyze(self, text: str) -> Dict:
-        """
-        Implementar análise principal aqui
-        
-        Args:
-            text: Texto da transcrição para analisar
-            
-        Returns:
-            Dict com resultados da análise
-        """
-        # Exemplo de implementação:
-        text_length = len(text)
-        calibration = self.get_calibration_params(text_length)
-        
-        # Sua lógica de análise aqui
-        results = {
-            "analysis_type": self.get_name(),
-            "text_length": text_length,
-            "calibration_used": calibration,
-            "results": {
-                # Seus resultados aqui
-            }
-        }
-        
-        return results
-    
-    def get_calibration_params(self, text_length: int) -> Dict:
-        """Sobrescrever se precisar de calibração específica"""
-        base_params = super().get_calibration_params(text_length)
-        
-        # Adicionar parâmetros específicos da sua análise
-        specific_params = {
-            "my_parameter": "valor_baseado_no_tamanho"
-        }
-        
-        return {**base_params, **specific_params}
+with open('engine/analyzers/sentiment_analysis.py', 'r') as f:
+    content = f.read()
+
+if 'get_config_schema' in content:
+    print("⚠️  Já tem get_config_schema!")
+    exit(1)
+
+lines = content.split('\n')
+insert_index = None
+
+for i, line in enumerate(lines):
+    if '"""' in line and i > 10:
+        if 'class SentimentAnalysisAnalyzer' in '\n'.join(lines[max(0, i-20):i]):
+            insert_index = i + 1
+            break
+
+if insert_index:
+    lines.insert(insert_index, SCHEMA_CODE)
+    with open('engine/analyzers/sentiment_analysis.py.backup', 'w') as f:
+        f.write(content)
+    with open('engine/analyzers/sentiment_analysis.py', 'w') as f:
+        f.write('\n'.join(lines))
+    print("✅ Schema adicionado ao SentimentAnalysisAnalyzer!")

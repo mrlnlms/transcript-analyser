@@ -15,6 +15,50 @@ class TemporalAnalysisAnalyzer(BaseAnalyzer):
     3. Implemente o método analyze()
     4. Crie arquivo de config em config/analysis_configs/
     """
+
+    @staticmethod
+    def get_config_schema():
+        """Retorna o schema de configuração deste analyzer"""
+        return {
+            'segments': {
+                'type': 'int',
+                'range': [5, 100],
+                'default': 10,
+                'short_text': 5,
+                'long_text': 20,
+                'description': 'Número de segmentos temporais para análise'
+            },
+            'segment_method': {
+                'type': 'str',
+                'options': ['fixed', 'dynamic', 'paragraph', 'sentence'],
+                'default': 'dynamic',
+                'description': 'Método de segmentação do texto'
+            },
+            'min_segment_size': {
+                'type': 'int',
+                'range': [10, 1000],
+                'default': 100,
+                'description': 'Tamanho mínimo de cada segmento (chars)'
+            },
+            'sentiment_method': {
+                'type': 'str',
+                'options': ['lexicon', 'pattern', 'hybrid'],
+                'default': 'hybrid',
+                'description': 'Método de análise de sentimento'
+            },
+            'smoothing': {
+                'type': 'bool',
+                'default': True,
+                'description': 'Aplicar suavização na linha temporal'
+            },
+            'smoothing_window': {
+                'type': 'int',
+                'range': [2, 10],
+                'default': 3,
+                'description': 'Janela de suavização (se ativada)'
+            }
+        }
+
     
     def analyze(self, text: str) -> Dict:
         """Analisa evolução temporal do texto em segmentos"""
