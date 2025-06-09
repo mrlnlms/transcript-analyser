@@ -159,7 +159,44 @@ transcript-analyser/
 └── requirements.txt   # Dependências
 ```
 
-## 🏗️ Arquitetura Plugável - IMPLEMENTADA ✅
+## 🎨 Próxima Fase: Migração de Gráficos
+
+### Gráficos a Migrar (8 visualizações)
+- ⏳ **TimelineChart**: Timeline emocional (line_plot)
+- ⏳ **NetworkChart**: Rede de conceitos (network_graph)  
+- ⏳ **MetricsChart**: Métricas globais (bar_chart)
+- ⏳ **WordCloudChart**: Word cloud (scatter plot interativo)
+- ⏳ **FrequencyChart**: Top 10 palavras (bar_chart)
+- ⏳ **PatternsChart**: Padrões linguísticos (bar_chart)
+- ⏳ **TopicsChart**: Hierarquia de tópicos (network_graph)
+- ⏳ **ContradictionsChart**: Análise de contradições (bar_chart)
+
+### Arquitetura Proposta para Gráficos
+```
+visuals/charts/
+├── __init__.py               # Auto-descoberta de charts
+├── _template_chart.py        # Template base ✅ (já existe)
+├── timeline_chart.py         # ⏳ Migrar line_plot para timeline
+├── network_chart.py          # ⏳ Migrar network_graph
+├── metrics_chart.py          # ⏳ Migrar bar_chart para métricas
+├── wordcloud_chart.py        # ⏳ Migrar wordcloud interativo
+├── frequency_chart.py        # ⏳ Migrar bar_chart para frequências
+├── patterns_chart.py         # ⏳ Migrar bar_chart para padrões
+├── topics_chart.py           # ⏳ Migrar network_graph para tópicos
+└── contradictions_chart.py   # ⏳ Migrar bar_chart para contradições
+
+config/visualization_configs/
+├── _template.json           # Template base ✅ (já existe)
+├── timeline_config.json     # ⏳ Config específica
+├── network_config.json      # ⏳ Config específica
+└── ...                      # ⏳ Configs específicas
+```
+
+### ChartOrchestrator (Futuro)
+- Coordenar criação de gráficos
+- Auto-descoberta de charts disponíveis
+- Fallback inteligente (Plotly → Matplotlib → Text)
+- Calibração automática por volume de dados
 
 ### Princípio Base
 **1 arquivo Python + 1 JSON = 1 funcionalidade nova**
@@ -196,7 +233,7 @@ scripts/automation/
 
 ### Status da Migração - COMPLETA! ✅
 - ✅ **WordFrequencyAnalyzer**: Migrado e funcionando
-- ✅ **TemporalAnalysisAnalyzer**: Migrado e funcionando
+- ✅ **TemporalAnalysisAnalyzer**: Migrado e funcionando (timeline corrigido)
 - ✅ **GlobalMetricsAnalyzer**: Migrado e funcionando (com dependências)
 - ✅ **LinguisticPatternsAnalyzer**: Migrado e funcionando
 - ✅ **ConceptNetworkAnalyzer**: Migrado e funcionando
@@ -204,6 +241,7 @@ scripts/automation/
 - ✅ **ContradictionDetectionAnalyzer**: Migrado e funcionando
 
 **🎯 TODAS AS 7 ANÁLISES MIGRADAS PARA ARQUITETURA PLUGÁVEL!**
+**✅ Timeline emocional funcionando perfeitamente!**
 
 ### Workflow do Desenvolvedor
 ```bash
@@ -266,13 +304,15 @@ scripts/automation/
 - ✅ Detecção de contradições
 - ✅ LDA avançado (simplificado mas funcional)
 
-### Próximas Prioridades
-1. 🟢 **Testar integração completa** - Análise real com novos analisadores
+### Próximas Prioridades - MIGRAÇÃO DE GRÁFICOS 🎨
+1. 🔴 **Migrar sistema de gráficos** para arquitetura plugável
+   - Criar ChartOrchestrator similar ao sistema de análises
+   - Migrar 8 visualizações para visuals/charts/
+   - Sistema 1 arquivo Python + 1 JSON = 1 gráfico
 2. 🟡 Criar AnalysisOrchestrator para coordenar análises
-3. 🟡 Migrar sistema de gráficos para arquitetura plugável
-4. 🔵 Refatorar run_analysis.py (orquestração apenas)
+3. 🟡 Refatorar run_analysis.py (orquestração apenas)
+4. 🔵 Cache de análises e melhorias de performance
 5. 🔵 POC integração Obsidian
-6. 🔵 Cache de análises e melhorias de performance
 
 ## 🗓️ Histórico de Atualizações
 

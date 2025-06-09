@@ -24,10 +24,11 @@ class TemporalAnalysisAnalyzer(BaseAnalyzer):
         calibration = self.get_calibration_params(len(text))
         max_segments = calibration.get('segments', 10)
         
-        # Dividir em parágrafos (copiado do original)
+        # Dividir em parágrafos OU por sentenças se for texto corrido
         paragraphs = []
         current_block = ""
-        
+
+        # Primeiro tentar por quebras de linha
         for line in text.split('\n'):
             line = line.strip()
             if line:
@@ -36,10 +37,32 @@ class TemporalAnalysisAnalyzer(BaseAnalyzer):
                 if current_block:
                     paragraphs.append(current_block.strip())
                     current_block = ""
-        
-        # Adicionar último bloco
+
         if current_block:
             paragraphs.append(current_block.strip())
+
+        # Se só tem 1 parágrafo (texto corrido), dividir por sentenças
+        if len(paragraphs) == 1 and len(paragraphs[0]) > 1000:
+            import re
+            sentences = re.split(r'[.!?]+', paragraphs[0])
+            sentences = [s.strip() for s in sentences if s.strip()]
+            
+            # Agrupar sentenças em blocos de ~500-1000 caracteres
+            paragraphs = []
+            current_block = ""
+            
+            for sentence in sentences:
+                if len(current_block + sentence) > 800:  # Limite por bloco
+                    if current_block:
+                        paragraphs.append(current_block.strip())
+                        current_block = sentence + ". "
+                    else:
+                        current_block += sentence + ". "
+                else:
+                    current_block += sentence + ". "
+            
+            if current_block:
+                paragraphs.append(current_block.strip())
         
         # Limitar segmentos baseado na calibração
         if len(paragraphs) > max_segments:

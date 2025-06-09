@@ -165,9 +165,10 @@ class AnalysisRunner:
                 # Timeline emocional se houver dados temporais
                 if result.get('temporal_analysis'):
                     timeline_data = {
-                        'x': [i for i in range(len(result['temporal_analysis']))],
+                        'x': [seg.get('timestamp', f"{i}%") for i, seg in enumerate(result['temporal_analysis'])],
                         'y': [seg['sentiment'] for seg in result['temporal_analysis']]
                     }
+
                     
                     timeline_config = {
                         'title': 'Timeline Emocional',
