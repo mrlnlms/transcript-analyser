@@ -10,6 +10,7 @@ read PROJETOS
 if [ "$PROJETOS" = "todos" ]; then
     echo "⚠️  Deletando TODOS os projetos..."
     rm -rf projects/*
+    rm -rf projects/teste_real_*
     echo "✅ Todos os projetos foram removidos!"
 else
     for proj in $PROJETOS; do
