@@ -28,7 +28,7 @@ with human qualitative analysis before being treated as evidence.
 
 ```text
 data/sample/                    Versioned sample transcripts
-docs/previews/                  Selected generated PNG examples
+docs/previews/                  Selected and archived generated examples
 docs/source-map.md              Mapping from original files to curated files
 scripts/                        Runnable entry points
 src/prototype_experiments/      Importable prototype modules
@@ -127,6 +127,11 @@ Selected previews are preserved in `docs/previews/`:
 - `topic_analysis_estatistica_psicobio_aula_2024_vs_estatistica_psicobio_teoria_medida_2025.png`
 - `interview_visualizations/emotional_timeline.png`
 - `interview_visualizations_v2/unified_timeline.png`
+
+The original preview archive is also preserved under
+`docs/previews/original/`. It includes full dashboard captures, the standalone
+visualization PNGs and `dash.pdf`, which documents the mature visual report that
+the prototype was able to produce.
 
 These previews are documentation evidence, not required inputs.
 
