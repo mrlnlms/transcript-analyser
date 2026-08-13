@@ -82,8 +82,8 @@ def main():
         
     elif command == 'test':
         # Testar visualizações
-        from core.visuals.visualization_manager import VisualizationManager
-        viz = VisualizationManager()
+        from core.visuals.visualization_manager import create_visualization_manager
+        viz = create_visualization_manager()
         # Teste básico
         print("✅ Sistema de visualização carregado")
     else:
