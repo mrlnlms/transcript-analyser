@@ -2,14 +2,20 @@
 
 Experimentos em análise computacional de transcrições em português.
 
-Este projeto nasceu de uma pergunta prática de pesquisa: como usar técnicas de
-data science e NLP para apoiar a leitura de transcrições longas, sem tratar os
-resultados automáticos como interpretação final?
+O ponto de partida foi uma dúvida comum em pesquisa qualitativa e UX research:
+depois de transcrever entrevistas, aulas ou conversas longas, como encontrar
+padrões sem perder a necessidade de leitura humana?
 
-A ideia central não é substituir análise qualitativa humana. O objetivo é criar
-formas de explorar corpus textuais, comparar transcrições, localizar padrões,
-gerar visualizações e levantar hipóteses que depois precisam ser revisadas por
-uma pessoa pesquisadora ou analista.
+O projeto explora duas perguntas principais:
+
+1. Duas transcrições falam de coisas parecidas?
+2. O que uma única transcrição longa sugere quando observada por temas, tempo,
+   padrões linguísticos, sentimento simples e redes de conceitos?
+
+A ideia central não é substituir análise qualitativa humana. O objetivo é apoiar
+a exploração do material: comparar corpus textuais, localizar padrões, gerar
+visualizações e levantar hipóteses que depois precisam ser revisadas por uma
+pessoa pesquisadora ou analista.
 
 ## O Que Tem Aqui
 
